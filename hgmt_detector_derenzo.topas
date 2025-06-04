@@ -1,0 +1,190 @@
+
+b:Ts/UseQt              = "False"
+b:Gr/ViewA/Active	= "True"
+b:Gr/ViewB/Active	= "True"
+b:Gr/ViewC/Active	= "True"
+b:Gr/ViewD/Active	= "True"
+
+#sv:Ph/Default/Modules = 1 "g4em-standard_opt1"
+#d:Ph/Default/CutForElectron = 0.5 um # overrides CutForAllParticles for Electron
+sv:Ph/Default/Modules = 2 "g4em-standard_opt4" "g4em-penelope"
+
+Ge/CheckForOverlaps = "True"
+i:Ge/CheckForOverlapsResolution = 100000
+
+i:Ts/ShowHistoryCountAtInterval = 100000
+i:Ts/NumberOfThreads = 1
+
+
+b:Ts/PauseBeforeQuit = "false"
+
+b:Ma/B33/BuildFromMaterials = "True"
+sv:Ma/B33/Components = 4 "G4_SILICON_DIOXIDE" "G4_BORON_OXIDE" "G4_SODIUM_MONOXIDE" "G4_ALUMINUM_OXIDE"
+uv:Ma/B33/Fractions = 4 0.81 0.13 0.04 0.02
+d:Ma/B33/Density = 2.23 g/cm3#1.67 g/cm3
+s:Ge/DetectorVolume/Type	= "TsCylinder"
+s:Ge/DetectorVolume/Parent = "AirBox"
+d:Ge/DetectorVolume/HL		= 1 m
+d:Ge/DetectorVolume/RMin	= 45 cm
+d:Ge/DetectorVolume/RMax	= 105 cm
+s:Ge/DetectorVolume/Material	= "Air"
+d:Ge/DetectorVolume/MinStepSize 	= 0.01 mm
+
+s:Ge/Detector_0/Type = "TsCylinder"
+s:Ge/Detector_0/Material = "B33"
+s:Ge/Detector_0/Parent = "DetectorVolume"
+d:Ge/Detector_0/Rmin = 45 cm 
+d:Ge/Detector_0/RMax	= 47.54 cm
+d:Ge/Detector_0/HL = 1 m
+d:Ge/Detector_0/MinStepSize 	= 0.01 mm
+
+s:Ge/Detector_1/Type = "TsCylinder"
+s:Ge/Detector_1/Material = "B33"
+s:Ge/Detector_1/Parent = "DetectorVolume"
+d:Ge/Detector_1/Rmin = 50 cm 
+d:Ge/Detector_1/RMax	= 52.54 cm
+d:Ge/Detector_1/HL = 1 m
+d:Ge/Detector_1/MinStepSize 	= 0.01 mm
+
+s:Ge/Detector_2/Type = "TsCylinder"
+s:Ge/Detector_2/Material = "B33"
+s:Ge/Detector_2/Parent = "DetectorVolume"
+d:Ge/Detector_2/Rmin = 55 cm 
+d:Ge/Detector_2/RMax	= 57.54 cm
+d:Ge/Detector_2/HL = 1 m
+d:Ge/Detector_2/MinStepSize 	= 0.01 mm
+
+s:Ge/Detector_3/Type = "TsCylinder"
+s:Ge/Detector_3/Material = "B33"
+s:Ge/Detector_3/Parent = "DetectorVolume"
+d:Ge/Detector_3/Rmin = 60 cm 
+d:Ge/Detector_3/RMax	= 62.54 cm
+d:Ge/Detector_3/HL = 1 m
+d:Ge/Detector_3/MinStepSize 	= 0.01 mm
+
+s:Ge/Detector_4/Type = "TsCylinder"
+s:Ge/Detector_4/Material = "B33"
+s:Ge/Detector_4/Parent = "DetectorVolume"
+d:Ge/Detector_4/Rmin = 65 cm 
+d:Ge/Detector_4/RMax	= 67.54 cm
+d:Ge/Detector_4/HL = 1 m
+d:Ge/Detector_4/MinStepSize 	= 0.01 mm
+
+s:Ge/Detector_5/Type = "TsCylinder"
+s:Ge/Detector_5/Material = "B33"
+s:Ge/Detector_5/Parent = "DetectorVolume"
+d:Ge/Detector_5/Rmin = 70 cm 
+d:Ge/Detector_5/RMax	= 72.54 cm
+d:Ge/Detector_5/HL = 1 m
+d:Ge/Detector_5/MinStepSize 	= 0.01 mm
+
+s:Ge/Detector_6/Type = "TsCylinder"
+s:Ge/Detector_6/Material = "B33"
+s:Ge/Detector_6/Parent = "DetectorVolume"
+d:Ge/Detector_6/Rmin = 75 cm 
+d:Ge/Detector_6/RMax	= 77.54 cm
+d:Ge/Detector_6/HL = 1 m
+d:Ge/Detector_6/MinStepSize 	= 0.01 mm
+
+s:Ge/Detector_7/Type = "TsCylinder"
+s:Ge/Detector_7/Material = "B33"
+s:Ge/Detector_7/Parent = "DetectorVolume"
+d:Ge/Detector_7/Rmin = 80 cm 
+d:Ge/Detector_7/RMax	= 82.54 cm
+d:Ge/Detector_7/HL = 1 m
+d:Ge/Detector_7/MinStepSize 	= 0.01 mm
+
+s:Ge/Detector_8/Type = "TsCylinder"
+s:Ge/Detector_8/Material = "B33"
+s:Ge/Detector_8/Parent = "DetectorVolume"
+d:Ge/Detector_8/Rmin = 85 cm 
+d:Ge/Detector_8/RMax	= 87.54 cm
+d:Ge/Detector_8/HL = 1 m
+d:Ge/Detector_8/MinStepSize 	= 0.01 mm
+
+s:Ge/Detector_9/Type = "TsCylinder"
+s:Ge/Detector_9/Material = "B33"
+s:Ge/Detector_9/Parent = "DetectorVolume"
+d:Ge/Detector_9/Rmin = 90 cm 
+d:Ge/Detector_9/RMax	= 92.54 cm
+d:Ge/Detector_9/HL = 1 m
+d:Ge/Detector_9/MinStepSize 	= 0.01 mm
+
+s:Ge/Detector_10/Type = "TsCylinder"
+s:Ge/Detector_10/Material = "B33"
+s:Ge/Detector_10/Parent = "DetectorVolume"
+d:Ge/Detector_10/Rmin = 95 cm 
+d:Ge/Detector_10/RMax	= 97.54 cm
+d:Ge/Detector_10/HL = 1 m
+d:Ge/Detector_10/MinStepSize 	= 0.01 mm
+
+s:Ge/Detector_11/Type = "TsCylinder"
+s:Ge/Detector_11/Material = "B33"
+s:Ge/Detector_11/Parent = "DetectorVolume"
+d:Ge/Detector_11/Rmin = 100 cm 
+d:Ge/Detector_11/RMax	= 102.54 cm
+d:Ge/Detector_11/HL = 1 m
+d:Ge/Detector_11/MinStepSize 	= 0.01 mm
+
+includeFile = ./derenzo_300keV_100.topas
+
+s:Ge/Derenzo/Parent = "AirBox"
+background_e = 0 #30
+rod_e = 1 #00090
+
+
+
+s:Ge/World/Material  = "Vacuum"
+d:Ge/World/HLX       = 10.0 m
+d:Ge/World/HLY       = 10.0 m
+d:Ge/World/HLZ       = 10.0 m
+b:Ge/World/Invisible = "TRUE"
+
+s:Ge/AirBox/Material	= "Air"
+s:Ge/AirBox/Type    	= "TsBox"
+d:Ge/AirBox/HLX	= 10.0 m
+d:Ge/AirBox/HLY	= 10.0 m
+d:Ge/AirBox/HLZ	= 10.0 m
+s:Ge/AirBox/Parent	= "world"
+b:Ge/AirBox/Invisible	= "true"
+
+
+i:Ts/Seed = 26
+
+s:Sc/HGMTDerenzo/Quantity			= "AnnihilScorer"
+s:Sc/HGMTDerenzo/Component			= "AirBox"
+b:Sc/HGMTDerenzo/PropagateToChildren	= "True"
+s:Sc/HGMTDerenzo/OutputType			= "binary"
+s:Sc/HGMTDerenzo/IfOutputFileAlreadyExists	= "Overwrite"
+
+s:Gr/ViewA/Type           = "OpenGL"
+sv:Gr/Vi1ewA/VisibleWorlds = 1 "All"
+i:Gr/ViewA/WindowSizeX    = 900
+i:Gr/ViewA/WindowSizeY    = 900
+d:Gr/ViewA/Theta          = 45 deg
+d:Gr/ViewA/Phi            = 0 deg
+u:Gr/ViewA/Zoom	   = 5
+
+s:Gr/ViewB/Type           = "OpenGL"
+sv:Gr/ViewB/VisibleWorlds = 1 "All"
+i:Gr/ViewB/WindowSizeX    = 900
+i:Gr/ViewB/WindowSizeY    = 900
+d:Gr/ViewB/Theta          = 45 deg
+d:Gr/ViewB/Phi            = 45 deg
+u:Gr/ViewB/Zoom	   = 1
+
+s:Gr/ViewC/Type           = "OpenGL"
+sv:Gr/ViewC/VisibleWorlds = 1 "All"
+i:Gr/ViewC/WindowSizeX    = 900
+i:Gr/ViewC/WindowSizeY    = 900
+d:Gr/ViewC/Theta          = 90 deg
+d:Gr/ViewC/Phi            = 0 deg
+u:Gr/ViewC/Zoom	   = 40
+
+s:Gr/ViewD/Type           = "OpenGL"
+sv:Gr/ViewD/VisibleWorlds = 1 "All"
+i:Gr/ViewD/WindowSizeX    = 900
+i:Gr/ViewD/WindowSizeY    = 900
+d:Gr/ViewD/Theta          = 0 deg
+d:Gr/ViewD/Phi            = 0 deg
+u:Gr/ViewD/Zoom	   = 2
