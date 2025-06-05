@@ -452,7 +452,7 @@ int main(int argc, char **argv) {
     free_annihilation(&new_annihilation);
     free_hit_split(&split);
     num_annihilations++;
-    printm(num_annihilations, 500000);
+    printm(num_annihilations, 1000000);
     if (max_annihilations != 0 && num_annihilations >= max_annihilations)
       break;
     worked = read_annihilation(&new_annihilation, phsp_file);

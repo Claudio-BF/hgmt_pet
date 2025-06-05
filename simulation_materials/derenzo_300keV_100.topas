@@ -1,0 +1,1979 @@
+# A topas file containing the Derenzo phantom.
+# Background e+/cm^3
+i:Background_e = 0
+# Rod e+/cm^3
+i:Rod_e = 0
+
+
+ # a few useful constants:
+ u:pi = 3.1415
+
+# The geometry of the Derenzo phantom
+
+s:Ge/Derenzo/Type      = "TsCylinder"
+s:Ge/Derenzo/Material  = "G4_WATER"
+d:Ge/Derenzo/Rmax      = 10.6 cm
+d:Ge/Derenzo/HL        = 4.0 cm
+s:Ge/Derenzo/Color     = "green"
+
+# rod geometries
+
+s:Ge/Rod_0/Type = "TsCylinder"
+s:Ge/Rod_0/Material = "G4_WATER"
+s:Ge/Rod_0/Parent = "Derenzo"
+d:Ge/Rod_0/Rmax = 0.9550000000000001 cm
+d:Ge/Rod_0/HL = 3.0 cm
+d:Ge/Rod_0/TransX = -9.1 cm
+d:Ge/Rod_0/TransY = 1.4800000000000013 cm
+d:Ge/Rod_0/TransZ = 0.0 cm
+s:Ge/Rod_0/Color = "red"
+
+s:Ge/Rod_1/Type = "TsCylinder"
+s:Ge/Rod_1/Material = "G4_WATER"
+s:Ge/Rod_1/Parent = "Derenzo"
+d:Ge/Rod_1/Rmax = 0.9550000000000001 cm
+d:Ge/Rod_1/HL = 3.0 cm
+d:Ge/Rod_1/TransX = -5.8500000000000005 cm
+d:Ge/Rod_1/TransY = 1.5 cm
+d:Ge/Rod_1/TransZ = 0.0 cm
+s:Ge/Rod_1/Color = "red"
+
+s:Ge/Rod_2/Type = "TsCylinder"
+s:Ge/Rod_2/Material = "G4_WATER"
+s:Ge/Rod_2/Parent = "Derenzo"
+d:Ge/Rod_2/Rmax = 0.9550000000000001 cm
+d:Ge/Rod_2/HL = 3.0 cm
+d:Ge/Rod_2/TransX = -2.6500000000000004 cm
+d:Ge/Rod_2/TransY = 1.5 cm
+d:Ge/Rod_2/TransZ = 0.0 cm
+s:Ge/Rod_2/Color = "red"
+
+s:Ge/Rod_3/Type = "TsCylinder"
+s:Ge/Rod_3/Material = "G4_WATER"
+s:Ge/Rod_3/Parent = "Derenzo"
+d:Ge/Rod_3/Rmax = 0.9550000000000001 cm
+d:Ge/Rod_3/HL = 3.0 cm
+d:Ge/Rod_3/TransX = -7.5200000000000005 cm
+d:Ge/Rod_3/TransY = 4.25 cm
+d:Ge/Rod_3/TransZ = 0.0 cm
+s:Ge/Rod_3/Color = "red"
+
+s:Ge/Rod_4/Type = "TsCylinder"
+s:Ge/Rod_4/Material = "G4_WATER"
+s:Ge/Rod_4/Parent = "Derenzo"
+d:Ge/Rod_4/Rmax = 0.9550000000000001 cm
+d:Ge/Rod_4/HL = 3.0 cm
+d:Ge/Rod_4/TransX = -4.25 cm
+d:Ge/Rod_4/TransY = 4.25 cm
+d:Ge/Rod_4/TransZ = 0.0 cm
+s:Ge/Rod_4/Color = "red"
+
+s:Ge/Rod_5/Type = "TsCylinder"
+s:Ge/Rod_5/Material = "G4_WATER"
+s:Ge/Rod_5/Parent = "Derenzo"
+d:Ge/Rod_5/Rmax = 0.9550000000000001 cm
+d:Ge/Rod_5/HL = 3.0 cm
+d:Ge/Rod_5/TransX = -5.8500000000000005 cm
+d:Ge/Rod_5/TransY = 7.069999999999999 cm
+d:Ge/Rod_5/TransZ = 0.0 cm
+s:Ge/Rod_5/Color = "red"
+
+s:Ge/Rod_6/Type = "TsCylinder"
+s:Ge/Rod_6/Material = "G4_WATER"
+s:Ge/Rod_6/Parent = "Derenzo"
+d:Ge/Rod_6/Rmax = 0.635 cm
+d:Ge/Rod_6/HL = 3.0 cm
+d:Ge/Rod_6/TransX = -5.800000000000001 cm
+d:Ge/Rod_6/TransY = -7.75 cm
+d:Ge/Rod_6/TransZ = 0.0 cm
+s:Ge/Rod_6/Color = "red"
+
+s:Ge/Rod_7/Type = "TsCylinder"
+s:Ge/Rod_7/Material = "G4_WATER"
+s:Ge/Rod_7/Parent = "Derenzo"
+d:Ge/Rod_7/Rmax = 0.635 cm
+d:Ge/Rod_7/HL = 3.0 cm
+d:Ge/Rod_7/TransX = -7.050000000000001 cm
+d:Ge/Rod_7/TransY = -5.6000000000000005 cm
+d:Ge/Rod_7/TransZ = 0.0 cm
+s:Ge/Rod_7/Color = "red"
+
+s:Ge/Rod_8/Type = "TsCylinder"
+s:Ge/Rod_8/Material = "G4_WATER"
+s:Ge/Rod_8/Parent = "Derenzo"
+d:Ge/Rod_8/Rmax = 0.635 cm
+d:Ge/Rod_8/HL = 3.0 cm
+d:Ge/Rod_8/TransX = -4.55 cm
+d:Ge/Rod_8/TransY = -5.6000000000000005 cm
+d:Ge/Rod_8/TransZ = 0.0 cm
+s:Ge/Rod_8/Color = "red"
+
+s:Ge/Rod_9/Type = "TsCylinder"
+s:Ge/Rod_9/Material = "G4_WATER"
+s:Ge/Rod_9/Parent = "Derenzo"
+d:Ge/Rod_9/Rmax = 0.635 cm
+d:Ge/Rod_9/HL = 3.0 cm
+d:Ge/Rod_9/TransX = -8.3 cm
+d:Ge/Rod_9/TransY = -3.45 cm
+d:Ge/Rod_9/TransZ = 0.0 cm
+s:Ge/Rod_9/Color = "red"
+
+s:Ge/Rod_10/Type = "TsCylinder"
+s:Ge/Rod_10/Material = "G4_WATER"
+s:Ge/Rod_10/Parent = "Derenzo"
+d:Ge/Rod_10/Rmax = 0.635 cm
+d:Ge/Rod_10/HL = 3.0 cm
+d:Ge/Rod_10/TransX = -5.800000000000001 cm
+d:Ge/Rod_10/TransY = -3.45 cm
+d:Ge/Rod_10/TransZ = 0.0 cm
+s:Ge/Rod_10/Color = "red"
+
+s:Ge/Rod_11/Type = "TsCylinder"
+s:Ge/Rod_11/Material = "G4_WATER"
+s:Ge/Rod_11/Parent = "Derenzo"
+d:Ge/Rod_11/Rmax = 0.635 cm
+d:Ge/Rod_11/HL = 3.0 cm
+d:Ge/Rod_11/TransX = -3.3000000000000003 cm
+d:Ge/Rod_11/TransY = -3.45 cm
+d:Ge/Rod_11/TransZ = 0.0 cm
+s:Ge/Rod_11/Color = "red"
+
+s:Ge/Rod_12/Type = "TsCylinder"
+s:Ge/Rod_12/Material = "G4_WATER"
+s:Ge/Rod_12/Parent = "Derenzo"
+d:Ge/Rod_12/Rmax = 0.635 cm
+d:Ge/Rod_12/HL = 3.0 cm
+d:Ge/Rod_12/TransX = -9.55 cm
+d:Ge/Rod_12/TransY = -1.25 cm
+d:Ge/Rod_12/TransZ = 0.0 cm
+s:Ge/Rod_12/Color = "red"
+
+s:Ge/Rod_13/Type = "TsCylinder"
+s:Ge/Rod_13/Material = "G4_WATER"
+s:Ge/Rod_13/Parent = "Derenzo"
+d:Ge/Rod_13/Rmax = 0.635 cm
+d:Ge/Rod_13/HL = 3.0 cm
+d:Ge/Rod_13/TransX = -7.050000000000001 cm
+d:Ge/Rod_13/TransY = -1.25 cm
+d:Ge/Rod_13/TransZ = 0.0 cm
+s:Ge/Rod_13/Color = "red"
+
+s:Ge/Rod_14/Type = "TsCylinder"
+s:Ge/Rod_14/Material = "G4_WATER"
+s:Ge/Rod_14/Parent = "Derenzo"
+d:Ge/Rod_14/Rmax = 0.635 cm
+d:Ge/Rod_14/HL = 3.0 cm
+d:Ge/Rod_14/TransX = -4.55 cm
+d:Ge/Rod_14/TransY = -1.25 cm
+d:Ge/Rod_14/TransZ = 0.0 cm
+s:Ge/Rod_14/Color = "red"
+
+s:Ge/Rod_15/Type = "TsCylinder"
+s:Ge/Rod_15/Material = "G4_WATER"
+s:Ge/Rod_15/Parent = "Derenzo"
+d:Ge/Rod_15/Rmax = 0.635 cm
+d:Ge/Rod_15/HL = 3.0 cm
+d:Ge/Rod_15/TransX = -2.0500000000000003 cm
+d:Ge/Rod_15/TransY = -1.25 cm
+d:Ge/Rod_15/TransZ = 0.0 cm
+s:Ge/Rod_15/Color = "red"
+
+s:Ge/Rod_16/Type = "TsCylinder"
+s:Ge/Rod_16/Material = "G4_WATER"
+s:Ge/Rod_16/Parent = "Derenzo"
+d:Ge/Rod_16/Rmax = 0.555 cm
+d:Ge/Rod_16/HL = 3.0 cm
+d:Ge/Rod_16/TransX = -3.45 cm
+d:Ge/Rod_16/TransY = -8.65 cm
+d:Ge/Rod_16/TransZ = 0.0 cm
+s:Ge/Rod_16/Color = "red"
+
+s:Ge/Rod_17/Type = "TsCylinder"
+s:Ge/Rod_17/Material = "G4_WATER"
+s:Ge/Rod_17/Parent = "Derenzo"
+d:Ge/Rod_17/Rmax = 0.555 cm
+d:Ge/Rod_17/HL = 3.0 cm
+d:Ge/Rod_17/TransX = -1.1900000000000006 cm
+d:Ge/Rod_17/TransY = -8.65 cm
+d:Ge/Rod_17/TransZ = 0.0 cm
+s:Ge/Rod_17/Color = "red"
+
+s:Ge/Rod_18/Type = "TsCylinder"
+s:Ge/Rod_18/Material = "G4_WATER"
+s:Ge/Rod_18/Parent = "Derenzo"
+d:Ge/Rod_18/Rmax = 0.555 cm
+d:Ge/Rod_18/HL = 3.0 cm
+d:Ge/Rod_18/TransX = 1.1500000000000001 cm
+d:Ge/Rod_18/TransY = -8.65 cm
+d:Ge/Rod_18/TransZ = 0.0 cm
+s:Ge/Rod_18/Color = "red"
+
+s:Ge/Rod_19/Type = "TsCylinder"
+s:Ge/Rod_19/Material = "G4_WATER"
+s:Ge/Rod_19/Parent = "Derenzo"
+d:Ge/Rod_19/Rmax = 0.555 cm
+d:Ge/Rod_19/HL = 3.0 cm
+d:Ge/Rod_19/TransX = 3.35 cm
+d:Ge/Rod_19/TransY = -8.65 cm
+d:Ge/Rod_19/TransZ = 0.0 cm
+s:Ge/Rod_19/Color = "red"
+
+s:Ge/Rod_20/Type = "TsCylinder"
+s:Ge/Rod_20/Material = "G4_WATER"
+s:Ge/Rod_20/Parent = "Derenzo"
+d:Ge/Rod_20/Rmax = 0.555 cm
+d:Ge/Rod_20/HL = 3.0 cm
+d:Ge/Rod_20/TransX = -2.3200000000000003 cm
+d:Ge/Rod_20/TransY = -6.670000000000001 cm
+d:Ge/Rod_20/TransZ = 0.0 cm
+s:Ge/Rod_20/Color = "red"
+
+s:Ge/Rod_21/Type = "TsCylinder"
+s:Ge/Rod_21/Material = "G4_WATER"
+s:Ge/Rod_21/Parent = "Derenzo"
+d:Ge/Rod_21/Rmax = 0.555 cm
+d:Ge/Rod_21/HL = 3.0 cm
+d:Ge/Rod_21/TransX = -0.05 cm
+d:Ge/Rod_21/TransY = -6.670000000000001 cm
+d:Ge/Rod_21/TransZ = 0.0 cm
+s:Ge/Rod_21/Color = "red"
+
+s:Ge/Rod_22/Type = "TsCylinder"
+s:Ge/Rod_22/Material = "G4_WATER"
+s:Ge/Rod_22/Parent = "Derenzo"
+d:Ge/Rod_22/Rmax = 0.555 cm
+d:Ge/Rod_22/HL = 3.0 cm
+d:Ge/Rod_22/TransX = 2.2099999999999995 cm
+d:Ge/Rod_22/TransY = -6.65 cm
+d:Ge/Rod_22/TransZ = 0.0 cm
+s:Ge/Rod_22/Color = "red"
+
+s:Ge/Rod_23/Type = "TsCylinder"
+s:Ge/Rod_23/Material = "G4_WATER"
+s:Ge/Rod_23/Parent = "Derenzo"
+d:Ge/Rod_23/Rmax = 0.555 cm
+d:Ge/Rod_23/HL = 3.0 cm
+d:Ge/Rod_23/TransX = -1.1500000000000001 cm
+d:Ge/Rod_23/TransY = -4.7 cm
+d:Ge/Rod_23/TransZ = 0.0 cm
+s:Ge/Rod_23/Color = "red"
+
+s:Ge/Rod_24/Type = "TsCylinder"
+s:Ge/Rod_24/Material = "G4_WATER"
+s:Ge/Rod_24/Parent = "Derenzo"
+d:Ge/Rod_24/Rmax = 0.555 cm
+d:Ge/Rod_24/HL = 3.0 cm
+d:Ge/Rod_24/TransX = 1.0800000000000012 cm
+d:Ge/Rod_24/TransY = -4.7 cm
+d:Ge/Rod_24/TransZ = 0.0 cm
+s:Ge/Rod_24/Color = "red"
+
+s:Ge/Rod_25/Type = "TsCylinder"
+s:Ge/Rod_25/Material = "G4_WATER"
+s:Ge/Rod_25/Parent = "Derenzo"
+d:Ge/Rod_25/Rmax = 0.555 cm
+d:Ge/Rod_25/HL = 3.0 cm
+d:Ge/Rod_25/TransX = -0.019999999999998866 cm
+d:Ge/Rod_25/TransY = -2.8000000000000003 cm
+d:Ge/Rod_25/TransZ = 0.0 cm
+s:Ge/Rod_25/Color = "red"
+
+s:Ge/Rod_26/Type = "TsCylinder"
+s:Ge/Rod_26/Material = "G4_WATER"
+s:Ge/Rod_26/Parent = "Derenzo"
+d:Ge/Rod_26/Rmax = 0.47500000000000003 cm
+d:Ge/Rod_26/HL = 3.0 cm
+d:Ge/Rod_26/TransX = 5.75 cm
+d:Ge/Rod_26/TransY = -8.05 cm
+d:Ge/Rod_26/TransZ = 0.0 cm
+s:Ge/Rod_26/Color = "red"
+
+s:Ge/Rod_27/Type = "TsCylinder"
+s:Ge/Rod_27/Material = "G4_WATER"
+s:Ge/Rod_27/Parent = "Derenzo"
+d:Ge/Rod_27/Rmax = 0.47500000000000003 cm
+d:Ge/Rod_27/HL = 3.0 cm
+d:Ge/Rod_27/TransX = 4.75 cm
+d:Ge/Rod_27/TransY = -6.275 cm
+d:Ge/Rod_27/TransZ = 0.0 cm
+s:Ge/Rod_27/Color = "red"
+
+s:Ge/Rod_28/Type = "TsCylinder"
+s:Ge/Rod_28/Material = "G4_WATER"
+s:Ge/Rod_28/Parent = "Derenzo"
+d:Ge/Rod_28/Rmax = 0.47500000000000003 cm
+d:Ge/Rod_28/HL = 3.0 cm
+d:Ge/Rod_28/TransX = 6.75 cm
+d:Ge/Rod_28/TransY = -6.275 cm
+d:Ge/Rod_28/TransZ = 0.0 cm
+s:Ge/Rod_28/Color = "red"
+
+s:Ge/Rod_29/Type = "TsCylinder"
+s:Ge/Rod_29/Material = "G4_WATER"
+s:Ge/Rod_29/Parent = "Derenzo"
+d:Ge/Rod_29/Rmax = 0.47500000000000003 cm
+d:Ge/Rod_29/HL = 3.0 cm
+d:Ge/Rod_29/TransX = 3.75 cm
+d:Ge/Rod_29/TransY = -4.55 cm
+d:Ge/Rod_29/TransZ = 0.0 cm
+s:Ge/Rod_29/Color = "red"
+
+s:Ge/Rod_30/Type = "TsCylinder"
+s:Ge/Rod_30/Material = "G4_WATER"
+s:Ge/Rod_30/Parent = "Derenzo"
+d:Ge/Rod_30/Rmax = 0.47500000000000003 cm
+d:Ge/Rod_30/HL = 3.0 cm
+d:Ge/Rod_30/TransX = 5.75 cm
+d:Ge/Rod_30/TransY = -4.55 cm
+d:Ge/Rod_30/TransZ = 0.0 cm
+s:Ge/Rod_30/Color = "red"
+
+s:Ge/Rod_31/Type = "TsCylinder"
+s:Ge/Rod_31/Material = "G4_WATER"
+s:Ge/Rod_31/Parent = "Derenzo"
+d:Ge/Rod_31/Rmax = 0.47500000000000003 cm
+d:Ge/Rod_31/HL = 3.0 cm
+d:Ge/Rod_31/TransX = 7.75 cm
+d:Ge/Rod_31/TransY = -4.55 cm
+d:Ge/Rod_31/TransZ = 0.0 cm
+s:Ge/Rod_31/Color = "red"
+
+s:Ge/Rod_32/Type = "TsCylinder"
+s:Ge/Rod_32/Material = "G4_WATER"
+s:Ge/Rod_32/Parent = "Derenzo"
+d:Ge/Rod_32/Rmax = 0.47500000000000003 cm
+d:Ge/Rod_32/HL = 3.0 cm
+d:Ge/Rod_32/TransX = 2.75 cm
+d:Ge/Rod_32/TransY = -2.8000000000000003 cm
+d:Ge/Rod_32/TransZ = 0.0 cm
+s:Ge/Rod_32/Color = "red"
+
+s:Ge/Rod_33/Type = "TsCylinder"
+s:Ge/Rod_33/Material = "G4_WATER"
+s:Ge/Rod_33/Parent = "Derenzo"
+d:Ge/Rod_33/Rmax = 0.47500000000000003 cm
+d:Ge/Rod_33/HL = 3.0 cm
+d:Ge/Rod_33/TransX = 4.75 cm
+d:Ge/Rod_33/TransY = -2.8000000000000003 cm
+d:Ge/Rod_33/TransZ = 0.0 cm
+s:Ge/Rod_33/Color = "red"
+
+s:Ge/Rod_34/Type = "TsCylinder"
+s:Ge/Rod_34/Material = "G4_WATER"
+s:Ge/Rod_34/Parent = "Derenzo"
+d:Ge/Rod_34/Rmax = 0.47500000000000003 cm
+d:Ge/Rod_34/HL = 3.0 cm
+d:Ge/Rod_34/TransX = 6.75 cm
+d:Ge/Rod_34/TransY = -2.8000000000000003 cm
+d:Ge/Rod_34/TransZ = 0.0 cm
+s:Ge/Rod_34/Color = "red"
+
+s:Ge/Rod_35/Type = "TsCylinder"
+s:Ge/Rod_35/Material = "G4_WATER"
+s:Ge/Rod_35/Parent = "Derenzo"
+d:Ge/Rod_35/Rmax = 0.47500000000000003 cm
+d:Ge/Rod_35/HL = 3.0 cm
+d:Ge/Rod_35/TransX = 8.75 cm
+d:Ge/Rod_35/TransY = -2.8000000000000003 cm
+d:Ge/Rod_35/TransZ = 0.0 cm
+s:Ge/Rod_35/Color = "red"
+
+s:Ge/Rod_36/Type = "TsCylinder"
+s:Ge/Rod_36/Material = "G4_WATER"
+s:Ge/Rod_36/Parent = "Derenzo"
+d:Ge/Rod_36/Rmax = 0.47500000000000003 cm
+d:Ge/Rod_36/HL = 3.0 cm
+d:Ge/Rod_36/TransX = 1.7300000000000013 cm
+d:Ge/Rod_36/TransY = -1.0799999999999998 cm
+d:Ge/Rod_36/TransZ = 0.0 cm
+s:Ge/Rod_36/Color = "red"
+
+s:Ge/Rod_37/Type = "TsCylinder"
+s:Ge/Rod_37/Material = "G4_WATER"
+s:Ge/Rod_37/Parent = "Derenzo"
+d:Ge/Rod_37/Rmax = 0.47500000000000003 cm
+d:Ge/Rod_37/HL = 3.0 cm
+d:Ge/Rod_37/TransX = 3.75 cm
+d:Ge/Rod_37/TransY = -1.1 cm
+d:Ge/Rod_37/TransZ = 0.0 cm
+s:Ge/Rod_37/Color = "red"
+
+s:Ge/Rod_38/Type = "TsCylinder"
+s:Ge/Rod_38/Material = "G4_WATER"
+s:Ge/Rod_38/Parent = "Derenzo"
+d:Ge/Rod_38/Rmax = 0.47500000000000003 cm
+d:Ge/Rod_38/HL = 3.0 cm
+d:Ge/Rod_38/TransX = 5.75 cm
+d:Ge/Rod_38/TransY = -1.1 cm
+d:Ge/Rod_38/TransZ = 0.0 cm
+s:Ge/Rod_38/Color = "red"
+
+s:Ge/Rod_39/Type = "TsCylinder"
+s:Ge/Rod_39/Material = "G4_WATER"
+s:Ge/Rod_39/Parent = "Derenzo"
+d:Ge/Rod_39/Rmax = 0.47500000000000003 cm
+d:Ge/Rod_39/HL = 3.0 cm
+d:Ge/Rod_39/TransX = 7.75 cm
+d:Ge/Rod_39/TransY = -1.1 cm
+d:Ge/Rod_39/TransZ = 0.0 cm
+s:Ge/Rod_39/Color = "red"
+
+s:Ge/Rod_40/Type = "TsCylinder"
+s:Ge/Rod_40/Material = "G4_WATER"
+s:Ge/Rod_40/Parent = "Derenzo"
+d:Ge/Rod_40/Rmax = 0.47500000000000003 cm
+d:Ge/Rod_40/HL = 3.0 cm
+d:Ge/Rod_40/TransX = 9.8 cm
+d:Ge/Rod_40/TransY = -1.1 cm
+d:Ge/Rod_40/TransZ = 0.0 cm
+s:Ge/Rod_40/Color = "red"
+
+s:Ge/Rod_41/Type = "TsCylinder"
+s:Ge/Rod_41/Material = "G4_WATER"
+s:Ge/Rod_41/Parent = "Derenzo"
+d:Ge/Rod_41/Rmax = 0.375 cm
+d:Ge/Rod_41/HL = 3.0 cm
+d:Ge/Rod_41/TransX = 1.4500000000000002 cm
+d:Ge/Rod_41/TransY = 0.8 cm
+d:Ge/Rod_41/TransZ = 0.0 cm
+s:Ge/Rod_41/Color = "red"
+
+s:Ge/Rod_42/Type = "TsCylinder"
+s:Ge/Rod_42/Material = "G4_WATER"
+s:Ge/Rod_42/Parent = "Derenzo"
+d:Ge/Rod_42/Rmax = 0.375 cm
+d:Ge/Rod_42/HL = 3.0 cm
+d:Ge/Rod_42/TransX = 3.0500000000000003 cm
+d:Ge/Rod_42/TransY = 0.8 cm
+d:Ge/Rod_42/TransZ = 0.0 cm
+s:Ge/Rod_42/Color = "red"
+
+s:Ge/Rod_43/Type = "TsCylinder"
+s:Ge/Rod_43/Material = "G4_WATER"
+s:Ge/Rod_43/Parent = "Derenzo"
+d:Ge/Rod_43/Rmax = 0.375 cm
+d:Ge/Rod_43/HL = 3.0 cm
+d:Ge/Rod_43/TransX = 4.3500000000000005 cm
+d:Ge/Rod_43/TransY = 0.8 cm
+d:Ge/Rod_43/TransZ = 0.0 cm
+s:Ge/Rod_43/Color = "red"
+
+s:Ge/Rod_44/Type = "TsCylinder"
+s:Ge/Rod_44/Material = "G4_WATER"
+s:Ge/Rod_44/Parent = "Derenzo"
+d:Ge/Rod_44/Rmax = 0.375 cm
+d:Ge/Rod_44/HL = 3.0 cm
+d:Ge/Rod_44/TransX = 6.3500000000000005 cm
+d:Ge/Rod_44/TransY = 0.8 cm
+d:Ge/Rod_44/TransZ = 0.0 cm
+s:Ge/Rod_44/Color = "red"
+
+s:Ge/Rod_45/Type = "TsCylinder"
+s:Ge/Rod_45/Material = "G4_WATER"
+s:Ge/Rod_45/Parent = "Derenzo"
+d:Ge/Rod_45/Rmax = 0.375 cm
+d:Ge/Rod_45/HL = 3.0 cm
+d:Ge/Rod_45/TransX = 8.05 cm
+d:Ge/Rod_45/TransY = 0.8 cm
+d:Ge/Rod_45/TransZ = 0.0 cm
+s:Ge/Rod_45/Color = "red"
+
+s:Ge/Rod_46/Type = "TsCylinder"
+s:Ge/Rod_46/Material = "G4_WATER"
+s:Ge/Rod_46/Parent = "Derenzo"
+d:Ge/Rod_46/Rmax = 0.375 cm
+d:Ge/Rod_46/HL = 3.0 cm
+d:Ge/Rod_46/TransX = 9.65 cm
+d:Ge/Rod_46/TransY = 0.8 cm
+d:Ge/Rod_46/TransZ = 0.0 cm
+s:Ge/Rod_46/Color = "red"
+
+s:Ge/Rod_47/Type = "TsCylinder"
+s:Ge/Rod_47/Material = "G4_WATER"
+s:Ge/Rod_47/Parent = "Derenzo"
+d:Ge/Rod_47/Rmax = 0.375 cm
+d:Ge/Rod_47/HL = 3.0 cm
+d:Ge/Rod_47/TransX = 2.190000000000001 cm
+d:Ge/Rod_47/TransY = 2.2 cm
+d:Ge/Rod_47/TransZ = 0.0 cm
+s:Ge/Rod_47/Color = "red"
+
+s:Ge/Rod_48/Type = "TsCylinder"
+s:Ge/Rod_48/Material = "G4_WATER"
+s:Ge/Rod_48/Parent = "Derenzo"
+d:Ge/Rod_48/Rmax = 0.375 cm
+d:Ge/Rod_48/HL = 3.0 cm
+d:Ge/Rod_48/TransX = 3.85 cm
+d:Ge/Rod_48/TransY = 2.2 cm
+d:Ge/Rod_48/TransZ = 0.0 cm
+s:Ge/Rod_48/Color = "red"
+
+s:Ge/Rod_49/Type = "TsCylinder"
+s:Ge/Rod_49/Material = "G4_WATER"
+s:Ge/Rod_49/Parent = "Derenzo"
+d:Ge/Rod_49/Rmax = 0.375 cm
+d:Ge/Rod_49/HL = 3.0 cm
+d:Ge/Rod_49/TransX = 5.550000000000001 cm
+d:Ge/Rod_49/TransY = 2.2 cm
+d:Ge/Rod_49/TransZ = 0.0 cm
+s:Ge/Rod_49/Color = "red"
+
+s:Ge/Rod_50/Type = "TsCylinder"
+s:Ge/Rod_50/Material = "G4_WATER"
+s:Ge/Rod_50/Parent = "Derenzo"
+d:Ge/Rod_50/Rmax = 0.375 cm
+d:Ge/Rod_50/HL = 3.0 cm
+d:Ge/Rod_50/TransX = 7.2 cm
+d:Ge/Rod_50/TransY = 2.2 cm
+d:Ge/Rod_50/TransZ = 0.0 cm
+s:Ge/Rod_50/Color = "red"
+
+s:Ge/Rod_51/Type = "TsCylinder"
+s:Ge/Rod_51/Material = "G4_WATER"
+s:Ge/Rod_51/Parent = "Derenzo"
+d:Ge/Rod_51/Rmax = 0.375 cm
+d:Ge/Rod_51/HL = 3.0 cm
+d:Ge/Rod_51/TransX = 8.85 cm
+d:Ge/Rod_51/TransY = 2.2 cm
+d:Ge/Rod_51/TransZ = 0.0 cm
+s:Ge/Rod_51/Color = "red"
+
+s:Ge/Rod_52/Type = "TsCylinder"
+s:Ge/Rod_52/Material = "G4_WATER"
+s:Ge/Rod_52/Parent = "Derenzo"
+d:Ge/Rod_52/Rmax = 0.375 cm
+d:Ge/Rod_52/HL = 3.0 cm
+d:Ge/Rod_52/TransX = 3.0500000000000003 cm
+d:Ge/Rod_52/TransY = 3.6500000000000004 cm
+d:Ge/Rod_52/TransZ = 0.0 cm
+s:Ge/Rod_52/Color = "red"
+
+s:Ge/Rod_53/Type = "TsCylinder"
+s:Ge/Rod_53/Material = "G4_WATER"
+s:Ge/Rod_53/Parent = "Derenzo"
+d:Ge/Rod_53/Rmax = 0.375 cm
+d:Ge/Rod_53/HL = 3.0 cm
+d:Ge/Rod_53/TransX = 4.75 cm
+d:Ge/Rod_53/TransY = 3.6500000000000004 cm
+d:Ge/Rod_53/TransZ = 0.0 cm
+s:Ge/Rod_53/Color = "red"
+
+s:Ge/Rod_54/Type = "TsCylinder"
+s:Ge/Rod_54/Material = "G4_WATER"
+s:Ge/Rod_54/Parent = "Derenzo"
+d:Ge/Rod_54/Rmax = 0.375 cm
+d:Ge/Rod_54/HL = 3.0 cm
+d:Ge/Rod_54/TransX = 6.3500000000000005 cm
+d:Ge/Rod_54/TransY = 3.6500000000000004 cm
+d:Ge/Rod_54/TransZ = 0.0 cm
+s:Ge/Rod_54/Color = "red"
+
+s:Ge/Rod_55/Type = "TsCylinder"
+s:Ge/Rod_55/Material = "G4_WATER"
+s:Ge/Rod_55/Parent = "Derenzo"
+d:Ge/Rod_55/Rmax = 0.375 cm
+d:Ge/Rod_55/HL = 3.0 cm
+d:Ge/Rod_55/TransX = 7.980000000000001 cm
+d:Ge/Rod_55/TransY = 3.6500000000000004 cm
+d:Ge/Rod_55/TransZ = 0.0 cm
+s:Ge/Rod_55/Color = "red"
+
+s:Ge/Rod_56/Type = "TsCylinder"
+s:Ge/Rod_56/Material = "G4_WATER"
+s:Ge/Rod_56/Parent = "Derenzo"
+d:Ge/Rod_56/Rmax = 0.375 cm
+d:Ge/Rod_56/HL = 3.0 cm
+d:Ge/Rod_56/TransX = 3.85 cm
+d:Ge/Rod_56/TransY = 5.050000000000001 cm
+d:Ge/Rod_56/TransZ = 0.0 cm
+s:Ge/Rod_56/Color = "red"
+
+s:Ge/Rod_57/Type = "TsCylinder"
+s:Ge/Rod_57/Material = "G4_WATER"
+s:Ge/Rod_57/Parent = "Derenzo"
+d:Ge/Rod_57/Rmax = 0.375 cm
+d:Ge/Rod_57/HL = 3.0 cm
+d:Ge/Rod_57/TransX = 5.5 cm
+d:Ge/Rod_57/TransY = 5.050000000000001 cm
+d:Ge/Rod_57/TransZ = 0.0 cm
+s:Ge/Rod_57/Color = "red"
+
+s:Ge/Rod_58/Type = "TsCylinder"
+s:Ge/Rod_58/Material = "G4_WATER"
+s:Ge/Rod_58/Parent = "Derenzo"
+d:Ge/Rod_58/Rmax = 0.375 cm
+d:Ge/Rod_58/HL = 3.0 cm
+d:Ge/Rod_58/TransX = 7.15 cm
+d:Ge/Rod_58/TransY = 5.050000000000001 cm
+d:Ge/Rod_58/TransZ = 0.0 cm
+s:Ge/Rod_58/Color = "red"
+
+s:Ge/Rod_59/Type = "TsCylinder"
+s:Ge/Rod_59/Material = "G4_WATER"
+s:Ge/Rod_59/Parent = "Derenzo"
+d:Ge/Rod_59/Rmax = 0.375 cm
+d:Ge/Rod_59/HL = 3.0 cm
+d:Ge/Rod_59/TransX = 4.75 cm
+d:Ge/Rod_59/TransY = 6.480000000000001 cm
+d:Ge/Rod_59/TransZ = 0.0 cm
+s:Ge/Rod_59/Color = "red"
+
+s:Ge/Rod_60/Type = "TsCylinder"
+s:Ge/Rod_60/Material = "G4_WATER"
+s:Ge/Rod_60/Parent = "Derenzo"
+d:Ge/Rod_60/Rmax = 0.375 cm
+d:Ge/Rod_60/HL = 3.0 cm
+d:Ge/Rod_60/TransX = 6.3500000000000005 cm
+d:Ge/Rod_60/TransY = 6.480000000000001 cm
+d:Ge/Rod_60/TransZ = 0.0 cm
+s:Ge/Rod_60/Color = "red"
+
+s:Ge/Rod_61/Type = "TsCylinder"
+s:Ge/Rod_61/Material = "G4_WATER"
+s:Ge/Rod_61/Parent = "Derenzo"
+d:Ge/Rod_61/Rmax = 0.375 cm
+d:Ge/Rod_61/HL = 3.0 cm
+d:Ge/Rod_61/TransX = 5.5 cm
+d:Ge/Rod_61/TransY = 7.800000000000001 cm
+d:Ge/Rod_61/TransZ = 0.0 cm
+s:Ge/Rod_61/Color = "red"
+
+s:Ge/Rod_62/Type = "TsCylinder"
+s:Ge/Rod_62/Material = "G4_WATER"
+s:Ge/Rod_62/Parent = "Derenzo"
+d:Ge/Rod_62/Rmax = 0.32000000000000006 cm
+d:Ge/Rod_62/HL = 3.0 cm
+d:Ge/Rod_62/TransX = -0.05 cm
+d:Ge/Rod_62/TransY = 2.2 cm
+d:Ge/Rod_62/TransZ = 0.0 cm
+s:Ge/Rod_62/Color = "red"
+
+s:Ge/Rod_63/Type = "TsCylinder"
+s:Ge/Rod_63/Material = "G4_WATER"
+s:Ge/Rod_63/Parent = "Derenzo"
+d:Ge/Rod_63/Rmax = 0.32000000000000006 cm
+d:Ge/Rod_63/HL = 3.0 cm
+d:Ge/Rod_63/TransX = -0.7099999999999995 cm
+d:Ge/Rod_63/TransY = 3.3300000000000014 cm
+d:Ge/Rod_63/TransZ = 0.0 cm
+s:Ge/Rod_63/Color = "red"
+
+s:Ge/Rod_64/Type = "TsCylinder"
+s:Ge/Rod_64/Material = "G4_WATER"
+s:Ge/Rod_64/Parent = "Derenzo"
+d:Ge/Rod_64/Rmax = 0.32000000000000006 cm
+d:Ge/Rod_64/HL = 3.0 cm
+d:Ge/Rod_64/TransX = 0.6099999999999994 cm
+d:Ge/Rod_64/TransY = 3.3300000000000014 cm
+d:Ge/Rod_64/TransZ = 0.0 cm
+s:Ge/Rod_64/Color = "red"
+
+s:Ge/Rod_65/Type = "TsCylinder"
+s:Ge/Rod_65/Material = "G4_WATER"
+s:Ge/Rod_65/Parent = "Derenzo"
+d:Ge/Rod_65/Rmax = 0.32000000000000006 cm
+d:Ge/Rod_65/HL = 3.0 cm
+d:Ge/Rod_65/TransX = -1.369999999999999 cm
+d:Ge/Rod_65/TransY = 4.46 cm
+d:Ge/Rod_65/TransZ = 0.0 cm
+s:Ge/Rod_65/Color = "red"
+
+s:Ge/Rod_66/Type = "TsCylinder"
+s:Ge/Rod_66/Material = "G4_WATER"
+s:Ge/Rod_66/Parent = "Derenzo"
+d:Ge/Rod_66/Rmax = 0.32000000000000006 cm
+d:Ge/Rod_66/HL = 3.0 cm
+d:Ge/Rod_66/TransX = -0.05 cm
+d:Ge/Rod_66/TransY = 4.46 cm
+d:Ge/Rod_66/TransZ = 0.0 cm
+s:Ge/Rod_66/Color = "red"
+
+s:Ge/Rod_67/Type = "TsCylinder"
+s:Ge/Rod_67/Material = "G4_WATER"
+s:Ge/Rod_67/Parent = "Derenzo"
+d:Ge/Rod_67/Rmax = 0.32000000000000006 cm
+d:Ge/Rod_67/HL = 3.0 cm
+d:Ge/Rod_67/TransX = 1.269999999999999 cm
+d:Ge/Rod_67/TransY = 4.46 cm
+d:Ge/Rod_67/TransZ = 0.0 cm
+s:Ge/Rod_67/Color = "red"
+
+s:Ge/Rod_68/Type = "TsCylinder"
+s:Ge/Rod_68/Material = "G4_WATER"
+s:Ge/Rod_68/Parent = "Derenzo"
+d:Ge/Rod_68/Rmax = 0.32000000000000006 cm
+d:Ge/Rod_68/HL = 3.0 cm
+d:Ge/Rod_68/TransX = -2.03 cm
+d:Ge/Rod_68/TransY = 5.6000000000000005 cm
+d:Ge/Rod_68/TransZ = 0.0 cm
+s:Ge/Rod_68/Color = "red"
+
+s:Ge/Rod_69/Type = "TsCylinder"
+s:Ge/Rod_69/Material = "G4_WATER"
+s:Ge/Rod_69/Parent = "Derenzo"
+d:Ge/Rod_69/Rmax = 0.32000000000000006 cm
+d:Ge/Rod_69/HL = 3.0 cm
+d:Ge/Rod_69/TransX = -0.7099999999999995 cm
+d:Ge/Rod_69/TransY = 5.6000000000000005 cm
+d:Ge/Rod_69/TransZ = 0.0 cm
+s:Ge/Rod_69/Color = "red"
+
+s:Ge/Rod_70/Type = "TsCylinder"
+s:Ge/Rod_70/Material = "G4_WATER"
+s:Ge/Rod_70/Parent = "Derenzo"
+d:Ge/Rod_70/Rmax = 0.32000000000000006 cm
+d:Ge/Rod_70/HL = 3.0 cm
+d:Ge/Rod_70/TransX = 0.6099999999999994 cm
+d:Ge/Rod_70/TransY = 5.6000000000000005 cm
+d:Ge/Rod_70/TransZ = 0.0 cm
+s:Ge/Rod_70/Color = "red"
+
+s:Ge/Rod_71/Type = "TsCylinder"
+s:Ge/Rod_71/Material = "G4_WATER"
+s:Ge/Rod_71/Parent = "Derenzo"
+d:Ge/Rod_71/Rmax = 0.32000000000000006 cm
+d:Ge/Rod_71/HL = 3.0 cm
+d:Ge/Rod_71/TransX = 1.9300000000000013 cm
+d:Ge/Rod_71/TransY = 5.6000000000000005 cm
+d:Ge/Rod_71/TransZ = 0.0 cm
+s:Ge/Rod_71/Color = "red"
+
+s:Ge/Rod_72/Type = "TsCylinder"
+s:Ge/Rod_72/Material = "G4_WATER"
+s:Ge/Rod_72/Parent = "Derenzo"
+d:Ge/Rod_72/Rmax = 0.32000000000000006 cm
+d:Ge/Rod_72/HL = 3.0 cm
+d:Ge/Rod_72/TransX = -2.690000000000001 cm
+d:Ge/Rod_72/TransY = 6.730000000000001 cm
+d:Ge/Rod_72/TransZ = 0.0 cm
+s:Ge/Rod_72/Color = "red"
+
+s:Ge/Rod_73/Type = "TsCylinder"
+s:Ge/Rod_73/Material = "G4_WATER"
+s:Ge/Rod_73/Parent = "Derenzo"
+d:Ge/Rod_73/Rmax = 0.32000000000000006 cm
+d:Ge/Rod_73/HL = 3.0 cm
+d:Ge/Rod_73/TransX = -1.369999999999999 cm
+d:Ge/Rod_73/TransY = 6.730000000000001 cm
+d:Ge/Rod_73/TransZ = 0.0 cm
+s:Ge/Rod_73/Color = "red"
+
+s:Ge/Rod_74/Type = "TsCylinder"
+s:Ge/Rod_74/Material = "G4_WATER"
+s:Ge/Rod_74/Parent = "Derenzo"
+d:Ge/Rod_74/Rmax = 0.32000000000000006 cm
+d:Ge/Rod_74/HL = 3.0 cm
+d:Ge/Rod_74/TransX = -0.05 cm
+d:Ge/Rod_74/TransY = 6.730000000000001 cm
+d:Ge/Rod_74/TransZ = 0.0 cm
+s:Ge/Rod_74/Color = "red"
+
+s:Ge/Rod_75/Type = "TsCylinder"
+s:Ge/Rod_75/Material = "G4_WATER"
+s:Ge/Rod_75/Parent = "Derenzo"
+d:Ge/Rod_75/Rmax = 0.32000000000000006 cm
+d:Ge/Rod_75/HL = 3.0 cm
+d:Ge/Rod_75/TransX = 1.269999999999999 cm
+d:Ge/Rod_75/TransY = 6.730000000000001 cm
+d:Ge/Rod_75/TransZ = 0.0 cm
+s:Ge/Rod_75/Color = "red"
+
+s:Ge/Rod_76/Type = "TsCylinder"
+s:Ge/Rod_76/Material = "G4_WATER"
+s:Ge/Rod_76/Parent = "Derenzo"
+d:Ge/Rod_76/Rmax = 0.32000000000000006 cm
+d:Ge/Rod_76/HL = 3.0 cm
+d:Ge/Rod_76/TransX = 2.5900000000000007 cm
+d:Ge/Rod_76/TransY = 6.730000000000001 cm
+d:Ge/Rod_76/TransZ = 0.0 cm
+s:Ge/Rod_76/Color = "red"
+
+s:Ge/Rod_77/Type = "TsCylinder"
+s:Ge/Rod_77/Material = "G4_WATER"
+s:Ge/Rod_77/Parent = "Derenzo"
+d:Ge/Rod_77/Rmax = 0.32000000000000006 cm
+d:Ge/Rod_77/HL = 3.0 cm
+d:Ge/Rod_77/TransX = -3.35 cm
+d:Ge/Rod_77/TransY = 7.880000000000002 cm
+d:Ge/Rod_77/TransZ = 0.0 cm
+s:Ge/Rod_77/Color = "red"
+
+s:Ge/Rod_78/Type = "TsCylinder"
+s:Ge/Rod_78/Material = "G4_WATER"
+s:Ge/Rod_78/Parent = "Derenzo"
+d:Ge/Rod_78/Rmax = 0.32000000000000006 cm
+d:Ge/Rod_78/HL = 3.0 cm
+d:Ge/Rod_78/TransX = -2.03 cm
+d:Ge/Rod_78/TransY = 7.880000000000002 cm
+d:Ge/Rod_78/TransZ = 0.0 cm
+s:Ge/Rod_78/Color = "red"
+
+s:Ge/Rod_79/Type = "TsCylinder"
+s:Ge/Rod_79/Material = "G4_WATER"
+s:Ge/Rod_79/Parent = "Derenzo"
+d:Ge/Rod_79/Rmax = 0.32000000000000006 cm
+d:Ge/Rod_79/HL = 3.0 cm
+d:Ge/Rod_79/TransX = -0.7099999999999995 cm
+d:Ge/Rod_79/TransY = 7.880000000000002 cm
+d:Ge/Rod_79/TransZ = 0.0 cm
+s:Ge/Rod_79/Color = "red"
+
+s:Ge/Rod_80/Type = "TsCylinder"
+s:Ge/Rod_80/Material = "G4_WATER"
+s:Ge/Rod_80/Parent = "Derenzo"
+d:Ge/Rod_80/Rmax = 0.32000000000000006 cm
+d:Ge/Rod_80/HL = 3.0 cm
+d:Ge/Rod_80/TransX = 0.6099999999999994 cm
+d:Ge/Rod_80/TransY = 7.880000000000002 cm
+d:Ge/Rod_80/TransZ = 0.0 cm
+s:Ge/Rod_80/Color = "red"
+
+s:Ge/Rod_81/Type = "TsCylinder"
+s:Ge/Rod_81/Material = "G4_WATER"
+s:Ge/Rod_81/Parent = "Derenzo"
+d:Ge/Rod_81/Rmax = 0.32000000000000006 cm
+d:Ge/Rod_81/HL = 3.0 cm
+d:Ge/Rod_81/TransX = 1.9300000000000013 cm
+d:Ge/Rod_81/TransY = 7.880000000000002 cm
+d:Ge/Rod_81/TransZ = 0.0 cm
+s:Ge/Rod_81/Color = "red"
+
+s:Ge/Rod_82/Type = "TsCylinder"
+s:Ge/Rod_82/Material = "G4_WATER"
+s:Ge/Rod_82/Parent = "Derenzo"
+d:Ge/Rod_82/Rmax = 0.32000000000000006 cm
+d:Ge/Rod_82/HL = 3.0 cm
+d:Ge/Rod_82/TransX = 3.25 cm
+d:Ge/Rod_82/TransY = 7.880000000000002 cm
+d:Ge/Rod_82/TransZ = 0.0 cm
+s:Ge/Rod_82/Color = "red"
+
+s:Ge/Rod_83/Type = "TsCylinder"
+s:Ge/Rod_83/Material = "G4_WATER"
+s:Ge/Rod_83/Parent = "Derenzo"
+d:Ge/Rod_83/Rmax = 0.32000000000000006 cm
+d:Ge/Rod_83/HL = 3.0 cm
+d:Ge/Rod_83/TransX = -2.690000000000001 cm
+d:Ge/Rod_83/TransY = 9.030000000000001 cm
+d:Ge/Rod_83/TransZ = 0.0 cm
+s:Ge/Rod_83/Color = "red"
+
+s:Ge/Rod_84/Type = "TsCylinder"
+s:Ge/Rod_84/Material = "G4_WATER"
+s:Ge/Rod_84/Parent = "Derenzo"
+d:Ge/Rod_84/Rmax = 0.32000000000000006 cm
+d:Ge/Rod_84/HL = 3.0 cm
+d:Ge/Rod_84/TransX = -1.369999999999999 cm
+d:Ge/Rod_84/TransY = 9.030000000000001 cm
+d:Ge/Rod_84/TransZ = 0.0 cm
+s:Ge/Rod_84/Color = "red"
+
+s:Ge/Rod_85/Type = "TsCylinder"
+s:Ge/Rod_85/Material = "G4_WATER"
+s:Ge/Rod_85/Parent = "Derenzo"
+d:Ge/Rod_85/Rmax = 0.32000000000000006 cm
+d:Ge/Rod_85/HL = 3.0 cm
+d:Ge/Rod_85/TransX = -0.019999999999998866 cm
+d:Ge/Rod_85/TransY = 9.030000000000001 cm
+d:Ge/Rod_85/TransZ = 0.0 cm
+s:Ge/Rod_85/Color = "red"
+
+s:Ge/Rod_86/Type = "TsCylinder"
+s:Ge/Rod_86/Material = "G4_WATER"
+s:Ge/Rod_86/Parent = "Derenzo"
+d:Ge/Rod_86/Rmax = 0.32000000000000006 cm
+d:Ge/Rod_86/HL = 3.0 cm
+d:Ge/Rod_86/TransX = 1.269999999999999 cm
+d:Ge/Rod_86/TransY = 9.030000000000001 cm
+d:Ge/Rod_86/TransZ = 0.0 cm
+s:Ge/Rod_86/Color = "red"
+
+s:Ge/Rod_87/Type = "TsCylinder"
+s:Ge/Rod_87/Material = "G4_WATER"
+s:Ge/Rod_87/Parent = "Derenzo"
+d:Ge/Rod_87/Rmax = 0.32000000000000006 cm
+d:Ge/Rod_87/HL = 3.0 cm
+d:Ge/Rod_87/TransX = 2.5900000000000007 cm
+d:Ge/Rod_87/TransY = 9.030000000000001 cm
+d:Ge/Rod_87/TransZ = 0.0 cm
+s:Ge/Rod_87/Color = "red"
+
+# The sources making up the Derenzo phantom
+
+s:So/Derenzo_src/Type	                   = "Volumetric"
+s:So/Derenzo_src/Component               = "Derenzo"
+s:So/Derenzo_src/ActiveMaterial          = "G4_WATER"
+s:So/Derenzo_src/BeamParticle            = "e+"
+d:So/Derenzo_src/BeamEnergy              = 0.30 MeV
+i:Derenzo_src_mult = Tf/Derenzo_t/Value * 201020
+i:So/Derenzo_src/NumberOfHistoriesInRun = Derenzo_src_mult * Background_e
+
+# rod sources
+
+s:So/Rod_0_src/Type = "Volumetric"
+s:So/Rod_0_src/Component = "Rod_0"
+s:So/Rod_0_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_0_src/BeamParticle = "e+"
+d:So/Rod_0_src/BeamEnergy = 0.30 MeV
+i:Rod_0_src_mult = Tf/Rod_0_t/Value * 3438
+i:So/Rod_0_src/NumberOfHistoriesInRun = Rod_e * Rod_0_src_mult
+
+s:So/Rod_1_src/Type = "Volumetric"
+s:So/Rod_1_src/Component = "Rod_1"
+s:So/Rod_1_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_1_src/BeamParticle = "e+"
+d:So/Rod_1_src/BeamEnergy = 0.30 MeV
+i:Rod_1_src_mult = Tf/Rod_1_t/Value * 3438
+i:So/Rod_1_src/NumberOfHistoriesInRun = Rod_e * Rod_1_src_mult
+
+s:So/Rod_2_src/Type = "Volumetric"
+s:So/Rod_2_src/Component = "Rod_2"
+s:So/Rod_2_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_2_src/BeamParticle = "e+"
+d:So/Rod_2_src/BeamEnergy = 0.30 MeV
+i:Rod_2_src_mult = Tf/Rod_2_t/Value * 3438
+i:So/Rod_2_src/NumberOfHistoriesInRun = Rod_e * Rod_2_src_mult
+
+s:So/Rod_3_src/Type = "Volumetric"
+s:So/Rod_3_src/Component = "Rod_3"
+s:So/Rod_3_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_3_src/BeamParticle = "e+"
+d:So/Rod_3_src/BeamEnergy = 0.30 MeV
+i:Rod_3_src_mult = Tf/Rod_3_t/Value * 3438
+i:So/Rod_3_src/NumberOfHistoriesInRun = Rod_e * Rod_3_src_mult
+
+s:So/Rod_4_src/Type = "Volumetric"
+s:So/Rod_4_src/Component = "Rod_4"
+s:So/Rod_4_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_4_src/BeamParticle = "e+"
+d:So/Rod_4_src/BeamEnergy = 0.30 MeV
+i:Rod_4_src_mult = Tf/Rod_4_t/Value * 3438
+i:So/Rod_4_src/NumberOfHistoriesInRun = Rod_e * Rod_4_src_mult
+
+s:So/Rod_5_src/Type = "Volumetric"
+s:So/Rod_5_src/Component = "Rod_5"
+s:So/Rod_5_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_5_src/BeamParticle = "e+"
+d:So/Rod_5_src/BeamEnergy = 0.30 MeV
+i:Rod_5_src_mult = Tf/Rod_5_t/Value * 3438
+i:So/Rod_5_src/NumberOfHistoriesInRun = Rod_e * Rod_5_src_mult
+
+s:So/Rod_6_src/Type = "Volumetric"
+s:So/Rod_6_src/Component = "Rod_6"
+s:So/Rod_6_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_6_src/BeamParticle = "e+"
+d:So/Rod_6_src/BeamEnergy = 0.30 MeV
+i:Rod_6_src_mult = Tf/Rod_6_t/Value * 1520
+i:So/Rod_6_src/NumberOfHistoriesInRun = Rod_e * Rod_6_src_mult
+
+s:So/Rod_7_src/Type = "Volumetric"
+s:So/Rod_7_src/Component = "Rod_7"
+s:So/Rod_7_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_7_src/BeamParticle = "e+"
+d:So/Rod_7_src/BeamEnergy = 0.30 MeV
+i:Rod_7_src_mult = Tf/Rod_7_t/Value * 1520
+i:So/Rod_7_src/NumberOfHistoriesInRun = Rod_e * Rod_7_src_mult
+
+s:So/Rod_8_src/Type = "Volumetric"
+s:So/Rod_8_src/Component = "Rod_8"
+s:So/Rod_8_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_8_src/BeamParticle = "e+"
+d:So/Rod_8_src/BeamEnergy = 0.30 MeV
+i:Rod_8_src_mult = Tf/Rod_8_t/Value * 1520
+i:So/Rod_8_src/NumberOfHistoriesInRun = Rod_e * Rod_8_src_mult
+
+s:So/Rod_9_src/Type = "Volumetric"
+s:So/Rod_9_src/Component = "Rod_9"
+s:So/Rod_9_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_9_src/BeamParticle = "e+"
+d:So/Rod_9_src/BeamEnergy = 0.30 MeV
+i:Rod_9_src_mult = Tf/Rod_9_t/Value * 1520
+i:So/Rod_9_src/NumberOfHistoriesInRun = Rod_e * Rod_9_src_mult
+
+s:So/Rod_10_src/Type = "Volumetric"
+s:So/Rod_10_src/Component = "Rod_10"
+s:So/Rod_10_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_10_src/BeamParticle = "e+"
+d:So/Rod_10_src/BeamEnergy = 0.30 MeV
+i:Rod_10_src_mult = Tf/Rod_10_t/Value * 1520
+i:So/Rod_10_src/NumberOfHistoriesInRun = Rod_e * Rod_10_src_mult
+
+s:So/Rod_11_src/Type = "Volumetric"
+s:So/Rod_11_src/Component = "Rod_11"
+s:So/Rod_11_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_11_src/BeamParticle = "e+"
+d:So/Rod_11_src/BeamEnergy = 0.30 MeV
+i:Rod_11_src_mult = Tf/Rod_11_t/Value * 1520
+i:So/Rod_11_src/NumberOfHistoriesInRun = Rod_e * Rod_11_src_mult
+
+s:So/Rod_12_src/Type = "Volumetric"
+s:So/Rod_12_src/Component = "Rod_12"
+s:So/Rod_12_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_12_src/BeamParticle = "e+"
+d:So/Rod_12_src/BeamEnergy = 0.30 MeV
+i:Rod_12_src_mult = Tf/Rod_12_t/Value * 1520
+i:So/Rod_12_src/NumberOfHistoriesInRun = Rod_e * Rod_12_src_mult
+
+s:So/Rod_13_src/Type = "Volumetric"
+s:So/Rod_13_src/Component = "Rod_13"
+s:So/Rod_13_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_13_src/BeamParticle = "e+"
+d:So/Rod_13_src/BeamEnergy = 0.30 MeV
+i:Rod_13_src_mult = Tf/Rod_13_t/Value * 1520
+i:So/Rod_13_src/NumberOfHistoriesInRun = Rod_e * Rod_13_src_mult
+
+s:So/Rod_14_src/Type = "Volumetric"
+s:So/Rod_14_src/Component = "Rod_14"
+s:So/Rod_14_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_14_src/BeamParticle = "e+"
+d:So/Rod_14_src/BeamEnergy = 0.30 MeV
+i:Rod_14_src_mult = Tf/Rod_14_t/Value * 1520
+i:So/Rod_14_src/NumberOfHistoriesInRun = Rod_e * Rod_14_src_mult
+
+s:So/Rod_15_src/Type = "Volumetric"
+s:So/Rod_15_src/Component = "Rod_15"
+s:So/Rod_15_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_15_src/BeamParticle = "e+"
+d:So/Rod_15_src/BeamEnergy = 0.30 MeV
+i:Rod_15_src_mult = Tf/Rod_15_t/Value * 1520
+i:So/Rod_15_src/NumberOfHistoriesInRun = Rod_e * Rod_15_src_mult
+
+s:So/Rod_16_src/Type = "Volumetric"
+s:So/Rod_16_src/Component = "Rod_16"
+s:So/Rod_16_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_16_src/BeamParticle = "e+"
+d:So/Rod_16_src/BeamEnergy = 0.30 MeV
+i:Rod_16_src_mult = Tf/Rod_16_t/Value * 1161
+i:So/Rod_16_src/NumberOfHistoriesInRun = Rod_e * Rod_16_src_mult
+
+s:So/Rod_17_src/Type = "Volumetric"
+s:So/Rod_17_src/Component = "Rod_17"
+s:So/Rod_17_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_17_src/BeamParticle = "e+"
+d:So/Rod_17_src/BeamEnergy = 0.30 MeV
+i:Rod_17_src_mult = Tf/Rod_17_t/Value * 1161
+i:So/Rod_17_src/NumberOfHistoriesInRun = Rod_e * Rod_17_src_mult
+
+s:So/Rod_18_src/Type = "Volumetric"
+s:So/Rod_18_src/Component = "Rod_18"
+s:So/Rod_18_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_18_src/BeamParticle = "e+"
+d:So/Rod_18_src/BeamEnergy = 0.30 MeV
+i:Rod_18_src_mult = Tf/Rod_18_t/Value * 1161
+i:So/Rod_18_src/NumberOfHistoriesInRun = Rod_e * Rod_18_src_mult
+
+s:So/Rod_19_src/Type = "Volumetric"
+s:So/Rod_19_src/Component = "Rod_19"
+s:So/Rod_19_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_19_src/BeamParticle = "e+"
+d:So/Rod_19_src/BeamEnergy = 0.30 MeV
+i:Rod_19_src_mult = Tf/Rod_19_t/Value * 1161
+i:So/Rod_19_src/NumberOfHistoriesInRun = Rod_e * Rod_19_src_mult
+
+s:So/Rod_20_src/Type = "Volumetric"
+s:So/Rod_20_src/Component = "Rod_20"
+s:So/Rod_20_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_20_src/BeamParticle = "e+"
+d:So/Rod_20_src/BeamEnergy = 0.30 MeV
+i:Rod_20_src_mult = Tf/Rod_20_t/Value * 1161
+i:So/Rod_20_src/NumberOfHistoriesInRun = Rod_e * Rod_20_src_mult
+
+s:So/Rod_21_src/Type = "Volumetric"
+s:So/Rod_21_src/Component = "Rod_21"
+s:So/Rod_21_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_21_src/BeamParticle = "e+"
+d:So/Rod_21_src/BeamEnergy = 0.30 MeV
+i:Rod_21_src_mult = Tf/Rod_21_t/Value * 1161
+i:So/Rod_21_src/NumberOfHistoriesInRun = Rod_e * Rod_21_src_mult
+
+s:So/Rod_22_src/Type = "Volumetric"
+s:So/Rod_22_src/Component = "Rod_22"
+s:So/Rod_22_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_22_src/BeamParticle = "e+"
+d:So/Rod_22_src/BeamEnergy = 0.30 MeV
+i:Rod_22_src_mult = Tf/Rod_22_t/Value * 1161
+i:So/Rod_22_src/NumberOfHistoriesInRun = Rod_e * Rod_22_src_mult
+
+s:So/Rod_23_src/Type = "Volumetric"
+s:So/Rod_23_src/Component = "Rod_23"
+s:So/Rod_23_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_23_src/BeamParticle = "e+"
+d:So/Rod_23_src/BeamEnergy = 0.30 MeV
+i:Rod_23_src_mult = Tf/Rod_23_t/Value * 1161
+i:So/Rod_23_src/NumberOfHistoriesInRun = Rod_e * Rod_23_src_mult
+
+s:So/Rod_24_src/Type = "Volumetric"
+s:So/Rod_24_src/Component = "Rod_24"
+s:So/Rod_24_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_24_src/BeamParticle = "e+"
+d:So/Rod_24_src/BeamEnergy = 0.30 MeV
+i:Rod_24_src_mult = Tf/Rod_24_t/Value * 1161
+i:So/Rod_24_src/NumberOfHistoriesInRun = Rod_e * Rod_24_src_mult
+
+s:So/Rod_25_src/Type = "Volumetric"
+s:So/Rod_25_src/Component = "Rod_25"
+s:So/Rod_25_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_25_src/BeamParticle = "e+"
+d:So/Rod_25_src/BeamEnergy = 0.30 MeV
+i:Rod_25_src_mult = Tf/Rod_25_t/Value * 1161
+i:So/Rod_25_src/NumberOfHistoriesInRun = Rod_e * Rod_25_src_mult
+
+s:So/Rod_26_src/Type = "Volumetric"
+s:So/Rod_26_src/Component = "Rod_26"
+s:So/Rod_26_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_26_src/BeamParticle = "e+"
+d:So/Rod_26_src/BeamEnergy = 0.30 MeV
+i:Rod_26_src_mult = Tf/Rod_26_t/Value * 851
+i:So/Rod_26_src/NumberOfHistoriesInRun = Rod_e * Rod_26_src_mult
+
+s:So/Rod_27_src/Type = "Volumetric"
+s:So/Rod_27_src/Component = "Rod_27"
+s:So/Rod_27_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_27_src/BeamParticle = "e+"
+d:So/Rod_27_src/BeamEnergy = 0.30 MeV
+i:Rod_27_src_mult = Tf/Rod_27_t/Value * 851
+i:So/Rod_27_src/NumberOfHistoriesInRun = Rod_e * Rod_27_src_mult
+
+s:So/Rod_28_src/Type = "Volumetric"
+s:So/Rod_28_src/Component = "Rod_28"
+s:So/Rod_28_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_28_src/BeamParticle = "e+"
+d:So/Rod_28_src/BeamEnergy = 0.30 MeV
+i:Rod_28_src_mult = Tf/Rod_28_t/Value * 851
+i:So/Rod_28_src/NumberOfHistoriesInRun = Rod_e * Rod_28_src_mult
+
+s:So/Rod_29_src/Type = "Volumetric"
+s:So/Rod_29_src/Component = "Rod_29"
+s:So/Rod_29_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_29_src/BeamParticle = "e+"
+d:So/Rod_29_src/BeamEnergy = 0.30 MeV
+i:Rod_29_src_mult = Tf/Rod_29_t/Value * 851
+i:So/Rod_29_src/NumberOfHistoriesInRun = Rod_e * Rod_29_src_mult
+
+s:So/Rod_30_src/Type = "Volumetric"
+s:So/Rod_30_src/Component = "Rod_30"
+s:So/Rod_30_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_30_src/BeamParticle = "e+"
+d:So/Rod_30_src/BeamEnergy = 0.30 MeV
+i:Rod_30_src_mult = Tf/Rod_30_t/Value * 851
+i:So/Rod_30_src/NumberOfHistoriesInRun = Rod_e * Rod_30_src_mult
+
+s:So/Rod_31_src/Type = "Volumetric"
+s:So/Rod_31_src/Component = "Rod_31"
+s:So/Rod_31_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_31_src/BeamParticle = "e+"
+d:So/Rod_31_src/BeamEnergy = 0.30 MeV
+i:Rod_31_src_mult = Tf/Rod_31_t/Value * 851
+i:So/Rod_31_src/NumberOfHistoriesInRun = Rod_e * Rod_31_src_mult
+
+s:So/Rod_32_src/Type = "Volumetric"
+s:So/Rod_32_src/Component = "Rod_32"
+s:So/Rod_32_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_32_src/BeamParticle = "e+"
+d:So/Rod_32_src/BeamEnergy = 0.30 MeV
+i:Rod_32_src_mult = Tf/Rod_32_t/Value * 851
+i:So/Rod_32_src/NumberOfHistoriesInRun = Rod_e * Rod_32_src_mult
+
+s:So/Rod_33_src/Type = "Volumetric"
+s:So/Rod_33_src/Component = "Rod_33"
+s:So/Rod_33_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_33_src/BeamParticle = "e+"
+d:So/Rod_33_src/BeamEnergy = 0.30 MeV
+i:Rod_33_src_mult = Tf/Rod_33_t/Value * 851
+i:So/Rod_33_src/NumberOfHistoriesInRun = Rod_e * Rod_33_src_mult
+
+s:So/Rod_34_src/Type = "Volumetric"
+s:So/Rod_34_src/Component = "Rod_34"
+s:So/Rod_34_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_34_src/BeamParticle = "e+"
+d:So/Rod_34_src/BeamEnergy = 0.30 MeV
+i:Rod_34_src_mult = Tf/Rod_34_t/Value * 851
+i:So/Rod_34_src/NumberOfHistoriesInRun = Rod_e * Rod_34_src_mult
+
+s:So/Rod_35_src/Type = "Volumetric"
+s:So/Rod_35_src/Component = "Rod_35"
+s:So/Rod_35_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_35_src/BeamParticle = "e+"
+d:So/Rod_35_src/BeamEnergy = 0.30 MeV
+i:Rod_35_src_mult = Tf/Rod_35_t/Value * 851
+i:So/Rod_35_src/NumberOfHistoriesInRun = Rod_e * Rod_35_src_mult
+
+s:So/Rod_36_src/Type = "Volumetric"
+s:So/Rod_36_src/Component = "Rod_36"
+s:So/Rod_36_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_36_src/BeamParticle = "e+"
+d:So/Rod_36_src/BeamEnergy = 0.30 MeV
+i:Rod_36_src_mult = Tf/Rod_36_t/Value * 851
+i:So/Rod_36_src/NumberOfHistoriesInRun = Rod_e * Rod_36_src_mult
+
+s:So/Rod_37_src/Type = "Volumetric"
+s:So/Rod_37_src/Component = "Rod_37"
+s:So/Rod_37_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_37_src/BeamParticle = "e+"
+d:So/Rod_37_src/BeamEnergy = 0.30 MeV
+i:Rod_37_src_mult = Tf/Rod_37_t/Value * 851
+i:So/Rod_37_src/NumberOfHistoriesInRun = Rod_e * Rod_37_src_mult
+
+s:So/Rod_38_src/Type = "Volumetric"
+s:So/Rod_38_src/Component = "Rod_38"
+s:So/Rod_38_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_38_src/BeamParticle = "e+"
+d:So/Rod_38_src/BeamEnergy = 0.30 MeV
+i:Rod_38_src_mult = Tf/Rod_38_t/Value * 851
+i:So/Rod_38_src/NumberOfHistoriesInRun = Rod_e * Rod_38_src_mult
+
+s:So/Rod_39_src/Type = "Volumetric"
+s:So/Rod_39_src/Component = "Rod_39"
+s:So/Rod_39_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_39_src/BeamParticle = "e+"
+d:So/Rod_39_src/BeamEnergy = 0.30 MeV
+i:Rod_39_src_mult = Tf/Rod_39_t/Value * 851
+i:So/Rod_39_src/NumberOfHistoriesInRun = Rod_e * Rod_39_src_mult
+
+s:So/Rod_40_src/Type = "Volumetric"
+s:So/Rod_40_src/Component = "Rod_40"
+s:So/Rod_40_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_40_src/BeamParticle = "e+"
+d:So/Rod_40_src/BeamEnergy = 0.30 MeV
+i:Rod_40_src_mult = Tf/Rod_40_t/Value * 851
+i:So/Rod_40_src/NumberOfHistoriesInRun = Rod_e * Rod_40_src_mult
+
+s:So/Rod_41_src/Type = "Volumetric"
+s:So/Rod_41_src/Component = "Rod_41"
+s:So/Rod_41_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_41_src/BeamParticle = "e+"
+d:So/Rod_41_src/BeamEnergy = 0.30 MeV
+i:Rod_41_src_mult = Tf/Rod_41_t/Value * 530
+i:So/Rod_41_src/NumberOfHistoriesInRun = Rod_e * Rod_41_src_mult
+
+s:So/Rod_42_src/Type = "Volumetric"
+s:So/Rod_42_src/Component = "Rod_42"
+s:So/Rod_42_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_42_src/BeamParticle = "e+"
+d:So/Rod_42_src/BeamEnergy = 0.30 MeV
+i:Rod_42_src_mult = Tf/Rod_42_t/Value * 530
+i:So/Rod_42_src/NumberOfHistoriesInRun = Rod_e * Rod_42_src_mult
+
+s:So/Rod_43_src/Type = "Volumetric"
+s:So/Rod_43_src/Component = "Rod_43"
+s:So/Rod_43_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_43_src/BeamParticle = "e+"
+d:So/Rod_43_src/BeamEnergy = 0.30 MeV
+i:Rod_43_src_mult = Tf/Rod_43_t/Value * 530
+i:So/Rod_43_src/NumberOfHistoriesInRun = Rod_e * Rod_43_src_mult
+
+s:So/Rod_44_src/Type = "Volumetric"
+s:So/Rod_44_src/Component = "Rod_44"
+s:So/Rod_44_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_44_src/BeamParticle = "e+"
+d:So/Rod_44_src/BeamEnergy = 0.30 MeV
+i:Rod_44_src_mult = Tf/Rod_44_t/Value * 530
+i:So/Rod_44_src/NumberOfHistoriesInRun = Rod_e * Rod_44_src_mult
+
+s:So/Rod_45_src/Type = "Volumetric"
+s:So/Rod_45_src/Component = "Rod_45"
+s:So/Rod_45_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_45_src/BeamParticle = "e+"
+d:So/Rod_45_src/BeamEnergy = 0.30 MeV
+i:Rod_45_src_mult = Tf/Rod_45_t/Value * 530
+i:So/Rod_45_src/NumberOfHistoriesInRun = Rod_e * Rod_45_src_mult
+
+s:So/Rod_46_src/Type = "Volumetric"
+s:So/Rod_46_src/Component = "Rod_46"
+s:So/Rod_46_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_46_src/BeamParticle = "e+"
+d:So/Rod_46_src/BeamEnergy = 0.30 MeV
+i:Rod_46_src_mult = Tf/Rod_46_t/Value * 530
+i:So/Rod_46_src/NumberOfHistoriesInRun = Rod_e * Rod_46_src_mult
+
+s:So/Rod_47_src/Type = "Volumetric"
+s:So/Rod_47_src/Component = "Rod_47"
+s:So/Rod_47_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_47_src/BeamParticle = "e+"
+d:So/Rod_47_src/BeamEnergy = 0.30 MeV
+i:Rod_47_src_mult = Tf/Rod_47_t/Value * 530
+i:So/Rod_47_src/NumberOfHistoriesInRun = Rod_e * Rod_47_src_mult
+
+s:So/Rod_48_src/Type = "Volumetric"
+s:So/Rod_48_src/Component = "Rod_48"
+s:So/Rod_48_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_48_src/BeamParticle = "e+"
+d:So/Rod_48_src/BeamEnergy = 0.30 MeV
+i:Rod_48_src_mult = Tf/Rod_48_t/Value * 530
+i:So/Rod_48_src/NumberOfHistoriesInRun = Rod_e * Rod_48_src_mult
+
+s:So/Rod_49_src/Type = "Volumetric"
+s:So/Rod_49_src/Component = "Rod_49"
+s:So/Rod_49_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_49_src/BeamParticle = "e+"
+d:So/Rod_49_src/BeamEnergy = 0.30 MeV
+i:Rod_49_src_mult = Tf/Rod_49_t/Value * 530
+i:So/Rod_49_src/NumberOfHistoriesInRun = Rod_e * Rod_49_src_mult
+
+s:So/Rod_50_src/Type = "Volumetric"
+s:So/Rod_50_src/Component = "Rod_50"
+s:So/Rod_50_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_50_src/BeamParticle = "e+"
+d:So/Rod_50_src/BeamEnergy = 0.30 MeV
+i:Rod_50_src_mult = Tf/Rod_50_t/Value * 530
+i:So/Rod_50_src/NumberOfHistoriesInRun = Rod_e * Rod_50_src_mult
+
+s:So/Rod_51_src/Type = "Volumetric"
+s:So/Rod_51_src/Component = "Rod_51"
+s:So/Rod_51_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_51_src/BeamParticle = "e+"
+d:So/Rod_51_src/BeamEnergy = 0.30 MeV
+i:Rod_51_src_mult = Tf/Rod_51_t/Value * 530
+i:So/Rod_51_src/NumberOfHistoriesInRun = Rod_e * Rod_51_src_mult
+
+s:So/Rod_52_src/Type = "Volumetric"
+s:So/Rod_52_src/Component = "Rod_52"
+s:So/Rod_52_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_52_src/BeamParticle = "e+"
+d:So/Rod_52_src/BeamEnergy = 0.30 MeV
+i:Rod_52_src_mult = Tf/Rod_52_t/Value * 530
+i:So/Rod_52_src/NumberOfHistoriesInRun = Rod_e * Rod_52_src_mult
+
+s:So/Rod_53_src/Type = "Volumetric"
+s:So/Rod_53_src/Component = "Rod_53"
+s:So/Rod_53_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_53_src/BeamParticle = "e+"
+d:So/Rod_53_src/BeamEnergy = 0.30 MeV
+i:Rod_53_src_mult = Tf/Rod_53_t/Value * 530
+i:So/Rod_53_src/NumberOfHistoriesInRun = Rod_e * Rod_53_src_mult
+
+s:So/Rod_54_src/Type = "Volumetric"
+s:So/Rod_54_src/Component = "Rod_54"
+s:So/Rod_54_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_54_src/BeamParticle = "e+"
+d:So/Rod_54_src/BeamEnergy = 0.30 MeV
+i:Rod_54_src_mult = Tf/Rod_54_t/Value * 530
+i:So/Rod_54_src/NumberOfHistoriesInRun = Rod_e * Rod_54_src_mult
+
+s:So/Rod_55_src/Type = "Volumetric"
+s:So/Rod_55_src/Component = "Rod_55"
+s:So/Rod_55_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_55_src/BeamParticle = "e+"
+d:So/Rod_55_src/BeamEnergy = 0.30 MeV
+i:Rod_55_src_mult = Tf/Rod_55_t/Value * 530
+i:So/Rod_55_src/NumberOfHistoriesInRun = Rod_e * Rod_55_src_mult
+
+s:So/Rod_56_src/Type = "Volumetric"
+s:So/Rod_56_src/Component = "Rod_56"
+s:So/Rod_56_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_56_src/BeamParticle = "e+"
+d:So/Rod_56_src/BeamEnergy = 0.30 MeV
+i:Rod_56_src_mult = Tf/Rod_56_t/Value * 530
+i:So/Rod_56_src/NumberOfHistoriesInRun = Rod_e * Rod_56_src_mult
+
+s:So/Rod_57_src/Type = "Volumetric"
+s:So/Rod_57_src/Component = "Rod_57"
+s:So/Rod_57_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_57_src/BeamParticle = "e+"
+d:So/Rod_57_src/BeamEnergy = 0.30 MeV
+i:Rod_57_src_mult = Tf/Rod_57_t/Value * 530
+i:So/Rod_57_src/NumberOfHistoriesInRun = Rod_e * Rod_57_src_mult
+
+s:So/Rod_58_src/Type = "Volumetric"
+s:So/Rod_58_src/Component = "Rod_58"
+s:So/Rod_58_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_58_src/BeamParticle = "e+"
+d:So/Rod_58_src/BeamEnergy = 0.30 MeV
+i:Rod_58_src_mult = Tf/Rod_58_t/Value * 530
+i:So/Rod_58_src/NumberOfHistoriesInRun = Rod_e * Rod_58_src_mult
+
+s:So/Rod_59_src/Type = "Volumetric"
+s:So/Rod_59_src/Component = "Rod_59"
+s:So/Rod_59_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_59_src/BeamParticle = "e+"
+d:So/Rod_59_src/BeamEnergy = 0.30 MeV
+i:Rod_59_src_mult = Tf/Rod_59_t/Value * 530
+i:So/Rod_59_src/NumberOfHistoriesInRun = Rod_e * Rod_59_src_mult
+
+s:So/Rod_60_src/Type = "Volumetric"
+s:So/Rod_60_src/Component = "Rod_60"
+s:So/Rod_60_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_60_src/BeamParticle = "e+"
+d:So/Rod_60_src/BeamEnergy = 0.30 MeV
+i:Rod_60_src_mult = Tf/Rod_60_t/Value * 530
+i:So/Rod_60_src/NumberOfHistoriesInRun = Rod_e * Rod_60_src_mult
+
+s:So/Rod_61_src/Type = "Volumetric"
+s:So/Rod_61_src/Component = "Rod_61"
+s:So/Rod_61_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_61_src/BeamParticle = "e+"
+d:So/Rod_61_src/BeamEnergy = 0.30 MeV
+i:Rod_61_src_mult = Tf/Rod_61_t/Value * 530
+i:So/Rod_61_src/NumberOfHistoriesInRun = Rod_e * Rod_61_src_mult
+
+s:So/Rod_62_src/Type = "Volumetric"
+s:So/Rod_62_src/Component = "Rod_62"
+s:So/Rod_62_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_62_src/BeamParticle = "e+"
+d:So/Rod_62_src/BeamEnergy = 0.30 MeV
+i:Rod_62_src_mult = Tf/Rod_62_t/Value * 386
+i:So/Rod_62_src/NumberOfHistoriesInRun = Rod_e * Rod_62_src_mult
+
+s:So/Rod_63_src/Type = "Volumetric"
+s:So/Rod_63_src/Component = "Rod_63"
+s:So/Rod_63_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_63_src/BeamParticle = "e+"
+d:So/Rod_63_src/BeamEnergy = 0.30 MeV
+i:Rod_63_src_mult = Tf/Rod_63_t/Value * 386
+i:So/Rod_63_src/NumberOfHistoriesInRun = Rod_e * Rod_63_src_mult
+
+s:So/Rod_64_src/Type = "Volumetric"
+s:So/Rod_64_src/Component = "Rod_64"
+s:So/Rod_64_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_64_src/BeamParticle = "e+"
+d:So/Rod_64_src/BeamEnergy = 0.30 MeV
+i:Rod_64_src_mult = Tf/Rod_64_t/Value * 386
+i:So/Rod_64_src/NumberOfHistoriesInRun = Rod_e * Rod_64_src_mult
+
+s:So/Rod_65_src/Type = "Volumetric"
+s:So/Rod_65_src/Component = "Rod_65"
+s:So/Rod_65_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_65_src/BeamParticle = "e+"
+d:So/Rod_65_src/BeamEnergy = 0.30 MeV
+i:Rod_65_src_mult = Tf/Rod_65_t/Value * 386
+i:So/Rod_65_src/NumberOfHistoriesInRun = Rod_e * Rod_65_src_mult
+
+s:So/Rod_66_src/Type = "Volumetric"
+s:So/Rod_66_src/Component = "Rod_66"
+s:So/Rod_66_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_66_src/BeamParticle = "e+"
+d:So/Rod_66_src/BeamEnergy = 0.30 MeV
+i:Rod_66_src_mult = Tf/Rod_66_t/Value * 386
+i:So/Rod_66_src/NumberOfHistoriesInRun = Rod_e * Rod_66_src_mult
+
+s:So/Rod_67_src/Type = "Volumetric"
+s:So/Rod_67_src/Component = "Rod_67"
+s:So/Rod_67_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_67_src/BeamParticle = "e+"
+d:So/Rod_67_src/BeamEnergy = 0.30 MeV
+i:Rod_67_src_mult = Tf/Rod_67_t/Value * 386
+i:So/Rod_67_src/NumberOfHistoriesInRun = Rod_e * Rod_67_src_mult
+
+s:So/Rod_68_src/Type = "Volumetric"
+s:So/Rod_68_src/Component = "Rod_68"
+s:So/Rod_68_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_68_src/BeamParticle = "e+"
+d:So/Rod_68_src/BeamEnergy = 0.30 MeV
+i:Rod_68_src_mult = Tf/Rod_68_t/Value * 386
+i:So/Rod_68_src/NumberOfHistoriesInRun = Rod_e * Rod_68_src_mult
+
+s:So/Rod_69_src/Type = "Volumetric"
+s:So/Rod_69_src/Component = "Rod_69"
+s:So/Rod_69_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_69_src/BeamParticle = "e+"
+d:So/Rod_69_src/BeamEnergy = 0.30 MeV
+i:Rod_69_src_mult = Tf/Rod_69_t/Value * 386
+i:So/Rod_69_src/NumberOfHistoriesInRun = Rod_e * Rod_69_src_mult
+
+s:So/Rod_70_src/Type = "Volumetric"
+s:So/Rod_70_src/Component = "Rod_70"
+s:So/Rod_70_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_70_src/BeamParticle = "e+"
+d:So/Rod_70_src/BeamEnergy = 0.30 MeV
+i:Rod_70_src_mult = Tf/Rod_70_t/Value * 386
+i:So/Rod_70_src/NumberOfHistoriesInRun = Rod_e * Rod_70_src_mult
+
+s:So/Rod_71_src/Type = "Volumetric"
+s:So/Rod_71_src/Component = "Rod_71"
+s:So/Rod_71_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_71_src/BeamParticle = "e+"
+d:So/Rod_71_src/BeamEnergy = 0.30 MeV
+i:Rod_71_src_mult = Tf/Rod_71_t/Value * 386
+i:So/Rod_71_src/NumberOfHistoriesInRun = Rod_e * Rod_71_src_mult
+
+s:So/Rod_72_src/Type = "Volumetric"
+s:So/Rod_72_src/Component = "Rod_72"
+s:So/Rod_72_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_72_src/BeamParticle = "e+"
+d:So/Rod_72_src/BeamEnergy = 0.30 MeV
+i:Rod_72_src_mult = Tf/Rod_72_t/Value * 386
+i:So/Rod_72_src/NumberOfHistoriesInRun = Rod_e * Rod_72_src_mult
+
+s:So/Rod_73_src/Type = "Volumetric"
+s:So/Rod_73_src/Component = "Rod_73"
+s:So/Rod_73_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_73_src/BeamParticle = "e+"
+d:So/Rod_73_src/BeamEnergy = 0.30 MeV
+i:Rod_73_src_mult = Tf/Rod_73_t/Value * 386
+i:So/Rod_73_src/NumberOfHistoriesInRun = Rod_e * Rod_73_src_mult
+
+s:So/Rod_74_src/Type = "Volumetric"
+s:So/Rod_74_src/Component = "Rod_74"
+s:So/Rod_74_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_74_src/BeamParticle = "e+"
+d:So/Rod_74_src/BeamEnergy = 0.30 MeV
+i:Rod_74_src_mult = Tf/Rod_74_t/Value * 386
+i:So/Rod_74_src/NumberOfHistoriesInRun = Rod_e * Rod_74_src_mult
+
+s:So/Rod_75_src/Type = "Volumetric"
+s:So/Rod_75_src/Component = "Rod_75"
+s:So/Rod_75_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_75_src/BeamParticle = "e+"
+d:So/Rod_75_src/BeamEnergy = 0.30 MeV
+i:Rod_75_src_mult = Tf/Rod_75_t/Value * 386
+i:So/Rod_75_src/NumberOfHistoriesInRun = Rod_e * Rod_75_src_mult
+
+s:So/Rod_76_src/Type = "Volumetric"
+s:So/Rod_76_src/Component = "Rod_76"
+s:So/Rod_76_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_76_src/BeamParticle = "e+"
+d:So/Rod_76_src/BeamEnergy = 0.30 MeV
+i:Rod_76_src_mult = Tf/Rod_76_t/Value * 386
+i:So/Rod_76_src/NumberOfHistoriesInRun = Rod_e * Rod_76_src_mult
+
+s:So/Rod_77_src/Type = "Volumetric"
+s:So/Rod_77_src/Component = "Rod_77"
+s:So/Rod_77_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_77_src/BeamParticle = "e+"
+d:So/Rod_77_src/BeamEnergy = 0.30 MeV
+i:Rod_77_src_mult = Tf/Rod_77_t/Value * 386
+i:So/Rod_77_src/NumberOfHistoriesInRun = Rod_e * Rod_77_src_mult
+
+s:So/Rod_78_src/Type = "Volumetric"
+s:So/Rod_78_src/Component = "Rod_78"
+s:So/Rod_78_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_78_src/BeamParticle = "e+"
+d:So/Rod_78_src/BeamEnergy = 0.30 MeV
+i:Rod_78_src_mult = Tf/Rod_78_t/Value * 386
+i:So/Rod_78_src/NumberOfHistoriesInRun = Rod_e * Rod_78_src_mult
+
+s:So/Rod_79_src/Type = "Volumetric"
+s:So/Rod_79_src/Component = "Rod_79"
+s:So/Rod_79_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_79_src/BeamParticle = "e+"
+d:So/Rod_79_src/BeamEnergy = 0.30 MeV
+i:Rod_79_src_mult = Tf/Rod_79_t/Value * 386
+i:So/Rod_79_src/NumberOfHistoriesInRun = Rod_e * Rod_79_src_mult
+
+s:So/Rod_80_src/Type = "Volumetric"
+s:So/Rod_80_src/Component = "Rod_80"
+s:So/Rod_80_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_80_src/BeamParticle = "e+"
+d:So/Rod_80_src/BeamEnergy = 0.30 MeV
+i:Rod_80_src_mult = Tf/Rod_80_t/Value * 386
+i:So/Rod_80_src/NumberOfHistoriesInRun = Rod_e * Rod_80_src_mult
+
+s:So/Rod_81_src/Type = "Volumetric"
+s:So/Rod_81_src/Component = "Rod_81"
+s:So/Rod_81_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_81_src/BeamParticle = "e+"
+d:So/Rod_81_src/BeamEnergy = 0.30 MeV
+i:Rod_81_src_mult = Tf/Rod_81_t/Value * 386
+i:So/Rod_81_src/NumberOfHistoriesInRun = Rod_e * Rod_81_src_mult
+
+s:So/Rod_82_src/Type = "Volumetric"
+s:So/Rod_82_src/Component = "Rod_82"
+s:So/Rod_82_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_82_src/BeamParticle = "e+"
+d:So/Rod_82_src/BeamEnergy = 0.30 MeV
+i:Rod_82_src_mult = Tf/Rod_82_t/Value * 386
+i:So/Rod_82_src/NumberOfHistoriesInRun = Rod_e * Rod_82_src_mult
+
+s:So/Rod_83_src/Type = "Volumetric"
+s:So/Rod_83_src/Component = "Rod_83"
+s:So/Rod_83_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_83_src/BeamParticle = "e+"
+d:So/Rod_83_src/BeamEnergy = 0.30 MeV
+i:Rod_83_src_mult = Tf/Rod_83_t/Value * 386
+i:So/Rod_83_src/NumberOfHistoriesInRun = Rod_e * Rod_83_src_mult
+
+s:So/Rod_84_src/Type = "Volumetric"
+s:So/Rod_84_src/Component = "Rod_84"
+s:So/Rod_84_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_84_src/BeamParticle = "e+"
+d:So/Rod_84_src/BeamEnergy = 0.30 MeV
+i:Rod_84_src_mult = Tf/Rod_84_t/Value * 386
+i:So/Rod_84_src/NumberOfHistoriesInRun = Rod_e * Rod_84_src_mult
+
+s:So/Rod_85_src/Type = "Volumetric"
+s:So/Rod_85_src/Component = "Rod_85"
+s:So/Rod_85_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_85_src/BeamParticle = "e+"
+d:So/Rod_85_src/BeamEnergy = 0.30 MeV
+i:Rod_85_src_mult = Tf/Rod_85_t/Value * 386
+i:So/Rod_85_src/NumberOfHistoriesInRun = Rod_e * Rod_85_src_mult
+
+s:So/Rod_86_src/Type = "Volumetric"
+s:So/Rod_86_src/Component = "Rod_86"
+s:So/Rod_86_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_86_src/BeamParticle = "e+"
+d:So/Rod_86_src/BeamEnergy = 0.30 MeV
+i:Rod_86_src_mult = Tf/Rod_86_t/Value * 386
+i:So/Rod_86_src/NumberOfHistoriesInRun = Rod_e * Rod_86_src_mult
+
+s:So/Rod_87_src/Type = "Volumetric"
+s:So/Rod_87_src/Component = "Rod_87"
+s:So/Rod_87_src/ActiveMaterial = "G4_WATER"
+s:So/Rod_87_src/BeamParticle = "e+"
+d:So/Rod_87_src/BeamEnergy = 0.30 MeV
+i:Rod_87_src_mult = Tf/Rod_87_t/Value * 386
+i:So/Rod_87_src/NumberOfHistoriesInRun = Rod_e * Rod_87_src_mult
+
+s:Tf/Derenzo_t/Function = "Step"
+dv:Tf/Derenzo_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Derenzo_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1
+
+# rod time steps run one rod at a time
+
+s:Tf/Rod_0_t/Function = "Step"
+dv:Tf/Rod_0_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_0_t/Values = 89 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_1_t/Function = "Step"
+dv:Tf/Rod_1_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_1_t/Values = 89 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_2_t/Function = "Step"
+dv:Tf/Rod_2_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_2_t/Values = 89 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_3_t/Function = "Step"
+dv:Tf/Rod_3_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_3_t/Values = 89 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_4_t/Function = "Step"
+dv:Tf/Rod_4_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_4_t/Values = 89 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_5_t/Function = "Step"
+dv:Tf/Rod_5_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_5_t/Values = 89 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_6_t/Function = "Step"
+dv:Tf/Rod_6_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_6_t/Values = 89 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_7_t/Function = "Step"
+dv:Tf/Rod_7_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_7_t/Values = 89 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_8_t/Function = "Step"
+dv:Tf/Rod_8_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_8_t/Values = 89 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_9_t/Function = "Step"
+dv:Tf/Rod_9_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_9_t/Values = 89 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_10_t/Function = "Step"
+dv:Tf/Rod_10_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_10_t/Values = 89 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_11_t/Function = "Step"
+dv:Tf/Rod_11_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_11_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_12_t/Function = "Step"
+dv:Tf/Rod_12_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_12_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_13_t/Function = "Step"
+dv:Tf/Rod_13_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_13_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_14_t/Function = "Step"
+dv:Tf/Rod_14_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_14_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_15_t/Function = "Step"
+dv:Tf/Rod_15_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_15_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_16_t/Function = "Step"
+dv:Tf/Rod_16_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_16_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_17_t/Function = "Step"
+dv:Tf/Rod_17_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_17_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_18_t/Function = "Step"
+dv:Tf/Rod_18_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_18_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_19_t/Function = "Step"
+dv:Tf/Rod_19_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_19_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_20_t/Function = "Step"
+dv:Tf/Rod_20_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_20_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_21_t/Function = "Step"
+dv:Tf/Rod_21_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_21_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_22_t/Function = "Step"
+dv:Tf/Rod_22_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_22_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_23_t/Function = "Step"
+dv:Tf/Rod_23_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_23_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_24_t/Function = "Step"
+dv:Tf/Rod_24_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_24_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_25_t/Function = "Step"
+dv:Tf/Rod_25_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_25_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_26_t/Function = "Step"
+dv:Tf/Rod_26_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_26_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_27_t/Function = "Step"
+dv:Tf/Rod_27_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_27_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_28_t/Function = "Step"
+dv:Tf/Rod_28_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_28_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_29_t/Function = "Step"
+dv:Tf/Rod_29_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_29_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_30_t/Function = "Step"
+dv:Tf/Rod_30_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_30_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_31_t/Function = "Step"
+dv:Tf/Rod_31_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_31_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_32_t/Function = "Step"
+dv:Tf/Rod_32_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_32_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_33_t/Function = "Step"
+dv:Tf/Rod_33_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_33_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_34_t/Function = "Step"
+dv:Tf/Rod_34_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_34_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_35_t/Function = "Step"
+dv:Tf/Rod_35_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_35_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_36_t/Function = "Step"
+dv:Tf/Rod_36_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_36_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_37_t/Function = "Step"
+dv:Tf/Rod_37_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_37_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_38_t/Function = "Step"
+dv:Tf/Rod_38_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_38_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_39_t/Function = "Step"
+dv:Tf/Rod_39_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_39_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_40_t/Function = "Step"
+dv:Tf/Rod_40_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_40_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_41_t/Function = "Step"
+dv:Tf/Rod_41_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_41_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_42_t/Function = "Step"
+dv:Tf/Rod_42_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_42_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_43_t/Function = "Step"
+dv:Tf/Rod_43_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_43_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_44_t/Function = "Step"
+dv:Tf/Rod_44_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_44_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_45_t/Function = "Step"
+dv:Tf/Rod_45_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_45_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_46_t/Function = "Step"
+dv:Tf/Rod_46_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_46_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_47_t/Function = "Step"
+dv:Tf/Rod_47_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_47_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_48_t/Function = "Step"
+dv:Tf/Rod_48_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_48_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_49_t/Function = "Step"
+dv:Tf/Rod_49_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_49_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_50_t/Function = "Step"
+dv:Tf/Rod_50_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_50_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_51_t/Function = "Step"
+dv:Tf/Rod_51_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_51_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_52_t/Function = "Step"
+dv:Tf/Rod_52_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_52_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_53_t/Function = "Step"
+dv:Tf/Rod_53_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_53_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_54_t/Function = "Step"
+dv:Tf/Rod_54_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_54_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_55_t/Function = "Step"
+dv:Tf/Rod_55_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_55_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_56_t/Function = "Step"
+dv:Tf/Rod_56_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_56_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_57_t/Function = "Step"
+dv:Tf/Rod_57_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_57_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_58_t/Function = "Step"
+dv:Tf/Rod_58_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_58_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_59_t/Function = "Step"
+dv:Tf/Rod_59_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_59_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_60_t/Function = "Step"
+dv:Tf/Rod_60_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_60_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_61_t/Function = "Step"
+dv:Tf/Rod_61_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_61_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_62_t/Function = "Step"
+dv:Tf/Rod_62_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_62_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_63_t/Function = "Step"
+dv:Tf/Rod_63_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_63_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_64_t/Function = "Step"
+dv:Tf/Rod_64_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_64_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_65_t/Function = "Step"
+dv:Tf/Rod_65_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_65_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_66_t/Function = "Step"
+dv:Tf/Rod_66_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_66_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_67_t/Function = "Step"
+dv:Tf/Rod_67_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_67_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_68_t/Function = "Step"
+dv:Tf/Rod_68_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_68_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_69_t/Function = "Step"
+dv:Tf/Rod_69_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_69_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_70_t/Function = "Step"
+dv:Tf/Rod_70_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_70_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_71_t/Function = "Step"
+dv:Tf/Rod_71_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_71_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_72_t/Function = "Step"
+dv:Tf/Rod_72_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_72_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_73_t/Function = "Step"
+dv:Tf/Rod_73_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_73_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_74_t/Function = "Step"
+dv:Tf/Rod_74_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_74_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_75_t/Function = "Step"
+dv:Tf/Rod_75_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_75_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_76_t/Function = "Step"
+dv:Tf/Rod_76_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_76_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_77_t/Function = "Step"
+dv:Tf/Rod_77_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_77_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_78_t/Function = "Step"
+dv:Tf/Rod_78_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_78_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_79_t/Function = "Step"
+dv:Tf/Rod_79_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_79_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_80_t/Function = "Step"
+dv:Tf/Rod_80_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_80_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0
+
+s:Tf/Rod_81_t/Function = "Step"
+dv:Tf/Rod_81_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_81_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0
+
+s:Tf/Rod_82_t/Function = "Step"
+dv:Tf/Rod_82_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_82_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0
+
+s:Tf/Rod_83_t/Function = "Step"
+dv:Tf/Rod_83_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_83_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0
+
+s:Tf/Rod_84_t/Function = "Step"
+dv:Tf/Rod_84_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_84_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0
+
+s:Tf/Rod_85_t/Function = "Step"
+dv:Tf/Rod_85_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_85_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0
+
+s:Tf/Rod_86_t/Function = "Step"
+dv:Tf/Rod_86_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_86_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0
+
+s:Tf/Rod_87_t/Function = "Step"
+dv:Tf/Rod_87_t/Times = 89 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5 32.5 33.5 34.5 35.5 36.5 37.5 38.5 39.5 40.5 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 50.5 51.5 52.5 53.5 54.5 55.5 56.5 57.5 58.5 59.5 60.5 61.5 62.5 63.5 64.5 65.5 66.5 67.5 68.5 69.5 70.5 71.5 72.5 73.5 74.5 75.5 76.5 77.5 78.5 79.5 80.5 81.5 82.5 83.5 84.5 85.5 86.5 87.5 88.5 s
+iv:Tf/Rod_87_t/Values = 89 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0
+
+d:Tf/TimelineStart = 0. s
+d:Tf/TimelineEnd = 89.0 s
+i:Tf/NumberOfSequentialTimes = 89
+
+

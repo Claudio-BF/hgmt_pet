@@ -126,7 +126,7 @@ d:Ge/Detector_11/RMax	= 102.54 cm
 d:Ge/Detector_11/HL = 1 m
 d:Ge/Detector_11/MinStepSize 	= 0.01 mm
 
-includeFile = ./derenzo_300keV_100.topas
+includeFile = ./simulation_materials/derenzo_300keV_100.topas
 
 s:Ge/Derenzo/Parent = "AirBox"
 background_e = 0 #30
