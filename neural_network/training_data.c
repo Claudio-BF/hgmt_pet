@@ -91,7 +91,7 @@ int main(int argc, char **argv) {
 
   // opens up a .lor file to output each LOR into
   output = fopen("training.data", "wb");
-  FILE *phsp_file = fopen(args[0], "rb");
+  FILE *output_file = fopen(args[0], "rb");
   printf("Loading in '%s' as the annihilations...\n", args[0]);
 
   printf("Constructing the data...\n");
@@ -103,7 +103,8 @@ int main(int argc, char **argv) {
     for (int j = 0; j < BATCH_SIZE; j++)
       cache[i][j] = &all[BATCH_SIZE * triangular(i) + j * (i + 1)];
   annihilation new_annihilation;
-  bool worked = read_annihilation(&new_annihilation, phsp_file, eff_by_energy);
+  bool worked =
+      read_annihilation(&new_annihilation, output_file, eff_by_energy);
   while (worked) {
     if (new_annihilation.photon1_path.num_hits >= 1 &&
         new_annihilation.photon1_path.hits[0]->source->number == 0)
@@ -116,7 +117,7 @@ int main(int argc, char **argv) {
     free_annihilation(&new_annihilation);
     printm(num_annihilations, 1000000);
     num_annihilations++;
-    worked = read_annihilation(&new_annihilation, phsp_file, eff_by_energy);
+    worked = read_annihilation(&new_annihilation, output_file, eff_by_energy);
   }
   printf("done!\n");
   return 0;

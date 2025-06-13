@@ -274,12 +274,12 @@ int main(int argc, char **argv) {
     visualization = fopen(filename, "w");
     free(filename);
   }
-  FILE *phsp_file = fopen(args[0], "rb");
+  FILE *input_file = fopen(args[0], "rb");
   printf("Loading in '%s' as the annihilations...\n", args[0]);
 
   printf("Constructing the hits...\n");
   annihilation new_annihilation;
-  bool worked = read_annihilation(&new_annihilation, phsp_file, eff_by_energy);
+  bool worked = read_annihilation(&new_annihilation, input_file, eff_by_energy);
   while (worked) {
     hit_split split =
         create_hit_split(new_annihilation.hits, new_annihilation.num_hits);
@@ -298,7 +298,7 @@ int main(int argc, char **argv) {
     printm(num_annihilations, 1000000);
     if (max_annihilations != 0 && num_annihilations >= max_annihilations)
       break;
-    worked = read_annihilation(&new_annihilation, phsp_file, eff_by_energy);
+    worked = read_annihilation(&new_annihilation, input_file, eff_by_energy);
   }
   printf("\n");
   // fixing cuts formating to be cumulative
