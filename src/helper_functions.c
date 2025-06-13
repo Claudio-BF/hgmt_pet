@@ -5,7 +5,6 @@
 #include <string.h>
 
 #include "helper_functions.h"
-int factlookup[10] = {1, 2, 6, 24, 120, 720, 5040, 40320, 362880, 3628800};
 // gives a random number following a guassian distribution
 double gaussian(double sd, int num_additions) {
   double rand = 0.0;
@@ -60,25 +59,19 @@ char **get_flags(int argc, char **argv) {
   }
   return flags;
 }
-int factorial(int num) {
-  if (num <= 10) {
-    return factlookup[num - 1];
-  }
-  return num * factorial(num - 1);
-}
 // both these functions could be sped up massively with lookup tables someday,
 // they just have terrible time complexity
-perm *first_perm(int n) {
-  perm *new_perm = (perm *)malloc(sizeof(perm));
-  new_perm->perm = (int *)malloc(sizeof(int) * n);
-  new_perm->places = (int *)malloc(sizeof(int) * n);
-  new_perm->index = (int *)malloc(sizeof(int) * n);
-  new_perm->parity = (int *)calloc(sizeof(int), n);
-  new_perm->length = n - 1;
-  for (int i = 0; i < n; i++) {
-    new_perm->perm[i] = i;
-    new_perm->places[i] = i;
-    new_perm->index[i] = 0;
+perm first_perm(int n) {
+  perm new_perm;
+  new_perm.perm = (uint *)malloc(sizeof(uint) * n);
+  new_perm.places = (uint *)malloc(sizeof(uint) * n);
+  new_perm.index = (uint *)malloc(sizeof(uint) * n);
+  new_perm.parity = (bool *)calloc(sizeof(bool), n);
+  new_perm.length = n - 1;
+  for (uint i = 0; i < n; i++) {
+    new_perm.perm[i] = i;
+    new_perm.places[i] = i;
+    new_perm.index[i] = 0;
   }
   return new_perm;
 }
@@ -98,15 +91,17 @@ int increment_perm_index(perm *permutation, int i) {
   permutation->index[i]++;
   return i;
 }
-void swap(int *a, int *b) {
-  int tmp = *a;
+void swap(uint *a, uint *b) {
+  uint tmp = *a;
   *a = *b;
   *b = tmp;
 }
-void increment_perm(perm *permutation) {
-  int digit = increment_perm_index(permutation, 0);
-  int place = permutation->places[digit];
-  int parity = permutation->parity[digit];
+bool increment_perm(perm *permutation) {
+  uint digit = increment_perm_index(permutation, 0);
+  if (digit == permutation->length - 1)
+    return false;
+  uint place = permutation->places[digit];
+  bool parity = permutation->parity[digit];
   if (parity) {
     permutation->places[digit]--;
     permutation->places[permutation->perm[place - 1]]++;
@@ -116,6 +111,7 @@ void increment_perm(perm *permutation) {
     permutation->places[permutation->perm[place + 1]]--;
     swap(&permutation->perm[place], &permutation->perm[place + 1]);
   }
+  return true;
 }
 void print_perm(perm *permutation) {
   for (int i = 0; i < permutation->length + 1; i++) {
@@ -157,10 +153,4 @@ double linear_interpolation(double nums[COLS], double min, double max,
 void printm(int num, uint mod) {
   if (num % mod == 0)
     printf("%i\n", num);
-}
-void print_double(double numb, FILE *output) {
-  fwrite(&numb, sizeof(double), 1, output);
-}
-void print_int(int numb, FILE *output) {
-  fwrite(&numb, sizeof(int), 1, output);
 }

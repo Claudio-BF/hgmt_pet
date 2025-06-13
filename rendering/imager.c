@@ -6,9 +6,11 @@
 #include <stdlib.h>
 #include <string.h>
 
-// including custom files
+// currently very simple algorithm, divides the image into boxes and adds up
+// hits in each box. This works surprisingly well (better than the previous
+// solution), however an EM algorithm utilizing the covariances would be ideal.
 #include "../src/helper_functions.h"
-#include "../src/hgmt_structs.h"
+#include "../src/read_write.h"
 #include "imager.h"
 void add_grid(grid *cells, uint i, uint j, uint k) {
   cells->counts[i * Y_RES * Z_RES + j * Z_RES + k]++;
@@ -37,10 +39,6 @@ void generate_image(grid *cells, image *pixels) {
     pixels->values[i] = (cells->counts[i] - min) * scale;
     // printf("%lf\n", pixels.values[i]);
   }
-}
-bool read_lor(lor *new_lor, FILE *input) {
-  read_vec(&new_lor->center, input);
-  return read_sym(&new_lor->covariance, input);
 }
 
 int main(int argc, char **argv) {

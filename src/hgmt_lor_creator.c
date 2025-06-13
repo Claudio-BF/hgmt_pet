@@ -8,15 +8,13 @@
 #include "compton_chain_ordering.h"
 #include "helper_functions.h"
 #include "hgmt_structs.h"
-#include "linear_algebra.h"
+#include "read_write.h"
 
+double eff_by_energy[COLS];
 // params
 bool writing_to_lor = true;
 uint vis_events = 0;
 uint counter = 0;
-double detector_positions[12] = {45, 50, 55, 60, 65, 70,
-                                 75, 80, 85, 90, 95, 100}; // MUST BE SORTED
-
 // global variables
 #define NUM_CUTS 6
 #define NUM_DEBUG_OPTIONS 5
@@ -36,19 +34,14 @@ uint dual_cuts[NUM_CUTS] = {0};
 uint num_scatters = 0;
 uint num_hits = 0;
 event *first_event;
-double eff_by_energy[COLS];
 bool debug_options[NUM_DEBUG_OPTIONS];
 FILE *debug[NUM_DEBUG_OPTIONS];
 FILE *visualization;
 
-void print_lor(lor *new_lor, FILE *output) {
-  print_vec(new_lor->center, output);
-  print_sym_matrix(&new_lor->covariance, output);
-}
 prim_lor create_prim_lor(hit_split split) {
   prim_lor primitive_lor;
-  hit *hit1 = split.hits1[0];
-  hit *hit2 = split.hits2[0];
+  hit *hit1 = initial_by_least_time(split.hits1, split.num_hits1);
+  hit *hit2 = initial_by_least_time(split.hits2, split.num_hits2);
   // hit *hit1 =
   //     initial_by_best_order(split.hits1, split.num_hits1, eff_by_energy);
   // hit *hit2 =
@@ -70,58 +63,8 @@ double impact_parameter(vec3d loc1, vec3d loc2, double tof1, double tof2,
   return vec_mag(vec_rejection(vec_sub(estimated_loc, true_center), c));
 }
 
-void read_eff(FILE *source) {
-  // loops through all the entries in a row
-  for (int i = 0; i < COLS; i++) {
-    fscanf(source, "%lf,", &eff_by_energy[i]);
-  }
-}
 // gets the detector an event happened in. return -1 if it didn't happen in a
 // detector
-int get_detector(vec3d position) {
-  double rad_dist = radial_dist(position);
-  for (int i = 0; i < sizeof(detector_positions) / sizeof(double); i++) {
-    if (rad_dist > detector_positions[i] &&
-        rad_dist < detector_positions[i] + DETECTOR_THICKNESS) {
-      return i;
-    }
-  }
-  return -1;
-}
-bool is_detected(event *single_event) {
-  if (single_event->detector_id != -1 &&
-      drand48() < linear_interpolation(eff_by_energy, E_MIN, E_MAX,
-                                       single_event->energy)) {
-    return true;
-  }
-  return false;
-}
-hit *event_to_hit(event *single_event) {
-  vec_mag(three_vec(single_event->position.x, single_event->position.y, 0.0));
-  vec3d z_hat = three_vec(0.0, 0.0, 1.0);
-  vec3d circ_hat = vec_norm(vec_cross(z_hat, single_event->position));
-  vec3d offset = vec_add(vec_scale(z_hat, gaussian(LONG_UNC, 30)),
-                         vec_scale(circ_hat, gaussian(CIRC_UNC, 30)));
-  hit *new_hit = (hit *)malloc(sizeof(hit));
-  new_hit->source = single_event;
-  new_hit->position = single_event->position;
-  new_hit->tof = single_event->tof + gaussian(TIME_UNC, 30);
-  double rad_dist = radial_dist(new_hit->position);
-  if (DETECTOR_SEGMENTATION) {
-    // we move the radial component to the midpoint of the detector which it hit
-    new_hit->position = radial_scale(
-        new_hit->position, (detector_positions[single_event->detector_id] +
-                            DETECTOR_THICKNESS / 2) /
-                               rad_dist);
-  } else {
-    vec3d r_hat =
-        vec_scale(three_vec(new_hit->position.x, new_hit->position.y, 0),
-                  1.0 / radial_dist(new_hit->position));
-    offset = vec_add(offset, vec_scale(r_hat, gaussian(RAD_UNC, 30)));
-  }
-  new_hit->position = vec_add(new_hit->position, offset);
-  return new_hit;
-}
 sym_matrix hit_covariance(vec3d position) {
   sym_matrix covariance;
   double rad = vec_mag(position);
@@ -155,106 +98,7 @@ lor create_lor(prim_lor *primitive_lor) {
               sym_scale(sym_proj(c_hat), SPD_LGHT * TIME_VAR * 0.5));
   return new_lor;
 }
-void read_event(event *new_event, FILE *source) {
-  fread(&new_event->tof, sizeof(double), 1, source);
-  fread(&new_event->energy, sizeof(double), 1, source);
-  read_vec(&new_event->position, source);
-  read_vec(&new_event->direction, source);
-  fread(&new_event->primary, sizeof(uint), 1, source);
-  new_event->detector_id = get_detector(new_event->position);
-  new_event->detected = is_detected(new_event);
-}
-int compare_hits(const void *hit1, const void *hit2) {
-  return ((hit *)hit1)->tof > ((hit *)hit2)->tof;
-}
-bool read_annihilation(annihilation *new_annihilation, FILE *source) {
-  if (!fread(&new_annihilation->time, sizeof(double), 1, source))
-    return false;
-  read_vec(&new_annihilation->origin, source);
-  read_vec(&new_annihilation->center, source);
-  fread(&new_annihilation->num_events, sizeof(uint), 1, source);
-  uint num_primary1 = 0;
-  uint num_primary2 = 0;
-  new_annihilation->events =
-      (event *)malloc(sizeof(event) * new_annihilation->num_events);
-  uint num_hits = 0;
-  uint num_primary1_hits = 0;
-  uint num_primary2_hits = 0;
-  for (int i = 0; i < new_annihilation->num_events; i++) {
-    event *next_event = &new_annihilation->events[i];
-    read_event(next_event, source);
-    if (next_event->primary == 1) {
-      next_event->number = num_primary1;
-      num_primary1++;
-    } else if (next_event->primary == 2) {
-      next_event->number = num_primary2;
-      num_primary2++;
-    }
-    if (next_event->detected) {
-      num_hits++;
-      if (next_event->primary == 1)
-        num_primary1_hits++;
-      else if (next_event->primary == 2)
-        num_primary2_hits++;
-    }
-  }
-  new_annihilation->hits = (hit *)malloc(sizeof(hit) * num_hits);
-  new_annihilation->photon1_path.events =
-      (event **)malloc(sizeof(event *) * num_primary1);
-  new_annihilation->photon2_path.events =
-      (event **)malloc(sizeof(event *) * num_primary2);
-  new_annihilation->photon1_path.hits =
-      (hit **)malloc(sizeof(hit *) * num_primary1_hits);
-  new_annihilation->photon2_path.hits =
-      (hit **)malloc(sizeof(hit *) * num_primary2_hits);
-  num_primary1 = 0;
-  num_primary2 = 0;
-  num_hits = 0;
-  num_primary1_hits = 0;
-  num_primary2_hits = 0;
-  for (int i = 0; i < new_annihilation->num_events; i++) {
-    event *current_event = &new_annihilation->events[i];
-    if (current_event->primary == 1) {
-      new_annihilation->photon1_path.events[num_primary1] = current_event;
-      num_primary1++;
-    } else if (current_event->primary == 2) {
-      new_annihilation->photon2_path.events[num_primary2] = current_event;
-      num_primary2++;
-    }
-    if (current_event->detected) {
-      hit *detector_hit = event_to_hit(current_event);
-      new_annihilation->hits[num_hits] = *detector_hit;
-      free(detector_hit);
-      num_hits++;
-    }
-  }
-  qsort(new_annihilation->hits, num_hits, sizeof(hit), compare_hits);
-  for (int i = 0; i < num_hits; i++) {
-    hit *current_hit = &new_annihilation->hits[i];
-    if (current_hit->source->primary == 1) {
-      new_annihilation->photon1_path.hits[num_primary1_hits] = current_hit;
-      num_primary1_hits++;
-    } else if (current_hit->source->primary == 2) {
-      new_annihilation->photon2_path.hits[num_primary2_hits] = current_hit;
-      num_primary2_hits++;
-    }
-  }
-  new_annihilation->num_hits = num_hits;
-  new_annihilation->photon1_path.num_events = num_primary1;
-  new_annihilation->photon2_path.num_events = num_primary2;
-  new_annihilation->photon1_path.num_hits = num_primary1_hits;
-  new_annihilation->photon2_path.num_hits = num_primary2_hits;
-  return true;
-}
 
-void free_annihilation(annihilation *annihilation_pointer) {
-  free(annihilation_pointer->events);
-  free(annihilation_pointer->hits);
-  free(annihilation_pointer->photon1_path.events);
-  free(annihilation_pointer->photon1_path.hits);
-  free(annihilation_pointer->photon2_path.events);
-  free(annihilation_pointer->photon2_path.hits);
-}
 void print_path(photon_path *path) {
   for (int i = 0; i < path->num_events; i++)
     // format: x,y,z, energy deposit, detected
@@ -364,7 +208,7 @@ int main(int argc, char **argv) {
   // handling all flags and arguments
   for (int i = 0; i < num_flags(argc, argv); i++) {
     if (strcmp(flags[i], "-h") == 0) {
-      printf("Usage: ./hgmt_lor_creator [TOPAS_file_position.phsp] "
+      printf("Usage: ./hgmt_lor_creator [TOPAS_file_position (not the phsp)] "
              "[efficiency_table_position.csv] [output_directory]\n");
       printf("-h: print this help\n");
       printf("-d: run in debug mode, do not write to lor file\n");
@@ -413,13 +257,12 @@ int main(int argc, char **argv) {
   printf("HGMT LOR Creator\n\nLoading in '%s' as efficiencies table...\n",
          args[1]);
   FILE *eff_table_file = fopen(args[1], "r");
-  read_eff(eff_table_file);
+  read_eff(eff_table_file, eff_by_energy);
   fclose(eff_table_file);
 
   // opens up a .lor file to output each LOR into
   FILE *lor_output = NULL;
   if (writing_to_lor) {
-    printf("Unable to open output file for writing\n");
     char *lor_file_loc;
     asprintf(&lor_file_loc, "%sHGMTDerenzo.lor", args[2]);
     lor_output = fopen(lor_file_loc, "wb");
@@ -432,11 +275,11 @@ int main(int argc, char **argv) {
     free(filename);
   }
   FILE *phsp_file = fopen(args[0], "rb");
-  printf("Loading in '%s' as the phsp file...\n", args[0]);
+  printf("Loading in '%s' as the annihilations...\n", args[0]);
 
   printf("Constructing the hits...\n");
   annihilation new_annihilation;
-  bool worked = read_annihilation(&new_annihilation, phsp_file);
+  bool worked = read_annihilation(&new_annihilation, phsp_file, eff_by_energy);
   while (worked) {
     hit_split split =
         create_hit_split(new_annihilation.hits, new_annihilation.num_hits);
@@ -455,7 +298,7 @@ int main(int argc, char **argv) {
     printm(num_annihilations, 1000000);
     if (max_annihilations != 0 && num_annihilations >= max_annihilations)
       break;
-    worked = read_annihilation(&new_annihilation, phsp_file);
+    worked = read_annihilation(&new_annihilation, phsp_file, eff_by_energy);
   }
   printf("\n");
   // fixing cuts formating to be cumulative

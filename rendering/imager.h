@@ -5,7 +5,7 @@
 // including custom files
 #include "../src/compton_chain_ordering.h"
 #include "../src/helper_functions.h"
-#include "../src/hgmt_structs.h"
+#include "../src/hgmt_lor_creator.h"
 #include "../src/linear_algebra.h"
 #define X_LENGTH 25.0
 #define Y_LENGTH 25.0

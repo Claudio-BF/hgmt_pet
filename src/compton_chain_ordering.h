@@ -11,9 +11,8 @@ typedef struct _hit_split {
 } hit_split;
 hit_split create_hit_split(hit *hits, uint num_hits);
 void free_hit_split(hit_split *split);
-double time_FOM(hit **hits, int *order, uint num_hits);
-double time_FOM_cum(hit **hits, int *order, uint num_hits);
 hit *initial_by_best_order(hit **hits, uint num_hits,
                            double eff_by_energy[COLS]);
 hit *initial_by_least_radial(hit **hits, uint num_hits);
+hit *initial_by_least_time(hit **hits, uint num_hits);
 #endif

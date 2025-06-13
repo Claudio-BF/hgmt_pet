@@ -1,5 +1,5 @@
 echo "Running Diagnostics"
-../hgmt_lor_creator ../data/HGMTDerenzo ../data/kapton_effs.csv ../data/ -e0 -e1 -e2 -e3 -e4 -d | tee ../plots/detector_diagnostics.txt
+../hgmt_lor_creator ../data/HGMTDerenzo ../simulation_materials/kapton_effs.csv ../data/ -e0 -e1 -e2 -e3 -e4 -d | tee ../plots/detector_diagnostics.txt
 ./hgmt_debug ../data/debug0.data 12 12 -hi | tee ../plots/scatter_detector.txt
 python3 plot_bars.py ../plots/scatter_detector.txt Detector\ ID Scatters\ Occured
 ./hgmt_debug ../data/debug1.data 12 12 -hi | tee ../plots/first_scatter_detector.txt

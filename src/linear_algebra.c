@@ -1,9 +1,7 @@
 #include "linear_algebra.h"
-#include "helper_functions.h"
 #include <math.h>
 #include <stdio.h>
-#include <stdlib.h>
-
+typedef unsigned int uint;
 #define MAX(a, b) ((a) > (b) ? (a) : (b))
 // defines a new 3-vector
 vec3d three_vec(double x, double y, double z) {
@@ -88,12 +86,6 @@ double vec_angle(vec3d a, vec3d b) {
   } else {
     return acos(a_dot_b / norms);
   }
-}
-
-void print_vec(vec3d vec, FILE *output) {
-  fwrite(&vec.x, sizeof(double), 1, output);
-  fwrite(&vec.y, sizeof(double), 1, output);
-  fwrite(&vec.z, sizeof(double), 1, output);
 }
 
 // normalizes the given vector, returns as a new vector structure
@@ -195,20 +187,10 @@ double sym_max_eigenvalue(sym_matrix mat) {
   double root3 = 2 * cos(theta + 6 * M_PI / 3);
   return p * MAX(root1, MAX(root2, root3)) + q;
 }
-vec3d sym_row(sym_matrix *mat, uint row) {
-  switch (row) {
-  case 0:
-    return three_vec(mat->xx, mat->xy, mat->xz);
-  case 1:
-    return three_vec(mat->xy, mat->yy, mat->yz);
-  case 2:
-    return three_vec(mat->xz, mat->yz, mat->zz);
-  }
-}
 vec3d sym_eigenvector(sym_matrix *mat, double eigenvalue) {
-  vec3d row1 = sym_row(mat, 0);
-  vec3d row2 = sym_row(mat, 1);
-  vec3d row3 = sym_row(mat, 2);
+  vec3d row1 = three_vec(mat->xx, mat->xy, mat->xz);
+  vec3d row2 = three_vec(mat->xy, mat->yy, mat->yz);
+  vec3d row3 = three_vec(mat->xz, mat->yz, mat->zz);
   row1.x -= eigenvalue;
   row2.y -= eigenvalue;
   row3.z -= eigenvalue;
@@ -242,28 +224,4 @@ vec3d lower_transform(lower_matrix *lower, vec3d vec) {
   return three_vec(vec.x * lower->l11, vec.x * lower->l21 + vec.y * lower->l22,
                    vec.x * lower->l31 + vec.y * lower->l32 +
                        vec.z * lower->l33);
-}
-
-void print_sym_matrix(sym_matrix *mat, FILE *output) {
-  fwrite(&mat->xx, sizeof(double), 1, output);
-  fwrite(&mat->xy, sizeof(double), 1, output);
-  fwrite(&mat->xz, sizeof(double), 1, output);
-  fwrite(&mat->yy, sizeof(double), 1, output);
-  fwrite(&mat->yz, sizeof(double), 1, output);
-  fwrite(&mat->zz, sizeof(double), 1, output);
-}
-bool read_vec(vec3d *vec, FILE *source) {
-  bool worked = fread(&vec->x, sizeof(double), 1, source);
-  fread(&vec->y, sizeof(double), 1, source);
-  fread(&vec->z, sizeof(double), 1, source);
-  return worked;
-}
-bool read_sym(sym_matrix *mat, FILE *source) {
-  bool worked = fread(&mat->xx, sizeof(double), 1, source);
-  fread(&mat->xy, sizeof(double), 1, source);
-  fread(&mat->xz, sizeof(double), 1, source);
-  fread(&mat->yy, sizeof(double), 1, source);
-  fread(&mat->yz, sizeof(double), 1, source);
-  fread(&mat->zz, sizeof(double), 1, source);
-  return worked;
 }

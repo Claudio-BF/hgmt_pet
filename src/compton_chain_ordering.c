@@ -84,7 +84,7 @@ double variance_dist(vec3d loc1, vec3d loc2, double d) {
                  delta_z * delta_z * var_delta_z / (d * d);
   return var_d;
 }
-double time_FOM_cum(hit **hits, int *order, uint num_hits) {
+double time_FOM_cum(hit **hits, uint *order, uint num_hits) {
   double FOM = 0;
   double var_t = TIME_UNC * TIME_UNC;
   double var_dt = 0;
@@ -103,7 +103,7 @@ double time_FOM_cum(hit **hits, int *order, uint num_hits) {
   return FOM;
 }
 
-double chi_square_FOM(hit **hits, int *order, uint num_hits,
+double chi_square_FOM(hit **hits, uint *order, uint num_hits,
                       double eff_by_energy[COLS]) {
   double FOM = 0;
   double E_i = REST_ENERGY; // KeV
@@ -152,24 +152,22 @@ hit *initial_by_best_order(hit **hits, uint num_hits,
       }
     }
   }
-  int factor = factorial(num_hits);
-  perm *permutation = first_perm(num_hits);
+  perm permutation = first_perm(num_hits);
   hit *the_best_hit = hits[0];
   double bestFOM =
-      chi_square_FOM(hits, permutation->perm, num_hits, eff_by_energy);
-  for (int i = 0; i < factor - 1; i++) {
-    increment_perm(permutation);
+      chi_square_FOM(hits, permutation.perm, num_hits, eff_by_energy);
+  while (increment_perm(&permutation)) {
     double figure_of_merit =
-        chi_square_FOM(hits, permutation->perm, num_hits, eff_by_energy);
+        chi_square_FOM(hits, permutation.perm, num_hits, eff_by_energy);
     if (figure_of_merit < bestFOM) {
       bestFOM = figure_of_merit;
-      the_best_hit = hits[permutation->perm[0]];
+      the_best_hit = hits[permutation.perm[0]];
     } else if (figure_of_merit == bestFOM &&
-               the_best_hit->tof > hits[permutation->perm[0]]->tof) {
-      the_best_hit = hits[permutation->perm[0]];
+               the_best_hit->tof > hits[permutation.perm[0]]->tof) {
+      the_best_hit = hits[permutation.perm[0]];
     }
   }
-  free_perm(permutation);
+  free_perm(&permutation);
   return the_best_hit;
 }
 hit *initial_by_least_radial(hit **hits, uint num_hits) {
@@ -179,6 +177,18 @@ hit *initial_by_least_radial(hit **hits, uint num_hits) {
     double new_rad = radial_dist(hits[i]->position);
     if (new_rad < best_rad) {
       best_rad = new_rad;
+      initial = hits[i];
+    }
+  }
+  return initial;
+}
+hit *initial_by_least_time(hit **hits, uint num_hits) {
+  double best_time = hits[0]->tof;
+  hit *initial = hits[0];
+  for (int i = 1; i < num_hits; i++) {
+    double new_time = hits[i]->tof;
+    if (new_time < best_time) {
+      best_time = new_time;
       initial = hits[i];
     }
   }

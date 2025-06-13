@@ -3,7 +3,7 @@
 #include <stdbool.h>
 #include <stdio.h>
 
-typedef struct vec3_double {
+typedef struct vec3d {
   double x, y, z;
 } vec3d;
 typedef struct sym_matrix {
@@ -42,9 +42,6 @@ double vec_dist(vec3d a, vec3d b);
 // // makes a new copy of a vector
 // vec3d vec_copy(vec3d a);
 
-// prints a vector as the three values
-void print_vec(vec3d a, FILE *source);
-
 // normalizes the given vector, returns as a new vector structure
 vec3d vec_norm(vec3d a);
 
@@ -66,7 +63,4 @@ sym_matrix sym_zero();
 sym_matrix sym_scale(sym_matrix mat, double factor);
 sym_matrix sym_proj(vec3d vec);          // gives the outer square of a vector
 lower_matrix conj_axes(sym_matrix *mat); // find L so that LL^T = S
-void print_sym_matrix(sym_matrix *mat, FILE *output);
-bool read_vec(vec3d *vec, FILE *source);
-bool read_sym(sym_matrix *mat, FILE *source);
 #endif
