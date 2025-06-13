@@ -10,7 +10,7 @@
 #include "helper_functions.h"
 #include "hgmt_structs.h"
 #include "read_write.h"
-hit *event_to_hit(event *single_event, double eff_by_energy[COLS]) {
+hit *event_to_hit(event *single_event) {
   vec_mag(three_vec(single_event->position.x, single_event->position.y, 0.0));
   vec3d z_hat = three_vec(0.0, 0.0, 1.0);
   vec3d circ_hat = vec_norm(vec_cross(z_hat, single_event->position));

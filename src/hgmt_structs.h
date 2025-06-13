@@ -67,7 +67,7 @@ typedef struct _annihilation {
   photon_path photon1_path;
   photon_path photon2_path;
 } annihilation;
-hit *event_to_hit(event *single_event, double eff_by_energy[COLS]);
+hit *event_to_hit(event *single_event);
 bool is_detected(event *single_event, double eff_by_energy[COLS]);
 int get_detector(vec3d position);
 void free_annihilation(annihilation *annihilation_pointer);
