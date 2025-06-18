@@ -20,10 +20,6 @@ char **get_flags(int argc, char **argv);
 int num_flags(int argc, char **argv);
 int num_args(int argc, char **argv);
 void printm(int num, uint mod);
-perm first_perm(int n);
-void free_perm(perm *permutation);
-bool increment_perm(perm *permutation);
-void print_perm(perm *permutation);
 typedef struct histogram_ {
   uint *counts;
   uint num_bars;

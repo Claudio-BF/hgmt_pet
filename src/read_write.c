@@ -68,9 +68,8 @@ bool read_annihilation(annihilation *new_annihilation, FILE *source,
       num_primary2++;
     }
     if (current_event->detected) {
-      hit *detector_hit = event_to_hit(current_event);
-      new_annihilation->hits[num_hits] = *detector_hit;
-      free(detector_hit);
+      hit detector_hit = event_to_hit(current_event);
+      new_annihilation->hits[num_hits] = detector_hit;
       num_hits++;
     }
   }

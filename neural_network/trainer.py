@@ -55,15 +55,14 @@ class DeepElementSelector(nn.Module):
         global_context = self.rho(aggregated).unsqueeze(1)
         element_transformed = self.gamma(x_flat).view(batch_size, num_elements, -1)
         scores = torch.sum(element_transformed * global_context, dim=2)
-        selection_probs = F.softmax(scores, dim=1)  # [batch_size, num_elements]
-        return {
-            "scores": scores,
-            "selection_probs": selection_probs,
-        }
+        return scores
 
 
 def read_batch_from_binary_file(file_handle):
-    set_size = struct.unpack("<i", file_handle.read(4))[0]
+    set_size_bytes = file_handle.read(4)
+    if len(set_size_bytes) != 4:
+        return (None, None)
+    set_size = struct.unpack("<i", set_size_bytes)[0]
     num_doubles = set_size * input_dim * batch_size
     doubles = []
 
@@ -87,24 +86,23 @@ with open(filename, "rb") as file:
     print("training network to select first compton scatter\n")
     epoch = 0
     accuracy = 0
-    while True:
-        set_size, shaped_data = read_batch_from_binary_file(file)
-
+    set_size, shaped_data = read_batch_from_binary_file(file)
+    while set_size is not None:
         target_indices = torch.zeros(batch_size, dtype=torch.long)
 
         optimizer.zero_grad()
 
-        outputs = model(shaped_data)
-        dot_products = outputs["scores"]
-        selection_probs = outputs["selection_probs"]
+        scores = model(shaped_data)
 
-        loss = F.cross_entropy(dot_products, target_indices)
+        loss = F.cross_entropy(scores, target_indices)
 
         loss.backward()
         optimizer.step()
 
+        set_size, shaped_data = read_batch_from_binary_file(file)
         with torch.no_grad():
-            predicted_indices = torch.argmax(dot_products, dim=1)
+            predicted_indices = torch.argmax(scores, dim=1)
+            selection_probs = F.softmax(scores, dim=1)
             accuracy += (predicted_indices == target_indices).float().mean()
         if epoch % eon_size == 0:
             accuracy /= eon_size
@@ -115,3 +113,19 @@ with open(filename, "rb") as file:
             accuracy = 0
 
         epoch += 1
+print("all data used, saving traced neural network...")
+model.eval()
+
+# Create example input with appropriate dimensions
+# Using a reasonable set_size for tracing (e.g., 50 elements)
+example_set_size = 50
+example_input = torch.randn(1, example_set_size, input_dim)
+
+# Trace the model
+traced_model = torch.jit.optimize_for_inference(torch.jit.trace(model, example_input))
+
+# Save the traced model
+traced_model.save("chooser.pt")
+
+print("model saved as 'chooser.pt'")
+print(f"Model expects input shape: [batch_size, num_elements, {input_dim}]")

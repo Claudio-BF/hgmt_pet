@@ -111,7 +111,7 @@ vec3d vec_rejection(vec3d a, vec3d b) {
   return vec_sub(a, projection);
 }
 // returns the radial distance from axis of the detecter
-double radial_dist(vec3d a) { return vec_mag(three_vec(a.x, a.y, 0.0)); }
+double radial_dist(vec3d vec) { return sqrt(vec.x * vec.x + vec.y * vec.y); }
 // scales only the radial component
 vec3d radial_scale(vec3d a, double b) {
   return three_vec(a.x * b, a.y * b, a.z);
@@ -156,20 +156,20 @@ sym_matrix sym_scale(sym_matrix mat, double factor) {
   mat.zz *= factor;
   return mat;
 }
+sym_matrix sym_id(double diagonal) {
+  sym_matrix mat;
+  mat.xx = diagonal;
+  mat.xy = 0;
+  mat.xz = 0;
+  mat.yy = diagonal;
+  mat.yz = 0;
+  mat.zz = diagonal;
+  return mat;
+}
 double sym_det(sym_matrix *mat) {
   return mat->xx * mat->yy * mat->zz + 2 * mat->xy * mat->xz * mat->yz -
          mat->xx * mat->yz * mat->yz - mat->yy * mat->xz * mat->xz -
          mat->zz * mat->xy * mat->xy;
-}
-sym_matrix square_coefficients(sym_matrix *mat) {
-  sym_matrix new_mat;
-  new_mat.xx = mat->xx * mat->xx;
-  new_mat.xy = mat->xy * mat->xy;
-  new_mat.xz = mat->xz * mat->xz;
-  new_mat.yy = mat->yy * mat->yy;
-  new_mat.yz = mat->yz * mat->yz;
-  new_mat.zz = mat->zz * mat->zz;
-  return new_mat;
 }
 double sym_max_eigenvalue(sym_matrix mat) {
   // geometrictools.com/Documentation/RobustEigenSymmetric3x3.pdf
@@ -177,9 +177,13 @@ double sym_max_eigenvalue(sym_matrix mat) {
   mat.xx -= q;
   mat.yy -= q;
   mat.zz -= q;
-  sym_matrix math = square_coefficients(&mat);
-  double p = sqrt(
-      (math.xx + math.yy + math.zz + 2 * (math.xy + math.xz + math.yz)) / 6);
+  double xx_2 = mat.xx * mat.xx;
+  double xy_2 = mat.xy * mat.xy;
+  double xz_2 = mat.xz * mat.xz;
+  double yy_2 = mat.yy * mat.yy;
+  double yz_2 = mat.yz * mat.yz;
+  double zz_2 = mat.zz * mat.zz;
+  double p = sqrt((xx_2 + yy_2 + zz_2 + 2 * (xy_2 + xz_2 + yz_2)) / 6);
   double det = sym_det(&mat) / (p * p * p);
   double theta = fabs(det) >= 2 ? (det > 0 ? 0 : M_PI) : acos(det / 2) / 3;
   double root1 = 2 * cos(theta + 2 * M_PI / 3);
@@ -211,7 +215,7 @@ vec3d sym_eigenvector(sym_matrix *mat, double eigenvalue) {
       return vec_cross(row2, row3);
   }
 }
-lower_matrix chopesky(sym_matrix *mat) {
+lower_matrix conj_axes(sym_matrix *mat) {
   lower_matrix lower;
   lower.l11 = sqrt(mat->xx);
   lower.l21 = mat->xy / lower.l11;
@@ -220,8 +224,24 @@ lower_matrix chopesky(sym_matrix *mat) {
   lower.l32 = (mat->yz - lower.l21 * lower.l31) / lower.l22;
   return lower;
 }
+sym_matrix sym_adjucate(sym_matrix *sym) {
+  sym_matrix adjucate;
+  adjucate.xx = sym->yy * sym->zz - sym->yz * sym->yz;
+  adjucate.xy = sym->yz * sym->xz - sym->xy * sym->zz;
+  adjucate.xz = sym->xy * sym->yz - sym->yy * sym->xz;
+  adjucate.yy = sym->xx * sym->zz - sym->xz * sym->xz;
+  adjucate.yz = sym->xy * sym->xz - sym->xx * sym->yz;
+  adjucate.zz = sym->xx * sym->yy - sym->xy * sym->xy;
+  return adjucate;
+}
+
 vec3d lower_transform(lower_matrix *lower, vec3d vec) {
   return three_vec(vec.x * lower->l11, vec.x * lower->l21 + vec.y * lower->l22,
                    vec.x * lower->l31 + vec.y * lower->l32 +
                        vec.z * lower->l33);
+}
+vec3d sym_transform(sym_matrix *sym, vec3d vec) {
+  return three_vec(vec.x * sym->xx + vec.y * sym->xy + vec.z * sym->xz,
+                   vec.x * sym->xy + vec.y * sym->yy + vec.z * sym->yz,
+                   vec.x * sym->xz + vec.y * sym->yz + vec.z * sym->zz);
 }

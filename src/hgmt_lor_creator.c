@@ -1,5 +1,5 @@
 // including standard files
-#include <math.h>
+#include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -8,8 +8,10 @@
 #include "compton_chain_ordering.h"
 #include "helper_functions.h"
 #include "hgmt_structs.h"
+#include "linear_algebra.h"
 #include "read_write.h"
 
+#define THREADS 60
 double eff_by_energy[COLS];
 // params
 bool writing_to_lor = true;
@@ -20,12 +22,13 @@ uint counter = 0;
 #define NUM_DEBUG_OPTIONS 5
 // cuts are {occured, interacted with something, wasn't inpatient, detected,
 // first or second detected}
-char *cut_descriptions[] = {"occured",
-                            "interected with something",
-                            "detected",
-                            "wasn't inpatient",
-                            "first scatter detected",
-                            "first scatter identified"};
+char *cut_descriptions[] = {
+    "occured",
+    "interected with something",
+    "something detected",
+    "wasn't inpatient",
+    "first scatter detected",
+    "first scatter identified (requires lor to be made)"};
 uint cuts[NUM_CUTS] = {0};
 // dual cuts are the same but require both to happen in an annihilation
 uint num_annihilations = 0;
@@ -37,16 +40,19 @@ event *first_event;
 bool debug_options[NUM_DEBUG_OPTIONS];
 FILE *debug[NUM_DEBUG_OPTIONS];
 FILE *visualization;
-
+FILE *lor_output;
+FILE *eff_table_file;
+FILE *input_file;
+pthread_mutex_t read_lock = PTHREAD_MUTEX_INITIALIZER;
+pthread_mutex_t write_lock = PTHREAD_MUTEX_INITIALIZER;
 prim_lor create_prim_lor(hit_split split) {
   prim_lor primitive_lor;
-  hit *hit1 = initial_by_least_time(split.hits1, split.num_hits1);
-  hit *hit2 = initial_by_least_time(split.hits2, split.num_hits2);
-  // hit *hit1 =
-  //     initial_by_best_order(split.hits1, split.num_hits1, eff_by_energy);
-  // hit *hit2 =
-  //     initial_by_best_order(split.hits2, split.num_hits2, eff_by_energy);
-
+  hit *hit1 = initial_by_neural_network(split.hits1, split.num_hits1);
+  hit *hit2 = initial_by_neural_network(split.hits2, split.num_hits2);
+  // hit *hit1 = initial_by_truth(split.hits1, split.num_hits1);
+  // hit *hit2 = initial_by_truth(split.hits2, split.num_hits2);
+  // hit *hit1 = initial_by_least_time(split.hits1, split.num_hits1);
+  // hit *hit2 = initial_by_least_time(split.hits2, split.num_hits2);
   primitive_lor.hit1 = *hit1;
   primitive_lor.hit2 = *hit2;
   return primitive_lor;
@@ -96,6 +102,7 @@ lor create_lor(prim_lor *primitive_lor) {
   new_lor.covariance =
       sym_add(new_lor.covariance,
               sym_scale(sym_proj(c_hat), SPD_LGHT * TIME_VAR * 0.5));
+  new_lor.covariance = sym_add(new_lor.covariance, sym_id(DIFFUSION_VARIANCE));
   return new_lor;
 }
 
@@ -116,10 +123,8 @@ void print_annihilation(annihilation *new_annihilation) {
 }
 // provide debug statistics
 int debug_path(photon_path *path) {
-  if (path->num_events == 0) {
-    cuts[0]++;
+  if (path->num_events == 0)
     return 0;
-  }
   // getting all the important statistics
   if (debug_options[1])
     print_double(path->events[0]->detector_id, debug[1]);
@@ -133,7 +138,6 @@ int debug_path(photon_path *path) {
     cut = 3;
   else
     cut = 4;
-  cuts[cut]++;
   return cut;
 }
 int debug_annihilation(annihilation *new_annihilation) {
@@ -150,6 +154,8 @@ int debug_annihilation(annihilation *new_annihilation) {
   int cut1 = debug_path(&new_annihilation->photon1_path);
   int cut2 = debug_path(&new_annihilation->photon2_path);
   int cut = MIN(cut1, cut2);
+  cuts[cut1]++;
+  cuts[cut2]++;
   dual_cuts[cut]++;
 
   if (debug_options[4] && cut >= 1) {
@@ -200,6 +206,39 @@ void debug_prim_lor(prim_lor *new_lor) {
   if (a == 2) {
     dual_cuts[4]--;
     dual_cuts[5]++;
+  }
+}
+void *worker(void *arg) {
+  annihilation new_annihilation;
+  while (true) {
+    pthread_mutex_lock(&read_lock);
+    bool worked =
+        read_annihilation(&new_annihilation, input_file, eff_by_energy) &&
+        (max_annihilations == 0 || num_annihilations < max_annihilations);
+    pthread_mutex_unlock(&read_lock);
+    if (!worked)
+      return NULL;
+    hit_split split =
+        create_hit_split(new_annihilation.hits, new_annihilation.num_hits);
+    prim_lor primitive_lor;
+    lor new_lor;
+    if (split.num_hits1 >= 1 && split.num_hits2 >= 1) {
+      primitive_lor = create_prim_lor(split);
+      new_lor = create_lor(&primitive_lor);
+    }
+    pthread_mutex_lock(&write_lock);
+    debug_annihilation(&new_annihilation);
+    num_annihilations++;
+    printm(num_annihilations, 1000000);
+    if (split.num_hits1 >= 1 && split.num_hits2 >= 1) {
+      debug_prim_lor(&primitive_lor);
+      if (writing_to_lor)
+        print_lor(&new_lor, lor_output);
+      debug_lor(&new_lor, new_annihilation.center);
+    }
+    pthread_mutex_unlock(&write_lock);
+    free_annihilation(&new_annihilation);
+    free_hit_split(&split);
   }
 }
 int main(int argc, char **argv) {
@@ -256,12 +295,11 @@ int main(int argc, char **argv) {
   // reads in efficiency table into 2D array called eff_by_ang
   printf("HGMT LOR Creator\n\nLoading in '%s' as efficiencies table...\n",
          args[1]);
-  FILE *eff_table_file = fopen(args[1], "r");
+  eff_table_file = fopen(args[1], "r");
   read_eff(eff_table_file, eff_by_energy);
   fclose(eff_table_file);
 
   // opens up a .lor file to output each LOR into
-  FILE *lor_output = NULL;
   if (writing_to_lor) {
     char *lor_file_loc;
     asprintf(&lor_file_loc, "%sHGMTDerenzo.lor", args[2]);
@@ -274,32 +312,16 @@ int main(int argc, char **argv) {
     visualization = fopen(filename, "w");
     free(filename);
   }
-  FILE *input_file = fopen(args[0], "rb");
+  input_file = fopen(args[0], "rb");
   printf("Loading in '%s' as the annihilations...\n", args[0]);
 
   printf("Constructing the hits...\n");
-  annihilation new_annihilation;
-  bool worked = read_annihilation(&new_annihilation, input_file, eff_by_energy);
-  while (worked) {
-    hit_split split =
-        create_hit_split(new_annihilation.hits, new_annihilation.num_hits);
-    if (split.num_hits1 && split.num_hits2) {
-      debug_annihilation(&new_annihilation);
-      prim_lor primitive_lor = create_prim_lor(split);
-      debug_prim_lor(&primitive_lor);
-      lor new_lor = create_lor(&primitive_lor);
-      if (writing_to_lor)
-        print_lor(&new_lor, lor_output);
-      debug_lor(&new_lor, new_annihilation.center);
-    }
-    free_annihilation(&new_annihilation);
-    free_hit_split(&split);
-    num_annihilations++;
-    printm(num_annihilations, 1000000);
-    if (max_annihilations != 0 && num_annihilations >= max_annihilations)
-      break;
-    worked = read_annihilation(&new_annihilation, input_file, eff_by_energy);
-  }
+  // everythings happens here, process and read the annihilations
+  pthread_t threads[THREADS];
+  for (int i = 0; i < THREADS; i++)
+    pthread_create(&threads[i], NULL, worker, NULL);
+  for (int i = 0; i < THREADS; i++)
+    pthread_join(threads[i], NULL);
   printf("\n");
   // fixing cuts formating to be cumulative
   for (int i = NUM_CUTS - 2; i >= 0; i--) {
@@ -323,7 +345,8 @@ int main(int argc, char **argv) {
            (double)dual_cuts[i] / dual_cuts[i - 1],
            (double)dual_cuts[i] / dual_cuts[0]);
   // closing stuff out
-
+  pthread_mutex_destroy(&read_lock);
+  pthread_mutex_destroy(&write_lock);
   for (int i = 0; i < NUM_DEBUG_OPTIONS; i++)
     if (debug_options[i])
       fclose(debug[i]);

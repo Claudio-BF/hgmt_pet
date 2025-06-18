@@ -15,4 +15,6 @@ hit *initial_by_best_order(hit **hits, uint num_hits,
                            double eff_by_energy[COLS]);
 hit *initial_by_least_radial(hit **hits, uint num_hits);
 hit *initial_by_least_time(hit **hits, uint num_hits);
+hit *initial_by_neural_network(hit **hits, uint num_hits);
+hit *initial_by_truth(hit **hits, uint num_hits);
 #endif

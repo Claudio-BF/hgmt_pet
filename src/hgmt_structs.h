@@ -8,12 +8,13 @@
 #define COLS 105
 #define SPD_LGHT 29.9792458 // cm/ns
 #define REST_ENERGY 511.0   // KeV
-#define LONG_UNC 0.1        // cm
-#define CIRC_UNC 0.1        // cm
-#define RAD_UNC 0.1         // cm
-#define TIME_UNC 0.1        // ns
+#define LONG_UNC 0.5        // cm
+#define CIRC_UNC 0.5        // cm
+#define RAD_UNC 0.5         // cm
+#define TIME_UNC 0.3        // ns
 #define DETECTOR_THICKNESS 2.54
 #define DETECTOR_SEGMENTATION 0
+#define DIFFUSION_VARIANCE 0.00022
 #define E_MAX 520.0
 #define E_MIN 0.0
 typedef unsigned int uint;
@@ -67,7 +68,7 @@ typedef struct _annihilation {
   photon_path photon1_path;
   photon_path photon2_path;
 } annihilation;
-hit *event_to_hit(event *single_event);
+hit event_to_hit(event *single_event);
 bool is_detected(event *single_event, double eff_by_energy[COLS]);
 int get_detector(vec3d position);
 void free_annihilation(annihilation *annihilation_pointer);

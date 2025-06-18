@@ -51,6 +51,17 @@ void modify_hits(hit *hits, uint num_hits) {
     hits[i].position.x = new_x;
     hits[i].position.y = new_y;
   }
+  // we need to make the correct hit the first one
+  // this is the assumed input format for training
+  uint correct = 0;
+  for (int i = 1; i < num_hits; i++)
+    if (hits[i].source->number == 0)
+      correct = i;
+  if (correct != 0) {
+    hit tmp = hits[0];
+    hits[0] = hits[correct];
+    hits[correct] = tmp;
+  }
 }
 void add_cache(hit **hits, uint num_hits, hit *cache[MAX_HITS][BATCH_SIZE]) {
   uint index = num_hits - 1;
@@ -85,6 +96,8 @@ int main(int argc, char **argv) {
   printf(
       "Neural Network Exam Maker\n\nLoading in '%s' as efficiencies table...\n",
       args[1]);
+  printf(
+      "WARNING: Network must be retrained every time detector is changed.\n");
   FILE *eff_table_file = fopen(args[1], "r");
   read_eff(eff_table_file, eff_by_energy);
   fclose(eff_table_file);

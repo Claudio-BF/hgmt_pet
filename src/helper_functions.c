@@ -61,64 +61,6 @@ char **get_flags(int argc, char **argv) {
 }
 // both these functions could be sped up massively with lookup tables someday,
 // they just have terrible time complexity
-perm first_perm(int n) {
-  perm new_perm;
-  new_perm.perm = (uint *)malloc(sizeof(uint) * n);
-  new_perm.places = (uint *)malloc(sizeof(uint) * n);
-  new_perm.index = (uint *)malloc(sizeof(uint) * n);
-  new_perm.parity = (bool *)calloc(sizeof(bool), n);
-  new_perm.length = n - 1;
-  for (uint i = 0; i < n; i++) {
-    new_perm.perm[i] = i;
-    new_perm.places[i] = i;
-    new_perm.index[i] = 0;
-  }
-  return new_perm;
-}
-void free_perm(perm *permutation) {
-  free(permutation->perm);
-  free(permutation->index);
-  free(permutation->places);
-  free(permutation->parity);
-  free(permutation);
-}
-int increment_perm_index(perm *permutation, int i) {
-  if (permutation->index[i] == permutation->length - i) {
-    permutation->index[i] = 0;
-    permutation->parity[i] = !permutation->parity[i];
-    return increment_perm_index(permutation, i + 1);
-  }
-  permutation->index[i]++;
-  return i;
-}
-void swap(uint *a, uint *b) {
-  uint tmp = *a;
-  *a = *b;
-  *b = tmp;
-}
-bool increment_perm(perm *permutation) {
-  uint digit = increment_perm_index(permutation, 0);
-  if (digit == permutation->length - 1)
-    return false;
-  uint place = permutation->places[digit];
-  bool parity = permutation->parity[digit];
-  if (parity) {
-    permutation->places[digit]--;
-    permutation->places[permutation->perm[place - 1]]++;
-    swap(&permutation->perm[place], &permutation->perm[place - 1]);
-  } else {
-    permutation->places[digit]++;
-    permutation->places[permutation->perm[place + 1]]--;
-    swap(&permutation->perm[place], &permutation->perm[place + 1]);
-  }
-  return true;
-}
-void print_perm(perm *permutation) {
-  for (int i = 0; i < permutation->length + 1; i++) {
-    printf("%i ", permutation->perm[i]);
-  }
-  printf("\n");
-}
 histogram *new_histogram(double min, double max, int num_bars) {
   histogram *hist = (histogram *)malloc(sizeof(histogram));
   hist->num_bars = num_bars;
