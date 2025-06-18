@@ -7,7 +7,7 @@
 #include <sys/types.h>
 
 // including custom files
-// #include "../neural_network/model_wrapper.hh"
+#include "../neural_network/model_wrapper.hh"
 #include "compton_chain_ordering.h"
 #include "helper_functions.h"
 #include "hgmt_structs.h"
@@ -61,31 +61,31 @@ void free_hit_split(hit_split *split) {
   free(split->hits1);
   free(split->hits2);
 }
-// hit *initial_by_neural_network(hit **hits, uint num_hits) {
-//   float *input = malloc(sizeof(float) * num_hits * 4);
-//   double least_tof = hits[0]->tof;
-//   vec3d average_pos = hits[0]->position;
-//   for (int i = 1; i < num_hits; i++) {
-//     least_tof = MIN(least_tof, hits[i]->tof);
-//     average_pos = vec_add(average_pos, hits[i]->position);
-//   }
-//   average_pos = vec_norm(average_pos);
-//   double sin_theta = average_pos.y;
-//   double cos_theta = average_pos.x;
-//   for (int i = 0; i < num_hits; i++) {
-//     input[4 * i] = hits[i]->tof - least_tof;
-//     // rotate by -theta about z axis
-//     vec3d pos = hits[i]->position;
-//     double new_x = cos_theta * pos.x + sin_theta * pos.y;
-//     double new_y = -sin_theta * pos.x + cos_theta * pos.y;
-//     input[4 * i + 1] = new_x;
-//     input[4 * i + 2] = new_y;
-//     input[4 * i + 3] = pos.z;
-//   }
-//   int index = predict(input, num_hits, 4);
-//   free(input);
-//   return hits[index];
-// }
+hit *initial_by_neural_network(hit **hits, uint num_hits) {
+  float *input = malloc(sizeof(float) * num_hits * 4);
+  double least_tof = hits[0]->tof;
+  vec3d average_pos = hits[0]->position;
+  for (int i = 1; i < num_hits; i++) {
+    least_tof = MIN(least_tof, hits[i]->tof);
+    average_pos = vec_add(average_pos, hits[i]->position);
+  }
+  average_pos = vec_norm(average_pos);
+  double sin_theta = average_pos.y;
+  double cos_theta = average_pos.x;
+  for (int i = 0; i < num_hits; i++) {
+    input[4 * i] = hits[i]->tof - least_tof;
+    // rotate by -theta about z axis
+    vec3d pos = hits[i]->position;
+    double new_x = cos_theta * pos.x + sin_theta * pos.y;
+    double new_y = -sin_theta * pos.x + cos_theta * pos.y;
+    input[4 * i + 1] = new_x;
+    input[4 * i + 2] = new_y;
+    input[4 * i + 3] = pos.z;
+  }
+  int index = predict(input, num_hits, 4);
+  free(input);
+  return hits[index];
+}
 hit *initial_by_least_radial(hit **hits, uint num_hits) {
   double best_rad = radial_dist(hits[0]->position);
   hit *initial = hits[0];
