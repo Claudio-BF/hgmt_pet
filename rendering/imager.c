@@ -243,8 +243,6 @@ int main(int argc, char **argv) {
     graph complete_derivatives = {0};
     for (int j = 0; j < THREADS; j++)
       graph_add(&complete_derivatives, derivatives[j], 1.0 / num_lors);
-    for (int h = 0; h < RES; h++)
-      printf("%lf\n", complete_derivatives.values[h]);
     graph_mult(&pixels, &complete_derivatives);
     graph_mult(&pixels, &sensitivity);
     double total_diff = 0;
