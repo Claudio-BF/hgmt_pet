@@ -103,7 +103,7 @@ int main(int argc, char **argv) {
   fclose(eff_table_file);
 
   // opens up a .lor file to output each LOR into
-  output = fopen("training.data", "wb");
+  output = fopen("../data/training.data", "wb");
   FILE *output_file = fopen(args[0], "rb");
   printf("Loading in '%s' as the annihilations...\n", args[0]);
 
@@ -120,11 +120,11 @@ int main(int argc, char **argv) {
       read_annihilation(&new_annihilation, output_file, eff_by_energy);
   while (worked) {
     if (new_annihilation.photon1_path.num_hits >= 1 &&
-        new_annihilation.photon1_path.hits[0]->source->number == 0)
+        new_annihilation.photon1_path.events[0]->detected)
       add_cache(new_annihilation.photon1_path.hits,
                 new_annihilation.photon1_path.num_hits, cache);
     if (new_annihilation.photon2_path.num_hits >= 1 &&
-        new_annihilation.photon2_path.hits[0]->source->number == 0)
+        new_annihilation.photon2_path.events[0]->detected)
       add_cache(new_annihilation.photon2_path.hits,
                 new_annihilation.photon2_path.num_hits, cache);
     free_annihilation(&new_annihilation);

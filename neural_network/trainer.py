@@ -6,7 +6,7 @@ import struct
 import numpy as np
 
 batch_size = 128
-filename = "training.data"
+filename = "../data/training.data"
 input_dim = 4  # Each element is a 4-vector
 phi_dim = 128
 rho_dim = 64
