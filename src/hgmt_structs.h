@@ -19,10 +19,10 @@
 #define E_MIN 0.0
 typedef unsigned int uint;
 
-#define LONG_VAR LONG_UNC *LONG_UNC
-#define CIRC_VAR CIRC_UNC *CIRC_UNC
-#define RAD_VAR RAD_UNC *RAD_UNC
-#define TIME_VAR TIME_UNC *TIME_UNC
+#define LONG_VAR (LONG_UNC * LONG_UNC)
+#define CIRC_VAR (CIRC_UNC * CIRC_UNC)
+#define RAD_VAR (RAD_UNC * RAD_UNC)
+#define TIME_VAR (TIME_UNC * TIME_UNC)
 static const double detector_positions[12] = {
     45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100}; // MUST BE SORTED
 typedef struct event_ {

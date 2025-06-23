@@ -1,5 +1,7 @@
-
-// including standard files
+// DEPRECATED
+// This file originally was intented to compute the average angle a gamma enters
+// the detector at. It has not been updated as the project evolves and likely
+// won't be until this becomes neccesary again.
 #include <math.h>
 #include <stdbool.h>
 #include <stdio.h>
@@ -10,8 +12,7 @@
 #include "../src/compton_chain_ordering.h"
 #include "../src/helper_functions.h"
 #include "../src/hgmt_structs.h"
-#include "../src/llist.h"
-#include "../src/vector_ops.h"
+#include "../src/linear_algebra.h"
 FILE *debug_out;
 void print_data(double data, FILE *output) {
   fwrite(&data, sizeof(double), 1, output);

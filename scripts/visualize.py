@@ -1,5 +1,4 @@
 import numpy as np
-import six
 import sys
 from vispy import scene
 from vispy.scene.visuals import Mesh, Line
