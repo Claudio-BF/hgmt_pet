@@ -1,35 +1,28 @@
 CC=gcc
 CXX=g++
-BASEFLAGS= -Wall -lm
-CFLAGS= $(BASEFLAGS) -O2
-CDBGFLAGS= $(BASEFLAGS) -g
+
+# Common flags
+COMMON_FLAGS = -Wall -O2
+BASEFLAGS = $(COMMON_FLAGS) -lm
+CFLAGS = $(BASEFLAGS)
+CDBGFLAGS = $(BASEFLAGS) -g
 
 # LibTorch configuration
-PYTORCH_PATH = /usr/lib/python3.13/site-packages/torch
-CXXFLAGS = -std=c++17 -Wall -O2 -I$(PYTORCH_PATH)/include -I$(PYTORCH_PATH)/include/torch/csrc/api/include -fopenmp
+PYTORCH_INCLUDES = -I$(PYTORCH_PATH)/include -I$(PYTORCH_PATH)/include/torch/csrc/api/include
+CXXFLAGS = $(COMMON_FLAGS) -std=c++17 $(PYTORCH_INCLUDES) -fopenmp
 TORCH_LIBS = -L$(PYTORCH_PATH)/lib -Wl,-rpath,$(PYTORCH_PATH)/lib -ltorch -ltorch_cpu -lc10 -lpthread
 
 DEPS=linear_algebra.h hgmt_structs.h helper_functions.h compton_chain_ordering.h read_write.h
 
-# C objects
+# Objects
 C_OBJECTS = training_data.o ../src/hgmt_structs.o ../src/linear_algebra.o ../src/helper_functions.o ../src/compton_chain_ordering.o ../src/read_write.o
-
-# C++ objects
 CXX_OBJECTS = model_wrapper.o
 
-hgmt_debug: $(C_OBJECTS) $(CXX_OBJECTS)
-	$(CXX) -o training_data $^ $(CFLAGS) $(TORCH_LIBS) -fopenmp
+training_data: $(C_OBJECTS) $(CXX_OBJECTS)
+	$(CXX) -o $@ $^ $(TORCH_LIBS) -fopenmp -lm
 
-# C compilation rule
 %.o: %.c $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
 
-# C++ compilation rule
 %.o: %.cc
 	$(CXX) -c -o $@ $< $(CXXFLAGS)
-
-clean:
-	rm -f *.o ../src/*.o training_data
-
-.PHONY: clean
-
