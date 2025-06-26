@@ -83,7 +83,7 @@ model = DeepElementSelector(input_dim, phi_dim, rho_dim, gamma_dim)
 optimizer = torch.optim.Adam(model.parameters(), lr=0.0005)
 
 with open(filename, "rb") as file:
-    print("training network to select first compton scatter\n")
+    print("Training network to select first compton scatter...\n")
     epoch = 0
     accuracy = 0
     set_size, shaped_data = read_batch_from_binary_file(file)
@@ -127,5 +127,5 @@ traced_model = torch.jit.optimize_for_inference(torch.jit.trace(model, example_i
 # Save the traced model
 traced_model.save("chooser.pt")
 
-print("Model saved as 'chooser.pt'.")
+print("Model saved as: 'chooser.pt'")
 print(f"Model expects input shape: [batch_size, num_elements, {input_dim}]")
