@@ -1,3 +1,8 @@
 other_images/*
 full_diagnostics/*
 data/*
+*.o
+hgmt_lor_creator
+neural_network/chooser.pt
+neural_network/training_data
+rendering/imager

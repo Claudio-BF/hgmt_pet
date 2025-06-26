@@ -113,7 +113,7 @@ with open(filename, "rb") as file:
             accuracy = 0
 
         epoch += 1
-print("all data used, saving traced neural network...")
+print("All data used, saving traced neural network...")
 model.eval()
 
 # Create example input with appropriate dimensions
@@ -127,5 +127,5 @@ traced_model = torch.jit.optimize_for_inference(torch.jit.trace(model, example_i
 # Save the traced model
 traced_model.save("chooser.pt")
 
-print("model saved as 'chooser.pt'")
+print("Model saved as 'chooser.pt'.")
 print(f"Model expects input shape: [batch_size, num_elements, {input_dim}]")
