@@ -13,6 +13,7 @@
 #include "../src/helper_functions.h"
 #include "../src/hgmt_structs.h"
 #include "../src/linear_algebra.h"
+#include "../src/read_write.h"
 FILE *debug_out;
 void print_data(double data, FILE *output) {
   fwrite(&data, sizeof(double), 1, output);
@@ -70,47 +71,6 @@ int write_incidence_angle(FILE *source) {
     return 1;
   }
 }
-event *read_event(FILE *source) {
-
-  uint event_id;
-  double energy_deposit;
-  float x;
-  float y;
-  float z;
-  // float mx;
-  // float my;
-  // float mz;
-  float tof;
-  int particle_type;
-  int track_id;
-  int worked = 0;
-
-  worked += fread(&event_id, sizeof(uint), 1, source);
-  worked += fread(&energy_deposit, sizeof(double), 1, source);
-  worked += fread(&x, sizeof(float), 1, source);
-  worked += fread(&y, sizeof(float), 1, source);
-  worked += fread(&z, sizeof(float), 1, source);
-  // worked += fread(&mx, sizeof(float), 1, source);
-  // worked += fread(&my, sizeof(float), 1, source);
-  // worked += fread(&mz, sizeof(float), 1, source);
-  worked += fread(&tof, sizeof(float), 1, source);
-  worked += fread(&particle_type, sizeof(int), 1, source);
-  worked += fread(&track_id, sizeof(int), 1, source);
-
-  if (worked != 8) {
-    return NULL;
-  }
-
-  // make a new event to be passed out
-  event *new_event = (event *)malloc(sizeof(event));
-  new_event->event_id = event_id;
-  new_event->energy_deposit = energy_deposit;
-  new_event->location = three_vec((double)x, (double)y, (double)z);
-  // new_event->momentum = three_vec((double)mx, (double)my, (double)mz);
-  new_event->tof = (double)tof;
-  new_event->track_id = track_id;
-  return new_event;
-}
 void read_angles(FILE *source) {
   while (write_incidence_angle(source) == 1) {
     continue;
@@ -131,25 +91,6 @@ void hist_debug(FILE *input, float max_value, int num_bins) {
   printf("average: %lf\n", (double)tot / hist->count);
   print_histogram(hist);
 }
-event *read_history(int event_id, FILE *source) {
-  event *new_event = read_event(source);
-  while (new_event != NULL && new_event->event_id == event_id) {
-    free(new_event);
-    new_event = read_event(source);
-  }
-  return new_event;
-}
-void phsp_diagnostics(FILE *source) {
-  event *new_event = read_event(source);
-  int num_events = 0;
-  while (new_event != NULL) {
-    int id = new_event->event_id;
-    free(new_event);
-    new_event = read_history(id, source);
-    num_events++;
-  }
-  printf("number of events: %i\n", num_events);
-}
 int main(int argc, char **argv) {
   char **flags = get_flags(argc, argv);
   char **args = get_args(argc, argv);
@@ -160,7 +101,6 @@ int main(int argc, char **argv) {
       printf("-h: print this help\n");
       printf("-hi: run with histogram, requires two extra args [max_value] and "
              "[num_bins]\n");
-      printf("-p: run diagnostics on phsp file\n");
       printf("-i: run diagnosts on DetectorIn.phsp file, requires arg "
              "[DetectorIn.phsp]\n");
       exit(0);
@@ -169,11 +109,6 @@ int main(int argc, char **argv) {
       printf("running histogram\n");
       FILE *input = fopen(args[0], "rb");
       hist_debug(input, atoi(args[1]), atoi(args[2]));
-    }
-    if (strcmp(flags[i], "-p") == 0) {
-      printf("diagnostics on phsp file\n");
-      FILE *input = fopen(args[0], "rb");
-      phsp_diagnostics(input);
     }
     if (strcmp(flags[i], "-i") == 0) {
       printf("information about detector in file\n");

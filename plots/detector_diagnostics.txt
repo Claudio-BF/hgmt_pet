@@ -2,55 +2,42 @@ running in debug mode, won't write to a lor file
 running with debug options: 0 1 2 3 4
 HGMT LOR Creator
 
-Loading in '../data/kapton_effs.csv' as efficiencies table...
-Loading in '../data/HGMTDerenzo' as the phsp file...
+Loading in '/home/claud/Work/hgmt_pet/simulation_materials/kapton_effs.csv' as efficiencies table...
+Loading in '/home/claud/Work/hgmt_pet/data/HGMTDerenzo' as the annihilations...
 Constructing the hits...
-500000
 1000000
-1500000
 2000000
-2500000
 3000000
-3500000
 4000000
-4500000
 5000000
-5500000
 6000000
-6500000
 7000000
-7500000
 8000000
-8500000
 9000000
-9500000
 10000000
-10500000
 11000000
-11500000
 12000000
-12500000
 13000000
 
 total annihilations: 13353810
-total scatters: 210755871
-total hits: 56451395
+total scatters: 225338861
+total hits: 57261111
 
-(DUAL)CUT 'N': 'rum' 'percent passing' 'cumulative percent passing'
+(DUAL)CUT 'N': 'num' 'percent passing' 'cumulative percent passing'
 1: interected with something
-2: detected
+2: something detected
 3: wasn't inpatient
 4: first scatter detected
-5: first scatter identified
+5: first scatter identified (requires lor to be made)
 
-CUT 1: 22979949 0.981593 0.981593
-CUT 2: 20932243 0.910892 0.894125
-CUT 3: 12776852 0.610391 0.545766
-CUT 4: 6733669 0.527021 0.287630
-CUT 5: 6121022 0.909017 0.261461
+CUT 1: 25011135 0.936479 0.936479
+CUT 2: 21734240 0.868983 0.813784
+CUT 3: 13136449 0.604413 0.491861
+CUT 4: 6829231 0.519869 0.255703
+CUT 5: 4417868 0.646906 0.165416
 
-DUALCUT 1: 11274564 0.963191 0.963191
-DUALCUT 2: 9227332 0.818420 0.788295
-DUALCUT 3: 3295741 0.357172 0.281557
-DUALCUT 4: 888388 0.269556 0.075895
-DUALCUT 5: 738787 0.831604 0.063115
+DUALCUT 1: 12058211 0.902979 0.902979
+DUALCUT 2: 9227332 0.765232 0.690989
+DUALCUT 3: 3295741 0.357172 0.246802
+DUALCUT 4: 888388 0.269556 0.066527
+DUALCUT 5: 676655 0.761666 0.050671
