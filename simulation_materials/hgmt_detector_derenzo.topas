@@ -1,9 +1,9 @@
 
 b:Ts/UseQt              = "False"
-b:Gr/ViewA/Active	= "True"
-b:Gr/ViewB/Active	= "True"
-b:Gr/ViewC/Active	= "True"
-b:Gr/ViewD/Active	= "True"
+b:Gr/ViewA/Active	= "False"
+b:Gr/ViewB/Active	= "False"
+b:Gr/ViewC/Active	= "False"
+b:Gr/ViewD/Active	= "False"
 
 #sv:Ph/Default/Modules = 1 "g4em-standard_opt1"
 #d:Ph/Default/CutForElectron = 0.5 um # overrides CutForAllParticles for Electron
@@ -129,8 +129,8 @@ d:Ge/Detector_11/MinStepSize 	= 0.01 mm
 includeFile = ./simulation_materials/derenzo_300keV_100.topas
 
 s:Ge/Derenzo/Parent = "AirBox"
-background_e = 0 #30
-rod_e = 1 #00090
+background_e = 30
+rod_e = 90
 
 
 
@@ -158,7 +158,7 @@ s:Sc/HGMTDerenzo/OutputType			= "binary"
 s:Sc/HGMTDerenzo/IfOutputFileAlreadyExists	= "Overwrite"
 
 s:Gr/ViewA/Type           = "OpenGL"
-sv:Gr/Vi1ewA/VisibleWorlds = 1 "All"
+sv:Gr/ViewA/VisibleWorlds = 1 "All"
 i:Gr/ViewA/WindowSizeX    = 900
 i:Gr/ViewA/WindowSizeY    = 900
 d:Gr/ViewA/Theta          = 45 deg

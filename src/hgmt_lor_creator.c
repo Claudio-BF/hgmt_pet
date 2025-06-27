@@ -113,12 +113,12 @@ void print_path(photon_path *path) {
             path->events[i]->position.y, path->events[i]->position.z,
             path->events[i]->energy, path->events[i]->detected ? 1 : 0);
 }
-void print_annihilation(annihilation *new_annihilation) {
-  fprintf(visualization, "%lf %lf %lf \n\n", new_annihilation->center.x,
-          new_annihilation->center.y, new_annihilation->center.z);
-  print_path(&new_annihilation->photon1_path);
+void print_annihilation(annihilation *annihil) {
+  fprintf(visualization, "%lf %lf %lf \n\n", annihil->center.x,
+          annihil->center.y, annihil->center.z);
+  print_path(&annihil->photon1);
   fprintf(visualization, "\n");
-  print_path(&new_annihilation->photon2_path);
+  print_path(&annihil->photon2);
   fprintf(visualization, "\n\n");
 }
 // provide debug statistics
@@ -140,33 +140,32 @@ int debug_path(photon_path *path) {
     cut = 4;
   return cut;
 }
-int debug_annihilation(annihilation *new_annihilation) {
-  num_scatters += new_annihilation->num_events;
-  num_hits += new_annihilation->num_hits;
+int debug_annihilation(annihilation *annihil) {
+  num_scatters += annihil->num_events;
+  num_hits += annihil->num_hits;
   if (debug_options[0])
-    for (int j = 0; j < new_annihilation->num_events; j++)
-      print_double(new_annihilation->events[j].detector_id, debug[0]);
+    for (int j = 0; j < annihil->num_events; j++)
+      print_double(annihil->events[j].detector_id, debug[0]);
 
   if (vis_events > 0) {
-    print_annihilation(new_annihilation);
+    print_annihilation(annihil);
     vis_events--;
   }
-  int cut1 = debug_path(&new_annihilation->photon1_path);
-  int cut2 = debug_path(&new_annihilation->photon2_path);
+  int cut1 = debug_path(&annihil->photon1);
+  int cut2 = debug_path(&annihil->photon2);
   int cut = MIN(cut1, cut2);
   cuts[cut1]++;
   cuts[cut2]++;
   dual_cuts[cut]++;
 
   if (debug_options[4] && cut >= 1) {
-    for (int i = 0; i < MIN(new_annihilation->photon1_path.num_events, 4); i++)
-      for (int j = 0; j < MIN(new_annihilation->photon2_path.num_events, 4);
-           j++) {
-        vec3d true_center = new_annihilation->center;
-        vec3d loc1 = new_annihilation->photon1_path.events[i]->position;
-        vec3d loc2 = new_annihilation->photon2_path.events[j]->position;
-        double tof1 = new_annihilation->photon1_path.events[i]->tof;
-        double tof2 = new_annihilation->photon2_path.events[j]->tof;
+    for (int i = 0; i < MIN(annihil->photon1.num_events, 4); i++)
+      for (int j = 0; j < MIN(annihil->photon2.num_events, 4); j++) {
+        vec3d true_center = annihil->center;
+        vec3d loc1 = annihil->photon1.events[i]->position;
+        vec3d loc2 = annihil->photon2.events[j]->position;
+        double tof1 = annihil->photon1.events[i]->tof;
+        double tof2 = annihil->photon2.events[j]->tof;
         print_int(i + 1, debug[4]);
         print_int(j + 1, debug[4]);
         print_double(impact_parameter(loc1, loc2, tof1, tof2, true_center),
@@ -209,17 +208,16 @@ void debug_prim_lor(prim_lor *new_lor) {
   }
 }
 void *worker(void *arg) {
-  annihilation new_annihilation;
+  annihilation annihil;
   while (true) {
     pthread_mutex_lock(&read_lock);
     bool worked =
-        read_annihilation(&new_annihilation, input_file, eff_by_energy) &&
+        read_annihilation(&annihil, input_file, eff_by_energy) &&
         (max_annihilations == 0 || num_annihilations < max_annihilations);
     pthread_mutex_unlock(&read_lock);
     if (!worked)
       return NULL;
-    hit_split split =
-        create_hit_split(new_annihilation.hits, new_annihilation.num_hits);
+    hit_split split = create_hit_split(annihil.hits, annihil.num_hits);
     prim_lor primitive_lor;
     lor new_lor;
     if (split.num_hits1 >= 1 && split.num_hits2 >= 1) {
@@ -227,17 +225,17 @@ void *worker(void *arg) {
       new_lor = create_lor(&primitive_lor);
     }
     pthread_mutex_lock(&write_lock);
-    debug_annihilation(&new_annihilation);
+    debug_annihilation(&annihil);
     num_annihilations++;
     printm(num_annihilations, 1000000);
     if (split.num_hits1 >= 1 && split.num_hits2 >= 1) {
       debug_prim_lor(&primitive_lor);
       if (writing_to_lor)
         print_lor(&new_lor, lor_output);
-      debug_lor(&new_lor, new_annihilation.center);
+      debug_lor(&new_lor, annihil.center);
     }
     pthread_mutex_unlock(&write_lock);
-    free_annihilation(&new_annihilation);
+    free_annihilation(&annihil);
     free_hit_split(&split);
   }
 }

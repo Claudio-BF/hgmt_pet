@@ -32,34 +32,25 @@ vec3d principal_direction(hit *hits, uint num_hits) {
 hit_split create_hit_split(hit *hits, uint num_hits) {
   hit_split split;
   vec3d dir = principal_direction(hits, num_hits);
-  uint num_hits1 = 0;
-  uint num_hits2 = 0;
-  for (int i = 0; i < num_hits; i++) {
-    if (vec_dot(hits[i].position, dir) > 0)
-      num_hits1++;
-    else
-      num_hits2++;
-  }
-  split.hits1 = (hit **)malloc(sizeof(hit *) * num_hits1);
-  split.hits2 = (hit **)malloc(sizeof(hit *) * num_hits2);
-  num_hits1 = 0;
-  num_hits2 = 0;
+  split.num_hits1 = 0;
+  split.num_hits2 = 0;
+  hit **total = malloc(sizeof(hit *) * num_hits);
   for (int i = 0; i < num_hits; i++) {
     if (vec_dot(hits[i].position, dir) > 0) {
-      split.hits1[num_hits1] = &hits[i];
-      num_hits1++;
+      total[split.num_hits1] = &hits[i];
+      split.num_hits1++;
     } else {
-      split.hits2[num_hits2] = &hits[i];
-      num_hits2++;
+      split.num_hits2++;
+      total[num_hits - split.num_hits2] = &hits[i];
     }
   }
-  split.num_hits1 = num_hits1;
-  split.num_hits2 = num_hits2;
+  split.hits1 = total;
+  split.hits2 = &total[num_hits - split.num_hits2];
   return split;
 }
 void free_hit_split(hit_split *split) {
-  free(split->hits1);
-  free(split->hits2);
+  free(split->hits1); // hits1 and hit2 are allocated as a single block, so this
+                      // is actually not a leak
 }
 hit *initial_by_neural_network(hit **hits, uint num_hits) {
   float *input = malloc(sizeof(float) * num_hits * 4);

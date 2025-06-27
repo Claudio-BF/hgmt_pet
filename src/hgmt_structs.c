@@ -54,8 +54,8 @@ int get_detector(vec3d position) {
 void free_annihilation(annihilation *annihilation_pointer) {
   free(annihilation_pointer->events);
   free(annihilation_pointer->hits);
-  free(annihilation_pointer->photon1_path.events);
-  free(annihilation_pointer->photon1_path.hits);
-  free(annihilation_pointer->photon2_path.events);
-  free(annihilation_pointer->photon2_path.hits);
+  free(annihilation_pointer->photon1.events);
+  free(annihilation_pointer->photon1.hits);
+  free(annihilation_pointer->photon2.events);
+  free(annihilation_pointer->photon2.hits);
 }

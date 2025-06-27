@@ -1,4 +1,5 @@
 #include "read_write.h"
+#include "hgmt_structs.h"
 
 void read_event(event *new_event, FILE *source, double eff_by_energy[COLS]) {
   fread(&new_event->tof, sizeof(double), 1, source);
@@ -9,25 +10,21 @@ void read_event(event *new_event, FILE *source, double eff_by_energy[COLS]) {
   new_event->detector_id = get_detector(new_event->position);
   new_event->detected = is_detected(new_event, eff_by_energy);
 }
-int compare_hits(const void *hit1, const void *hit2) {
-  return ((hit *)hit1)->tof > ((hit *)hit2)->tof;
-}
-bool read_annihilation(annihilation *new_annihilation, FILE *source,
+bool read_annihilation(annihilation *annihil, FILE *source,
                        double eff_by_energy[COLS]) {
-  if (!fread(&new_annihilation->time, sizeof(double), 1, source))
+  if (!fread(&annihil->time, sizeof(double), 1, source))
     return false;
-  read_vec(&new_annihilation->origin, source);
-  read_vec(&new_annihilation->center, source);
-  fread(&new_annihilation->num_events, sizeof(uint), 1, source);
+  read_vec(&annihil->origin, source);
+  read_vec(&annihil->center, source);
+  fread(&annihil->num_events, sizeof(uint), 1, source);
   uint num_primary1 = 0;
   uint num_primary2 = 0;
-  new_annihilation->events =
-      (event *)malloc(sizeof(event) * new_annihilation->num_events);
+  annihil->events = (event *)malloc(sizeof(event) * annihil->num_events);
   uint num_hits = 0;
   uint num_primary1_hits = 0;
   uint num_primary2_hits = 0;
-  for (int i = 0; i < new_annihilation->num_events; i++) {
-    event *next_event = &new_annihilation->events[i];
+  for (int i = 0; i < annihil->num_events; i++) {
+    event *next_event = &annihil->events[i];
     read_event(next_event, source, eff_by_energy);
     if (next_event->primary == 1) {
       next_event->number = num_primary1;
@@ -44,51 +41,38 @@ bool read_annihilation(annihilation *new_annihilation, FILE *source,
         num_primary2_hits++;
     }
   }
-  new_annihilation->hits = (hit *)malloc(sizeof(hit) * num_hits);
-  new_annihilation->photon1_path.events =
-      (event **)malloc(sizeof(event *) * num_primary1);
-  new_annihilation->photon2_path.events =
-      (event **)malloc(sizeof(event *) * num_primary2);
-  new_annihilation->photon1_path.hits =
-      (hit **)malloc(sizeof(hit *) * num_primary1_hits);
-  new_annihilation->photon2_path.hits =
-      (hit **)malloc(sizeof(hit *) * num_primary2_hits);
-  num_primary1 = 0;
-  num_primary2 = 0;
-  num_hits = 0;
-  num_primary1_hits = 0;
-  num_primary2_hits = 0;
-  for (int i = 0; i < new_annihilation->num_events; i++) {
-    event *current_event = &new_annihilation->events[i];
+  annihil->hits = (hit *)malloc(sizeof(hit) * num_hits);
+  annihil->photon1.events = (event **)malloc(sizeof(event *) * num_primary1);
+  annihil->photon2.events = (event **)malloc(sizeof(event *) * num_primary2);
+  annihil->photon1.hits = (hit **)malloc(sizeof(hit *) * num_primary1_hits);
+  annihil->photon2.hits = (hit **)malloc(sizeof(hit *) * num_primary2_hits);
+  annihil->photon1.num_events = 0;
+  annihil->photon2.num_events = 0;
+  annihil->num_hits = 0;
+  annihil->photon1.num_hits = 0;
+  annihil->photon2.num_hits = 0;
+  for (int i = 0; i < annihil->num_events; i++) {
+    event *current_event = &annihil->events[i];
     if (current_event->primary == 1) {
-      new_annihilation->photon1_path.events[num_primary1] = current_event;
-      num_primary1++;
+      annihil->photon1.events[annihil->photon1.num_events] = current_event;
+      annihil->photon1.num_events++;
     } else if (current_event->primary == 2) {
-      new_annihilation->photon2_path.events[num_primary2] = current_event;
-      num_primary2++;
+      annihil->photon2.events[annihil->photon2.num_events] = current_event;
+      annihil->photon2.num_events++;
     }
     if (current_event->detected) {
-      hit detector_hit = event_to_hit(current_event);
-      new_annihilation->hits[num_hits] = detector_hit;
-      num_hits++;
+      annihil->hits[annihil->num_hits] = event_to_hit(current_event);
+      hit *current_hit = &annihil->hits[annihil->num_hits];
+      annihil->num_hits++;
+      if (current_event->primary == 1) {
+        annihil->photon1.hits[annihil->photon1.num_hits] = current_hit;
+        annihil->photon1.num_hits++;
+      } else if (current_event->primary == 2) {
+        annihil->photon2.hits[annihil->photon2.num_hits] = current_hit;
+        annihil->photon2.num_hits++;
+      }
     }
   }
-  // qsort(new_annihilation->hits, num_hits, sizeof(hit), compare_hits);
-  for (int i = 0; i < num_hits; i++) {
-    hit *current_hit = &new_annihilation->hits[i];
-    if (current_hit->source->primary == 1) {
-      new_annihilation->photon1_path.hits[num_primary1_hits] = current_hit;
-      num_primary1_hits++;
-    } else if (current_hit->source->primary == 2) {
-      new_annihilation->photon2_path.hits[num_primary2_hits] = current_hit;
-      num_primary2_hits++;
-    }
-  }
-  new_annihilation->num_hits = num_hits;
-  new_annihilation->photon1_path.num_events = num_primary1;
-  new_annihilation->photon2_path.num_events = num_primary2;
-  new_annihilation->photon1_path.num_hits = num_primary1_hits;
-  new_annihilation->photon2_path.num_hits = num_primary2_hits;
   return true;
 }
 void print_lor(lor *new_lor, FILE *output) {

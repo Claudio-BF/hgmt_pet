@@ -65,8 +65,8 @@ typedef struct _annihilation {
   event *events;
   uint num_hits;
   hit *hits;
-  photon_path photon1_path;
-  photon_path photon2_path;
+  photon_path photon1;
+  photon_path photon2;
 } annihilation;
 hit event_to_hit(event *single_event);
 bool is_detected(event *single_event, double eff_by_energy[COLS]);

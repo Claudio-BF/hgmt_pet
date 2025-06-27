@@ -115,22 +115,17 @@ int main(int argc, char **argv) {
   for (int i = 0; i < MAX_HITS; i++)
     for (int j = 0; j < BATCH_SIZE; j++)
       cache[i][j] = &all[BATCH_SIZE * triangular(i) + j * (i + 1)];
-  annihilation new_annihilation;
-  bool worked =
-      read_annihilation(&new_annihilation, output_file, eff_by_energy);
+  annihilation annihil;
+  bool worked = read_annihilation(&annihil, output_file, eff_by_energy);
   while (worked) {
-    if (new_annihilation.photon1_path.num_hits >= 1 &&
-        new_annihilation.photon1_path.events[0]->detected)
-      add_cache(new_annihilation.photon1_path.hits,
-                new_annihilation.photon1_path.num_hits, cache);
-    if (new_annihilation.photon2_path.num_hits >= 1 &&
-        new_annihilation.photon2_path.events[0]->detected)
-      add_cache(new_annihilation.photon2_path.hits,
-                new_annihilation.photon2_path.num_hits, cache);
-    free_annihilation(&new_annihilation);
+    if (annihil.photon1.num_hits >= 1 && annihil.photon1.events[0]->detected)
+      add_cache(annihil.photon1.hits, annihil.photon1.num_hits, cache);
+    if (annihil.photon2.num_hits >= 1 && annihil.photon2.events[0]->detected)
+      add_cache(annihil.photon2.hits, annihil.photon2.num_hits, cache);
+    free_annihilation(&annihil);
     printm(num_annihilations, 1000000);
     num_annihilations++;
-    worked = read_annihilation(&new_annihilation, output_file, eff_by_energy);
+    worked = read_annihilation(&annihil, output_file, eff_by_energy);
   }
   printf("done!\n");
   return 0;

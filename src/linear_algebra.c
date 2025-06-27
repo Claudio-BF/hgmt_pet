@@ -222,6 +222,7 @@ lower_matrix conj_axes(sym_matrix *mat) {
   lower.l31 = mat->xz / lower.l11;
   lower.l22 = sqrt(mat->yy - lower.l21 * lower.l21);
   lower.l32 = (mat->yz - lower.l21 * lower.l31) / lower.l22;
+  lower.l33 = (mat->zz - lower.l31 * lower.l31 - lower.l32 * lower.l32);
   return lower;
 }
 sym_matrix sym_adjucate(sym_matrix *sym) {

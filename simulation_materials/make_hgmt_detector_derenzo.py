@@ -2,6 +2,7 @@
 import numpy as np
 import os
 import shutil
+import sys
 
 
 ####################################
@@ -17,6 +18,12 @@ detector_volume_outer_rad = 105  # cm
 ####################################
 ###             CODE             ###
 ####################################
+
+if len(sys.argv) != 2:
+    print("usage:")
+    print("python3 make_hgmt_detector_derenzo.py [output location]")
+    sys.exit()
+file_name = sys.argv[1]
 with open(file_name, "w") as f:
     f.write(
         f"""
@@ -66,7 +73,7 @@ d:Ge/Detector_{i}/MinStepSize 	= 0.01 mm
         )
     f.write(
         """
-includeFile = ./derenzo_300keV_100.topas
+includeFile = ./simulation_materials/derenzo_300keV_100.topas
 
 s:Ge/Derenzo/Parent = "AirBox"
 background_e = 30
