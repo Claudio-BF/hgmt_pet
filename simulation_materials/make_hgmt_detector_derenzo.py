@@ -10,11 +10,14 @@ import sys
 ####################################
 file_name = "hgmt_detector_derenzo.topas"
 dead_material = "Air"
-active_material = "B33"
+active_material = "G4_KAPTON"
 detector_thickness = 2.54  # cm
 detector_inner_radii = np.array([45] * 12) + 5 * np.array(range(12))  # MUST BE SORTED
 detector_volume_inner_rad = 45  # cm
 detector_volume_outer_rad = 105  # cm
+detector_density = 1.42 * 0.9  # must be set abolutely in g/cm3
+dose = 45  # Must be an integer, I was told 30 corresponds to 1/100th dose
+# I'm not sure if there ever was a python file to generate derenzos, that might indicate where all the constants come from.
 ####################################
 ###             CODE             ###
 ####################################
@@ -50,6 +53,13 @@ b:Ma/B33/BuildFromMaterials = "True"
 sv:Ma/B33/Components = 4 "G4_SILICON_DIOXIDE" "G4_BORON_OXIDE" "G4_SODIUM_MONOXIDE" "G4_ALUMINUM_OXIDE"
 uv:Ma/B33/Fractions = 4 0.81 0.13 0.04 0.02
 d:Ma/B33/Density = 2.23 g/cm3#1.67 g/cm3
+
+
+b:Ma/active/BuildFromMaterials = "True"
+sv:Ma/active/Components = 1 "{active_material}"
+uv:Ma/active/Fractions = 1 1
+d:Ma/active/Density = {str(detector_density)} g/cm3
+
 s:Ge/DetectorVolume/Type	= "TsCylinder"
 s:Ge/DetectorVolume/Parent = "AirBox"
 d:Ge/DetectorVolume/HL		= 1 m
@@ -63,7 +73,7 @@ d:Ge/DetectorVolume/MinStepSize 	= 0.01 mm
         f.write(
             f"""
 s:Ge/Detector_{i}/Type = "TsCylinder"
-s:Ge/Detector_{i}/Material = "{active_material}"
+s:Ge/Detector_{i}/Material = "active"
 s:Ge/Detector_{i}/Parent = "DetectorVolume"
 d:Ge/Detector_{i}/Rmin = {detector_inner_radii[i]} cm 
 d:Ge/Detector_{i}/RMax	= {detector_inner_radii[i] + detector_thickness} cm
@@ -72,12 +82,12 @@ d:Ge/Detector_{i}/MinStepSize 	= 0.01 mm
 """
         )
     f.write(
-        """
+        f"""
 includeFile = ./simulation_materials/derenzo_300keV_100.topas
 
 s:Ge/Derenzo/Parent = "AirBox"
-background_e = 30
-rod_e = 90
+background_e = {str(dose)}
+rod_e = {str(dose * 3)}
 
 
 
