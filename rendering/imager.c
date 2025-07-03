@@ -11,8 +11,6 @@
 #include "imager.h"
 
 #define THREADS 128
-#define CONVERGENCE_THRESHOLD                                                  \
-  1e-7 // Stop when the image change is below this value
 #define EXP_LOOKUP_RES 1000
 
 double min_exponent = -20;
@@ -20,7 +18,7 @@ FILE *output;
 FILE *lor_file;
 double exp_lookup[EXP_LOOKUP_RES];
 graph sensitivity;
-uint max_iterations;
+uint iterations;
 void add_grid(grid *cells, uint i, uint j, uint k) {
   cells->counts[i * Y_RES * Z_RES + j * Z_RES + k]++;
 }
@@ -179,7 +177,7 @@ int main(int argc, char **argv) {
     printf("Use the -h command to get options.\n\n");
     exit(1);
   }
-  max_iterations = strtoul(args[2], NULL, 10);
+  iterations = strtoul(args[2], NULL, 10);
 
   lor_file = fopen(args[0], "rb");
   char *filename;
@@ -201,6 +199,7 @@ int main(int argc, char **argv) {
   print_double(X_LENGTH, output);
   print_double(Y_LENGTH, output);
   print_double(Z_LENGTH, output);
+  print_int(iterations + 1, output);
   print_int(X_RES, output);
   print_int(Y_RES, output);
   print_int(Z_RES, output);
@@ -208,7 +207,7 @@ int main(int argc, char **argv) {
   lor new_lor;
   uint num_lors = 0;
   uint num_comps = 0;
-  printf("First pass, creating heatmap as first guess...\n\n");
+  printf("First pass, creating heatmap as first guess...\n");
   while (true) {
     if (!read_lor(&new_lor, lor_file))
       break;
@@ -218,7 +217,7 @@ int main(int argc, char **argv) {
   }
   generate_image(&cells, &voxels);
 
-  printf("Initializing threads...\n\n");
+  printf("Initializing threads...\n");
   thread_data data[THREADS];
   graph *expectation[THREADS];
 
@@ -246,7 +245,9 @@ int main(int argc, char **argv) {
   graph prev_voxels = {0};
 
   printf("Starting convergence loop...\n\n");
-  while (change > CONVERGENCE_THRESHOLD && iteration < max_iterations) {
+
+  fwrite(voxels.values, sizeof(double), RES, output);
+  for (int i = 0; i < iterations; i++) {
     memcpy(prev_voxels.values, voxels.values, RES * sizeof(double));
     pthread_t threads[THREADS];
     for (int j = 0; j < THREADS; j++)
@@ -264,20 +265,15 @@ int main(int argc, char **argv) {
       total_diff += fabs(voxels.values[r] - prev_voxels.values[r]);
     change = total_diff / RES;
     iteration++;
-    printf("Iteration %i/%i | Change (MAE): %e\n", iteration, max_iterations,
+    printf("Iteration %i/%i | Change (MAE): %e\n", iteration, iterations,
            change);
     // Free allocated memory for thread data
     for (int i = 0; i < THREADS; i++)
       free(expectation[i]); // expectation are calloc'd in worker
+    fwrite(voxels.values, sizeof(double), RES, output);
   }
 
   printf("\n--- Run Finished ---\n");
-  if (change <= CONVERGENCE_THRESHOLD) {
-    printf("Convergence reached after %d iterations.\n", iteration);
-  } else {
-    printf("Reached max iterations (%d) without converging.\n", max_iterations);
-  }
-  fwrite(voxels.values, sizeof(double), RES, output);
   printf("Final image data saved.\n");
 
   for (int i = 0; i < THREADS; i++)

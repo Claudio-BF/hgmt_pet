@@ -14,7 +14,7 @@ typedef struct perm_ {
   bool *parity;
   int length;
 } perm;
-double gaussian(double sd, int num_additions);
+double gaussian(double sd);
 char **get_args(int argc, char **argv);
 char **get_flags(int argc, char **argv);
 int num_flags(int argc, char **argv);

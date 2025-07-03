@@ -1,20 +1,42 @@
 #include <math.h>
+#include <pthread.h>
 #include <stdbool.h>
+#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
 #include "helper_functions.h"
-// gives a random number following a guassian distribution
-double gaussian(double sd, int num_additions) {
-  double rand = 0.0;
-  for (int i = 0; i < num_additions; i++) {
-    rand += drand48();
+// gives a random number following a guassian distribution, uses Box-Muller
+// Transform
+double gaussian(double sd) {
+  static __thread struct drand48_data rand_buf;
+  static __thread int seeded = 0;
+  static __thread int cached = 0;
+  static __thread double cache;
+
+  if (!seeded) {
+    // Use a unique seed per thread: combine time and thread id
+    srand48_r(time(NULL) ^ (intptr_t)pthread_self(), &rand_buf);
+    seeded = 1;
   }
-  rand -= (double)num_additions / 2.0;
-  rand *= sqrt(12.0) * sd;
-  rand /= sqrt((double)num_additions);
-  return rand;
+
+  if (cached) {
+    cached = 0;
+    return sd * cache;
+  }
+
+  double u1, u2;
+  drand48_r(&rand_buf, &u1);
+  drand48_r(&rand_buf, &u2);
+
+  double r = sqrt(-2.0 * log(u1));
+  double theta = 2.0 * M_PI * u2;
+
+  cache = r * sin(theta);
+  cached = 1;
+  return sd * r * cos(theta);
 }
 int num_args(int argc, char **argv) {
   int numargs = 0;

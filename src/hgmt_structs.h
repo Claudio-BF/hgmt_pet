@@ -8,12 +8,12 @@
 #define COLS 105
 #define SPD_LGHT 29.9792458 // cm/ns
 #define REST_ENERGY 511.0   // KeV
-#define LONG_UNC 0.5        // cm
-#define CIRC_UNC 0.5        // cm
-#define RAD_UNC 0.5         // cm
-#define TIME_UNC 0.3        // ns
+#define LONG_UNC 0.2        // cm
+#define CIRC_UNC 0.1        // cm
+#define RAD_UNC 0.1         // cm
+#define TIME_UNC 0.1        // ns
 #define DETECTOR_THICKNESS 2.54
-#define DETECTOR_SEGMENTATION 0
+#define DETECTOR_SEGMENTATION false
 #define DIFFUSION_VARIANCE 0.00022
 #define E_MAX 520.0
 #define E_MIN 0.0

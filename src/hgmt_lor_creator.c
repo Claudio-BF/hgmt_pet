@@ -76,10 +76,10 @@ sym_matrix hit_covariance(vec3d position) {
   double rad = vec_mag(position);
   double cos = position.x / rad;
   double sin = position.y / rad;
-  covariance.xx = RAD_VAR + (CIRC_VAR - RAD_VAR) * sin * sin;
+  covariance.xx = RAD_VAR * cos * cos + CIRC_VAR * sin * sin;
   covariance.xy = (RAD_VAR - CIRC_VAR) * sin * cos;
   covariance.xz = 0;
-  covariance.yy = CIRC_VAR + (RAD_VAR - CIRC_VAR) * sin * sin;
+  covariance.yy = CIRC_VAR * cos * cos + RAD_VAR * sin * sin;
   covariance.yz = 0;
   covariance.zz = LONG_VAR;
   return covariance;

@@ -9,31 +9,32 @@
 #include "compton_chain_ordering.h"
 #include "helper_functions.h"
 #include "hgmt_structs.h"
+#include "linear_algebra.h"
 #include "read_write.h"
 hit event_to_hit(event *single_event) {
   vec_mag(three_vec(single_event->position.x, single_event->position.y, 0.0));
-  vec3d z_hat = three_vec(0.0, 0.0, 1.0);
-  vec3d circ_hat = vec_norm(vec_cross(z_hat, single_event->position));
-  vec3d offset = vec_add(vec_scale(z_hat, gaussian(LONG_UNC, 30)),
-                         vec_scale(circ_hat, gaussian(CIRC_UNC, 30)));
   hit new_hit;
   new_hit.source = single_event;
-  new_hit.position = single_event->position;
-  new_hit.tof = single_event->tof + gaussian(TIME_UNC, 30);
-  double rad_dist = radial_dist(new_hit.position);
+  vec3d z_hat = three_vec(0.0, 0.0, 1.0);
+  vec3d circ_hat = vec_norm(vec_cross(z_hat, single_event->position));
+  new_hit.position =
+      vec_add(single_event->position, vec_scale(z_hat, gaussian(LONG_UNC)));
+  vec3d offset = vec_add(vec_scale(z_hat, gaussian(LONG_UNC)),
+                         vec_scale(circ_hat, gaussian(CIRC_UNC)));
   if (DETECTOR_SEGMENTATION) {
     // we move the radial component to the midpoint of the detector which it hit
-    new_hit.position = radial_scale(
-        new_hit.position, (detector_positions[single_event->detector_id] +
-                           DETECTOR_THICKNESS / 2) /
-                              rad_dist);
+    double rad_dist = radial_dist(single_event->position);
+    single_event->position = radial_scale(
+        single_event->position, (detector_positions[single_event->detector_id] +
+                                 DETECTOR_THICKNESS / 2) /
+                                    rad_dist);
   } else {
-    vec3d r_hat =
-        vec_scale(three_vec(new_hit.position.x, new_hit.position.y, 0),
-                  1.0 / radial_dist(new_hit.position));
-    offset = vec_add(offset, vec_scale(r_hat, gaussian(RAD_UNC, 30)));
+    vec3d r_hat = vec_norm(
+        three_vec(single_event->position.x, single_event->position.y, 0));
+    offset = vec_add(offset, vec_scale(r_hat, gaussian(RAD_UNC)));
   }
-  new_hit.position = vec_add(new_hit.position, offset);
+  new_hit.tof = single_event->tof + gaussian(TIME_UNC);
+  new_hit.position = vec_add(single_event->position, offset);
   return new_hit;
 }
 bool is_detected(event *single_event, double eff_by_energy[COLS]) {

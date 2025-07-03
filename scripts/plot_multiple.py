@@ -41,7 +41,7 @@ def plot_histogram(doubles, key, xmax):
 if len(sys.argv) != 6:
     print(str(len(sys.argv)) + "parameters, expected 4, usage:")
     print(
-        "python3 plot_histogram [data_loc] [x_axis_label] [save_file_name] [x_axis_max] [y_axis_max]"
+        "python3 plot_histogram [data_loc] [x_axis_label] [output_location] [x_axis_max] [y_axis_max]"
     )
     sys.exit()
 doubles = read_labeled_doubles_from_binary_file(sys.argv[1], 2)
@@ -67,5 +67,5 @@ plt.legend()
 font = {"family": "normal", "weight": "bold", "size": 22}
 
 plt.rc("font", **font)
-plt.savefig("../plots/" + sys.argv[3])
+plt.savefig(sys.argv[3])
 plt.show()
