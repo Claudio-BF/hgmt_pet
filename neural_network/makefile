@@ -2,7 +2,7 @@ CC=gcc
 CXX=g++
 
 # Common flags
-COMMON_FLAGS = -Wall -O2
+COMMON_FLAGS = -Wall -O3
 BASEFLAGS = $(COMMON_FLAGS) -lm
 CFLAGS = $(BASEFLAGS)
 CDBGFLAGS = $(BASEFLAGS) -g

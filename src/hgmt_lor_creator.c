@@ -11,7 +11,7 @@
 #include "linear_algebra.h"
 #include "read_write.h"
 
-#define THREADS 60
+#define THREADS 20
 double eff_by_energy[COLS];
 // params
 bool writing_to_lor = true;
@@ -231,7 +231,6 @@ int main(int argc, char **argv) {
     if (strcmp(flags[i], "-h") == 0) {
       printf("Usage: ./hgmt_lor_creator [TOPAS_file_position (not the phsp)] "
              "[efficiency_table_position.csv] [output_directory]\n");
-      printf("-h: print this help\n");
       printf("-d: run in debug mode, do not write to lor file\n");
       printf("-v#: visualize # events\n");
       printf("-m#: only read a maximum of # annihilations\n");
@@ -260,7 +259,7 @@ int main(int argc, char **argv) {
   // checks to make sure you have correct number of args
   if (num_args(argc, argv) != 3) {
     printf("Incorrect number of arguments, three arguments required.\n");
-    printf("Use the -h command to get options.\n\n");
+    printf("Use the -h command to get options.\n");
     exit(1);
   }
   // opens files for debug output

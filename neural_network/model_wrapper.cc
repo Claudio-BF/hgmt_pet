@@ -35,10 +35,8 @@ static int predict_impl(float *input_array, int num_elements, int input_size) {
     return m;
   }();
 
-  torch::Tensor input =
-      torch::from_blob(input_array, {1, num_elements, input_size},
-                       torch::kFloat)
-          .clone();
+  torch::Tensor input = torch::from_blob(
+      input_array, {1, num_elements, input_size}, torch::kFloat);
 
   torch::Tensor output;
   {

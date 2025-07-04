@@ -24,9 +24,13 @@ typedef struct comp_lor {
   vec3d center;
   sym_matrix new_dot;
   double constant;
-  double x_range;
-  double y_range;
-  double z_range;
+  int i_left;
+  int i_right;
+  int j_left;
+  int j_right;
+  int k_left;
+  int k_right;
+
 } comp_lor;
 typedef struct thread_data {
   uint num_lors;

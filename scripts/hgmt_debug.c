@@ -90,10 +90,9 @@ int main(int argc, char **argv) {
   for (int i = 0; i < num_flags(argc, argv); i++) {
     if (strcmp(flags[i], "-h") == 0) {
       printf("Usage: ./hgmt_debug -task debug_file_loc extra_args\n");
-      printf("-h: print this help\n");
       printf("-hi: run with histogram, requires two extra args [max_value] and "
              "[num_bins]\n");
-      printf("-i: run diagnosts on DetectorIn.phsp file, requires arg "
+      printf("-i: run diagnostics on DetectorIn.phsp file, requires arg "
              "[DetectorIn.phsp]\n");
       exit(0);
     }
@@ -109,6 +108,9 @@ int main(int argc, char **argv) {
       printf("writing to debug.data\n");
       read_angles(input);
       printf("done\n");
+    } else {
+      printf("No task provided.\n");
+      printf("Use the -h command to get options.\n");
     }
   }
 }

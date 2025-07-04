@@ -26,7 +26,12 @@ if __name__ == "__main__":
 
     fig, ax = plt.subplots()
     plt.subplots_adjust(bottom=0.25)
-    img = ax.imshow(images[idx_a, :, :, idx_b], cmap="gray")
+    img = ax.imshow(
+        images[idx_a, :, :, idx_b],
+        cmap="gray",
+        extent=[-x_len / 2, x_len / 2, -y_len / 2, y_len / 2],
+        origin="lower",
+    )
     cbar = fig.colorbar(img, ax=ax, label="Intensity")
 
     ax_a = plt.axes([0.15, 0.1, 0.65, 0.03])

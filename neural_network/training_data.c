@@ -89,7 +89,7 @@ int main(int argc, char **argv) {
   // checks to make sure you have correct number of args
   if (num_args(argc, argv) != 3) {
     printf("Incorrect number of arguments, three arguments required.\n");
-    printf("Use the -h command to get options.\n\n");
+    printf("Use the -h command to get options.\n");
     exit(1);
   }
   // reads in efficiency table into 2D array called eff_by_ang

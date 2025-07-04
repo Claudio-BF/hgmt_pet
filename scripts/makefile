@@ -1,6 +1,6 @@
 CC=gcc
 BASEFLAGS= -Wall -lm
-CFLAGS= $(BASEFLAGS) -O2
+CFLAGS= $(BASEFLAGS) -O3
 CDBGFLAGS= $(BASEFLAGS) -g
 DEPS=linear_algebra.h helper_functions.h hgmt_structs.h read_write.h
 

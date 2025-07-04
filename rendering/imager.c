@@ -10,7 +10,7 @@
 #include "../src/read_write.h"
 #include "imager.h"
 
-#define THREADS 128
+#define THREADS 20
 #define EXP_LOOKUP_RES 1000
 
 double min_exponent = -20;
@@ -56,6 +56,8 @@ void generate_image(grid *cells, graph *voxels) {
     voxels->values[i] /= sensitivity.values[i];
   }
 }
+int bound_below(int num, int min) { return (num < min) ? min : num; }
+int bound_above(int num, int max) { return (num > max) ? max : num; }
 comp_lor get_comp_lor(lor *new_lor) {
   comp_lor new_comp;
   double det = sym_det(&new_lor->covariance);
@@ -71,21 +73,31 @@ comp_lor get_comp_lor(lor *new_lor) {
   vec3d col3 = three_vec(new_lor->covariance.xz, new_lor->covariance.yz,
                          new_lor->covariance.zz);
   // directions of minimal ratio proj to (x,y,z)/variance
-  new_comp.x_range = fabs(
+  double x_range = fabs(
       col1.x * sqrt(-2 * min_exponent /
                     vec_dot(col1, sym_transform(&new_comp.new_dot, col1))));
-  new_comp.y_range = fabs(
+  double y_range = fabs(
       col2.y * sqrt(-2 * min_exponent /
                     vec_dot(col2, sym_transform(&new_comp.new_dot, col2))));
-  new_comp.z_range = fabs(
+  double z_range = fabs(
       col3.z * sqrt(-2 * min_exponent /
                     vec_dot(col3, sym_transform(&new_comp.new_dot, col3))));
+  int i_left = floor(((new_comp.center.x - x_range) / X_LENGTH + 0.5) * X_RES);
+  int i_right = floor(((new_comp.center.x + x_range) / X_LENGTH + 0.5) * X_RES);
+  int j_left = floor(((new_comp.center.y - y_range) / Y_LENGTH + 0.5) * Y_RES);
+  int j_right = floor(((new_comp.center.y + y_range) / Y_LENGTH + 0.5) * Y_RES);
+  int k_left = floor(((new_comp.center.z - z_range) / Z_LENGTH + 0.5) * Z_RES);
+  int k_right = floor(((new_comp.center.z + z_range) / Z_LENGTH + 0.5) * Z_RES);
+  new_comp.i_left = bound_below(i_left, 0);
+  new_comp.i_right = bound_above(i_right, X_RES - 1);
+  new_comp.j_left = bound_below(j_left, 0);
+  new_comp.j_right = bound_above(j_right, Y_RES - 1);
+  new_comp.k_left = bound_below(k_left, 0);
+  new_comp.k_right = bound_above(k_right, Z_RES - 1);
   return new_comp;
 }
-int bound_below(int num, int min) { return (num < min) ? min : num; }
-int bound_above(int num, int max) { return (num > max) ? max : num; }
 double fastexp(double x) {
-  if (x > 0 || x < min_exponent)
+  if (x < min_exponent)
     return 0;
   double pos = -(x - min_exponent) * EXP_LOOKUP_RES / min_exponent;
   uint top = ceil(pos);
@@ -113,36 +125,12 @@ void *worker(void *arg) {
   for (int r = 0; r < data->num_lors; r++) {
     comp_lor *current_lor = &data->data[r];
     graph posterior = {0};
-    int i_left = floor(
-        ((current_lor->center.x - current_lor->x_range) / X_LENGTH + 0.5) *
-        X_RES);
-    int i_right = floor(
-        ((current_lor->center.x + current_lor->x_range) / X_LENGTH + 0.5) *
-        X_RES);
-    int j_left = floor(
-        ((current_lor->center.y - current_lor->y_range) / Y_LENGTH + 0.5) *
-        Y_RES);
-    int j_right = floor(
-        ((current_lor->center.y + current_lor->y_range) / Y_LENGTH + 0.5) *
-        Y_RES);
-    int k_left = floor(
-        ((current_lor->center.z - current_lor->z_range) / Z_LENGTH + 0.5) *
-        Z_RES);
-    int k_right = floor(
-        ((current_lor->center.z + current_lor->z_range) / Z_LENGTH + 0.5) *
-        Z_RES);
-    i_left = bound_below(i_left, 0);
-    i_right = bound_above(i_right, X_RES - 1);
-    j_left = bound_below(j_left, 0);
-    j_right = bound_above(j_right, Y_RES - 1);
-    k_left = bound_below(k_left, 0);
-    k_right = bound_above(k_right, Z_RES - 1);
     // printf("%i %i %i %i %i %i\n", i_left, i_right, j_left, j_right, k_left,
     //        k_right);
     double likelihood = 0;
-    for (int i = i_left; i <= i_right; i++)
-      for (int j = j_left; j <= j_right; j++)
-        for (int k = k_left; k <= k_right; k++) {
+    for (int i = current_lor->i_left; i <= current_lor->i_right; i++)
+      for (int j = current_lor->j_left; j <= current_lor->j_right; j++)
+        for (int k = current_lor->k_left; k <= current_lor->k_right; k++) {
           int h = i * Y_RES * Z_RES + j * Z_RES + k;
           double x = x_const + i * x_increment;
           double y = y_const + j * y_increment;
@@ -160,21 +148,21 @@ void *worker(void *arg) {
   }
   return (void *)expectation;
 }
+
 int main(int argc, char **argv) {
   char **flags = get_flags(argc, argv);
   char **args = get_args(argc, argv);
   // defines the help function and how to call it (by using -h or --help)
   for (int i = 0; i < num_flags(argc, argv); i++) {
     if (strcmp(flags[i], "-h") == 0) {
-      printf("Usage: ./imager [lor_file_location.lor] [output_directory] [max "
-             "iterations (0 for none)]\n");
-      printf("-h: print this help\n");
+      printf("Usage: ./imager [lor_file_location.lor] [output_directory] "
+             "[iterations]\n");
       exit(0);
     }
   }
   if (num_args(argc, argv) != 3) {
     printf("Incorrect number of arguments, one argument required.\n");
-    printf("Use the -h command to get options.\n\n");
+    printf("Use the -h command to get options.\n");
     exit(1);
   }
   iterations = strtoul(args[2], NULL, 10);

@@ -43,9 +43,9 @@ class event:
 
 if len(sys.argv) > 1:
     argument = int(sys.argv[1])
-    print(f"Visualizing event: {argument}")
+    print(f"Visualizing annihilation: {argument}")
 else:
-    print("No argument provided, visualizing event: 0")
+    print("No argument provided, visualizing annihilation: 0")
 print("Use j and k to scroll through annihilations.\n\n")
 
 
@@ -266,7 +266,7 @@ def on_key_press(event):
     else:
         return
 
-    print(f"\n\nVisualizing event: {current_index}\n")
+    print(f"\n\nVisualizing annihilation: {current_index}\n")
     redraw()
 
 

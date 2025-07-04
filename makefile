@@ -1,7 +1,7 @@
 CC=gcc
 CXX=g++
 BASEFLAGS= -Wall -lm
-CFLAGS= $(BASEFLAGS) -O2
+CFLAGS= $(BASEFLAGS) -O3
 CXXFLAGS= $(CFLAGS) -std=c++17 -I$(PYTORCH_PATH)/include -I$(PYTORCH_PATH)/include/torch/csrc/api/include
 CDBGFLAGS= $(BASEFLAGS) -g
 DEPS=linear_algebra.h helper_functions.h hgmt_structs.h compton_chain_ordering.h read_write.h model_wrapper.hh
