@@ -1,10 +1,10 @@
-# Low-Dose TOF-PET with Laminar MCPs
+# TOF-PET with Laminar MCPs
 
 
 ## Overview
 
 
-This project presents simulations of a whole-body time-of-flight positron emission tomography (TOF-PET) scanner using **Kapton-based laminar microchannel plates (LMCPs)**. The approach leverages **surface direct conversion** of gamma rays to electrons, eliminating the need for traditional scintillator and photodetector subsystems. However, the simulation can be easily adapted for any PET scanner which relies on very high time resolution.
+This project presents simulations of a time-of-flight positron emission tomography (TOF-PET) scanner using **laminar microchannel plates (LMCPs)**. The approach leverages **surface direct conversion** of gamma rays to electrons, eliminating the need for traditional scintillator and photodetector subsystems. However, the simulation can be easily adapted for any PET scanner which relies on very high timing resolution.
 
 
 ## Notable Features
@@ -19,7 +19,7 @@ Keeps track of truth information, provides detailed statistics, and provides vis
 
 
 - **Algorithms:**
-PCA is used to split the hits from an annihilation into two Compton chains. A deep sets neural network is used to select the first scatter from each compton chain to generate a measurement, achieving greater accuracy than naive algorithms. Finally, an expectation maximization algorithm is used to refine and generate the image.
+PCA is used to split the hits from an annihilation into two Compton chains. A deep sets neural network is used to select the first scatter from each Compton chain to generate a measurement, achieving greater accuracy than naive algorithms. Finally, an expectation maximization algorithm is used to refine and generate the image.
 
 
 - **Fast:**
@@ -181,4 +181,3 @@ bash rendering/view.sh
 - [LMCP Simulations](https://github.com/cameronpoe/LMCP/tree/claudiobf/newsims)
 - [Old Repository](https://github.com/cameronpoe/hgmt_lor_creator/tree/hgmt_pet_upgrade)
 - [Other Related Stuff](https://github.com/cameronpoe/topas_truth_d)
-
