@@ -123,3 +123,17 @@ bool read_lor(lor *new_lor, FILE *input) {
   read_vec(&new_lor->center, input);
   return read_sym(&new_lor->covariance, input);
 }
+
+void print_path(photon_path *path, FILE *output) {
+  fwrite(&path->num_events, sizeof(uint), 1, output);
+  for (int i = 0; i < path->num_events; i++) {
+    print_vec(path->events[i]->position, output);
+    fwrite(&path->events[i]->energy, sizeof(double), 1, output);
+    fwrite(&path->events[i]->detected, sizeof(bool), 1, output);
+  }
+}
+void print_annihilation(annihilation *annihil, FILE *output) {
+  print_vec(annihil->center, output);
+  print_path(&annihil->photon1, output);
+  print_path(&annihil->photon2, output);
+}

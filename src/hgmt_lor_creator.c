@@ -106,21 +106,6 @@ lor create_lor(primitive_lor *prim_lor) {
   return new_lor;
 }
 
-void print_path(photon_path *path) {
-  for (int i = 0; i < path->num_events; i++)
-    // format: x,y,z, energy deposit, detected
-    fprintf(visualization, "%lf %lf %lf %lf %d \n", path->events[i]->position.x,
-            path->events[i]->position.y, path->events[i]->position.z,
-            path->events[i]->energy, path->events[i]->detected ? 1 : 0);
-}
-void print_annihilation(annihilation *annihil) {
-  fprintf(visualization, "%lf %lf %lf \n\n", annihil->center.x,
-          annihil->center.y, annihil->center.z);
-  print_path(&annihil->photon1);
-  fprintf(visualization, "\n");
-  print_path(&annihil->photon2);
-  fprintf(visualization, "\n\n");
-}
 // provide debug statistics
 int debug_path(photon_path *path, debug_context context) {
   if (path->num_events == 0)
@@ -153,7 +138,7 @@ int debug_annihilation(debug_context context) {
       print_double(annihil->events[j].detector_id, debug[0]);
 
   if (vis_events > 0) {
-    print_annihilation(annihil);
+    print_annihilation(annihil, visualization);
     vis_events--;
   }
   int cut1 = debug_path(&annihil->photon1, context);
