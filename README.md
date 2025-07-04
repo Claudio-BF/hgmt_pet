@@ -159,7 +159,7 @@ bash rendering/view.sh
 - **Neural Network:**
    - See `neural_network/trainer.py` Changing the architecture in a fundamental way may require you to modify `neural_network/model_wrapper.cc` and `src/compton_chain_ordering.c` as well.
 - **Detector:**
-   - If you want to change the detector geometry, the physics of the simulation, or the number of threads for topas, check out `simulation_materials/make_hgmt_detector_derenzo.py` and `simulation_materials/derenzo_300keV_100.topas`. Note that you need to specify the thickness and inner radii of the detector in `src/hgmt_structs.h`
+   - If you want to change the detector geometry, the physics of the simulation, or the number of threads for topas, check out `simulation_materials/make_hgmt_detector_derenzo.py` and `simulation_materials/derenzo_300keV_100.topas`. Note that you need to specify the thickness and inner radii of the detector in `src/hgmt_structs.h`.
 
 
 ## References
