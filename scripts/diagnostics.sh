@@ -10,5 +10,5 @@ python3 $REPO_ROOT/scripts/plot_histogram.py $REPO_ROOT/data/debug2.data Lor\ Ce
 $REPO_ROOT/scripts/hgmt_debug $REPO_ROOT/data/debug2.data 5 20 -hi | tee $REPO_ROOT/plots/lor_center_error_transverse.txt
 python3 $REPO_ROOT/scripts/plot_histogram.py $REPO_ROOT/data/debug3.data Lor\ Center\ Error\ Longitudinal\ \(cm\) $REPO_ROOT/plots/lor_center_error_longitudinal.png 10 0.2
 $REPO_ROOT/scripts/hgmt_debug $REPO_ROOT/data/debug3.data 5 20 -hi | tee $REPO_ROOT/plots/lor_center_error_longitudinal.txt
-python3 $REPO_ROOT/scripts/plot_multiple.py $REPO_ROOT/data/debug4.data Impact\ Parameter\ \(cm\) $REPO_ROOT/plots/lor_center_error_transverse_mutliple.png 1 1
+python3 $REPO_ROOT/scripts/plot_multiple.py $REPO_ROOT/data/debug4.data Impact\ Parameter\ \(cm\) $REPO_ROOT/plots/lor_center_error_transverse_multiple.png 1 1
 echo "All Tasks Complete"

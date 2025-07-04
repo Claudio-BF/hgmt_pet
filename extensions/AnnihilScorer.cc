@@ -13,16 +13,17 @@
 //
 
 #include "AnnihilScorer.hh"
+#include "G4Threading.hh"
 #include "G4ThreeVector.hh"
 #include "G4VProcess.hh"
 #include "TsTrackInformation.hh"
 #include "TsVNtupleScorer.hh"
 #include <cstdio>
+#include <mutex>
 #include <unistd.h>
 using namespace std;
+mutex write_lock;
 FILE *outFile;
-prim_annihilation new_annihilation;
-int trackid1 = -1, trackid2 = -1;
 void write_vec3d(const vec3d &vec, FILE *file) {
   fwrite(&vec.x, sizeof(double), 1, file);
   fwrite(&vec.y, sizeof(double), 1, file);
@@ -38,9 +39,9 @@ void write_event(const event &new_event, FILE *file) {
 void write_annihilation(const prim_annihilation &annihilation, FILE *file) {
   // Write fixed-size components
   fwrite(&annihilation.time_of_annihilation, sizeof(double), 1, file);
-  write_vec3d(new_annihilation.origin, file);
-  write_vec3d(new_annihilation.center, file);
-  uint num_events = (uint)new_annihilation.events.size();
+  write_vec3d(annihilation.origin, file);
+  write_vec3d(annihilation.center, file);
+  uint num_events = (uint)annihilation.events.size();
   fwrite(&num_events, sizeof(uint), 1, file);
   for (event new_event : annihilation.events)
     write_event(new_event, file);
@@ -53,8 +54,8 @@ AnnihilScorer::AnnihilScorer(TsParameterManager *pM, TsMaterialManager *mM,
                              G4bool isSubScorer)
     : TsVNtupleScorer(pM, mM, gM, scM, eM, scorerName, quantity, outFileName,
                       isSubScorer) {
-  outFile = fopen(outFileName, "wb");
   SuppressStandardOutputHandling();
+  outFile = fopen(outFileName, "wb");
 }
 
 AnnihilScorer::~AnnihilScorer() { fclose(outFile); }
@@ -121,6 +122,7 @@ G4bool AnnihilScorer::ProcessHits(G4Step *aStep, G4TouchableHistory *) {
 void AnnihilScorer::UserHookForEndOfTrack(const G4Track *) {}
 void AnnihilScorer::UserHookForEndOfIncidentParticle() {}
 void AnnihilScorer::UserHookForEndOfEvent() {
+  lock_guard<mutex> lock(write_lock);
   sort(new_annihilation.events.begin(), new_annihilation.events.end(),
        [](const event &a, const event &b) { return a.tof < b.tof; });
   write_annihilation(new_annihilation, outFile);

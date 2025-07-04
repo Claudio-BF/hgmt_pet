@@ -41,10 +41,10 @@ typedef struct hit_ {
   event *source;
 } hit;
 
-typedef struct prim_lor_ {
+typedef struct primitive_lor_ {
   hit hit1;
   hit hit2;
-} prim_lor;
+} primitive_lor;
 
 typedef struct _lor {
   vec3d center;
@@ -68,6 +68,8 @@ typedef struct _annihilation {
   photon_path photon1;
   photon_path photon2;
 } annihilation;
+// a struct that contains all the information needed to output
+// debug information
 hit event_to_hit(event *single_event);
 bool is_detected(event *single_event, double eff_by_energy[COLS]);
 int get_detector(vec3d position);

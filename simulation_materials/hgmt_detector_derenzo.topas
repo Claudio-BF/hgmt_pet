@@ -13,7 +13,7 @@ Ge/CheckForOverlaps = "True"
 i:Ge/CheckForOverlapsResolution = 100000
 
 i:Ts/ShowHistoryCountAtInterval = 100000
-i:Ts/NumberOfThreads = 1
+i:Ts/NumberOfThreads = 10
 
 
 b:Ts/PauseBeforeQuit = "false"

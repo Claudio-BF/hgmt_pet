@@ -20,6 +20,22 @@
 #include <cmath>
 #include <list>
 using namespace std;
+struct vec3d {
+  double x, y, z;
+};
+struct event {
+  double tof;
+  double energy;
+  vec3d position;
+  vec3d direction;
+  uint primary;
+};
+struct prim_annihilation {
+  double time_of_annihilation;
+  vec3d origin;
+  vec3d center;
+  vector<event> events;
+};
 class AnnihilScorer : public TsVNtupleScorer {
 public:
   AnnihilScorer(TsParameterManager *pM, TsMaterialManager *mM,
@@ -39,21 +55,9 @@ public:
   void UserHookForEndOfEvent();
   // called at the end of the run
   void UserHookForEndOfRun();
-};
-struct vec3d {
-  double x, y, z;
-};
-struct event {
-  double tof;
-  double energy;
-  vec3d position;
-  vec3d direction;
-  uint primary;
-};
-struct prim_annihilation {
-  double time_of_annihilation;
-  vec3d origin;
-  vec3d center;
-  vector<event> events;
+
+private:
+  prim_annihilation new_annihilation;
+  int trackid1 = -1, trackid2 = -1;
 };
 #endif

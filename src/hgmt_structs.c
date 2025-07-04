@@ -6,11 +6,9 @@
 #include <string.h>
 
 // including custom files
-#include "compton_chain_ordering.h"
 #include "helper_functions.h"
 #include "hgmt_structs.h"
 #include "linear_algebra.h"
-#include "read_write.h"
 hit event_to_hit(event *single_event) {
   vec_mag(three_vec(single_event->position.x, single_event->position.y, 0.0));
   hit new_hit;

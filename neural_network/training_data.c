@@ -81,30 +81,29 @@ int main(int argc, char **argv) {
   // handling all flags and arguments
   for (int i = 0; i < num_flags(argc, argv); i++)
     if (strcmp(flags[i], "-h") == 0) {
-      printf("Usage: ./training_data [TOPAS_file_position (not the phsp)] "
-             "[efficiency_table_position.csv]\n");
+      printf("Usage: ./training_data [TOPAS_file_location (not the phsp)] "
+             "[efficiency_table_position.csv] [output location]\n");
       exit(0);
     }
 
   // checks to make sure you have correct number of args
-  if (num_args(argc, argv) != 2) {
-    printf("Incorrect number of arguments, two arguments required.\n");
+  if (num_args(argc, argv) != 3) {
+    printf("Incorrect number of arguments, three arguments required.\n");
     printf("Use the -h command to get options.\n\n");
     exit(1);
   }
   // reads in efficiency table into 2D array called eff_by_ang
+  printf("Neural Network Exam Maker\n");
   printf(
-      "Neural Network Exam Maker\n\nLoading in '%s' as efficiencies table...\n",
-      args[1]);
-  printf(
-      "WARNING: Network must be retrained every time detector is changed.\n");
+      "WARNING: Network must be retrained every time detector is changed.\n\n");
+  printf("Loading in '%s' as efficiencies table...\n", args[1]);
   FILE *eff_table_file = fopen(args[1], "r");
   read_eff(eff_table_file, eff_by_energy);
   fclose(eff_table_file);
 
   // opens up a .lor file to output each LOR into
-  output = fopen("../data/training.data", "wb");
-  FILE *output_file = fopen(args[0], "rb");
+  output = fopen(args[2], "wb");
+  FILE *annihilations = fopen(args[0], "rb");
   printf("Loading in '%s' as the annihilations...\n", args[0]);
 
   printf("Constructing the data...\n");
@@ -116,7 +115,7 @@ int main(int argc, char **argv) {
     for (int j = 0; j < BATCH_SIZE; j++)
       cache[i][j] = &all[BATCH_SIZE * triangular(i) + j * (i + 1)];
   annihilation annihil;
-  bool worked = read_annihilation(&annihil, output_file, eff_by_energy);
+  bool worked = read_annihilation(&annihil, annihilations, eff_by_energy);
   while (worked) {
     if (annihil.photon1.num_hits >= 1 && annihil.photon1.events[0]->detected)
       add_cache(annihil.photon1.hits, annihil.photon1.num_hits, cache);
@@ -125,7 +124,7 @@ int main(int argc, char **argv) {
     free_annihilation(&annihil);
     printm(num_annihilations, 1000000);
     num_annihilations++;
-    worked = read_annihilation(&annihil, output_file, eff_by_energy);
+    worked = read_annihilation(&annihil, annihilations, eff_by_energy);
   }
   printf("done!\n");
   return 0;

@@ -1,6 +1,7 @@
 #ifndef helper_functions_h
 #define helper_functions_h
 
+#include "compton_chain_ordering.h"
 #include "hgmt_structs.h"
 #include <stdbool.h>
 #include <stdio.h>

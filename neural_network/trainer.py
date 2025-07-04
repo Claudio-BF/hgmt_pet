@@ -4,9 +4,9 @@ import torch.optim as optim
 import torch.nn.functional as F
 import struct
 import numpy as np
+import sys
 
 batch_size = 128
-filename = "../data/training.data"
 input_dim = 4  # Each element is a 4-vector
 phi_dim = 128
 rho_dim = 64
@@ -79,10 +79,14 @@ def read_batch_from_binary_file(file_handle):
     return (set_size, torch.from_numpy(shaped_data))
 
 
+if len(sys.argv) != 3:
+    print("usage:")
+    print("python3 trainer.py [training data] [output location]")
+    sys.exit()
 model = DeepElementSelector(input_dim, phi_dim, rho_dim, gamma_dim)
 optimizer = torch.optim.Adam(model.parameters(), lr=0.0005)
 
-with open(filename, "rb") as file:
+with open(sys.argv[1], "rb") as file:
     print("Training network to select first compton scatter...\n")
     epoch = 0
     accuracy = 0
@@ -107,9 +111,7 @@ with open(filename, "rb") as file:
         if epoch % eon_size == 0:
             accuracy /= eon_size
 
-            print(f"Eon {int(epoch / eon_size)}:")
-            print(f"  Accuracy: {accuracy.item():.4f}")
-            print()
+            print(f"Eon {int(epoch / eon_size)} | Accuracy: {accuracy.item():.4f}")
             accuracy = 0
 
         epoch += 1
@@ -125,7 +127,7 @@ example_input = torch.randn(1, example_set_size, input_dim)
 traced_model = torch.jit.optimize_for_inference(torch.jit.trace(model, example_input))
 
 # Save the traced model
-traced_model.save("chooser.pt")
+traced_model.save(sys.argv[2])
 
 print("Model saved as: 'chooser.pt'")
 print(f"Model expects input shape: [batch_size, num_elements, {input_dim}]")

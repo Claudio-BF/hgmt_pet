@@ -45,17 +45,17 @@ FILE *eff_table_file;
 FILE *input_file;
 pthread_mutex_t read_lock = PTHREAD_MUTEX_INITIALIZER;
 pthread_mutex_t write_lock = PTHREAD_MUTEX_INITIALIZER;
-prim_lor create_prim_lor(hit_split split) {
-  prim_lor primitive_lor;
+primitive_lor create_prim_lor(hit_split split) {
+  primitive_lor prim_lor;
   hit *hit1 = initial_by_neural_network(split.hits1, split.num_hits1);
   hit *hit2 = initial_by_neural_network(split.hits2, split.num_hits2);
   // hit *hit1 = initial_by_truth(split.hits1, split.num_hits1);
   // hit *hit2 = initial_by_truth(split.hits2, split.num_hits2);
   // hit *hit1 = initial_by_least_time(split.hits1, split.num_hits1);
   // hit *hit2 = initial_by_least_time(split.hits2, split.num_hits2);
-  primitive_lor.hit1 = *hit1;
-  primitive_lor.hit2 = *hit2;
-  return primitive_lor;
+  prim_lor.hit1 = *hit1;
+  prim_lor.hit2 = *hit2;
+  return prim_lor;
 }
 
 double impact_parameter(vec3d loc1, vec3d loc2, double tof1, double tof2,
@@ -84,21 +84,21 @@ sym_matrix hit_covariance(vec3d position) {
   covariance.zz = LONG_VAR;
   return covariance;
 }
-lor create_lor(prim_lor *primitive_lor) {
+lor create_lor(primitive_lor *prim_lor) {
 
-  vec3d a = primitive_lor->hit1.position;
-  vec3d b = primitive_lor->hit2.position;
+  vec3d a = prim_lor->hit1.position;
+  vec3d b = prim_lor->hit2.position;
   vec3d c = vec_sub(a, b);
   vec3d geometric_center = vec_scale(vec_add(a, b), 0.5);
   vec3d c_hat = vec_norm(c);
-  double delta_t = -(primitive_lor->hit1.tof - primitive_lor->hit2.tof);
+  double delta_t = -(prim_lor->hit1.tof - prim_lor->hit2.tof);
   vec3d displacement_from_center = vec_scale(c_hat, SPD_LGHT * delta_t * 0.5);
   vec3d annihilation_loc = vec_add(geometric_center, displacement_from_center);
 
   lor new_lor;
   new_lor.center = annihilation_loc;
-  new_lor.covariance = sym_add(hit_covariance(primitive_lor->hit1.position),
-                               hit_covariance(primitive_lor->hit2.position));
+  new_lor.covariance = sym_add(hit_covariance(prim_lor->hit1.position),
+                               hit_covariance(prim_lor->hit2.position));
   new_lor.covariance =
       sym_add(new_lor.covariance,
               sym_scale(sym_proj(c_hat), SPD_LGHT * TIME_VAR * 0.5));
@@ -122,7 +122,7 @@ void print_annihilation(annihilation *annihil) {
   fprintf(visualization, "\n\n");
 }
 // provide debug statistics
-int debug_path(photon_path *path) {
+int debug_path(photon_path *path, debug_context context) {
   if (path->num_events == 0)
     return 0;
   // getting all the important statistics
@@ -136,11 +136,16 @@ int debug_path(photon_path *path) {
     cut = 2;
   else if (!path->events[0]->detected)
     cut = 3;
-  else
+  else if (context.prim_lor == NULL ||
+           (path->events[0] != context.prim_lor->hit1.source &&
+            path->events[0] != context.prim_lor->hit2.source))
     cut = 4;
+  else
+    cut = 5;
   return cut;
 }
-int debug_annihilation(annihilation *annihil) {
+int debug_annihilation(debug_context context) {
+  annihilation *annihil = context.annihil;
   num_scatters += annihil->num_events;
   num_hits += annihil->num_hits;
   if (debug_options[0])
@@ -151,8 +156,8 @@ int debug_annihilation(annihilation *annihil) {
     print_annihilation(annihil);
     vis_events--;
   }
-  int cut1 = debug_path(&annihil->photon1);
-  int cut2 = debug_path(&annihil->photon2);
+  int cut1 = debug_path(&annihil->photon1, context);
+  int cut2 = debug_path(&annihil->photon2, context);
   int cut = MIN(cut1, cut2);
   cuts[cut1]++;
   cuts[cut2]++;
@@ -174,37 +179,30 @@ int debug_annihilation(annihilation *annihil) {
   }
   return cut;
 }
-void debug_lor(lor *new_lor, vec3d truecenter) {
-  if (debug_options[2]) {
-    vec3d dir = sym_eigenvector(&new_lor->covariance,
-                                sym_max_eigenvalue(new_lor->covariance));
-    print_double(
-        vec_mag(vec_rejection(vec_sub(new_lor->center, truecenter), dir)),
-        debug[2]);
-  }
-  if (debug_options[3]) {
-    vec3d dir = sym_eigenvector(&new_lor->covariance,
-                                sym_max_eigenvalue(new_lor->covariance));
-    print_double(
-        vec_mag(vec_projection(vec_sub(new_lor->center, truecenter), dir)),
-        debug[3]);
+void debug_lor(debug_context context) {
+  if (debug_options[2] || debug_options[3]) {
+    lor *new_lor = context.lor;
+    vec3d truecenter = context.annihil->center;
+    vec3d dir = vec_norm(vec_sub(context.prim_lor->hit1.position,
+                                 context.prim_lor->hit2.position));
+    if (debug_options[2])
+      print_double(
+          vec_mag(vec_rejection(vec_sub(new_lor->center, truecenter), dir)),
+          debug[2]);
+    if (debug_options[3])
+      print_double(
+          vec_mag(vec_projection(vec_sub(new_lor->center, truecenter), dir)),
+          debug[3]);
   }
 }
-void debug_prim_lor(prim_lor *new_lor) {
-  int a = 0;
-  if (new_lor->hit1.source->primary && new_lor->hit1.source->number == 0) {
-    a++;
-    cuts[4]--;
-    cuts[5]++;
-  }
-  if (new_lor->hit2.source->primary && new_lor->hit2.source->number == 0) {
-    a++;
-    cuts[4]--;
-    cuts[5]++;
-  }
-  if (a == 2) {
-    dual_cuts[4]--;
-    dual_cuts[5]++;
+void debug_prim_lor(debug_context context) {}
+void debug_all(debug_context context) {
+  debug_annihilation(context);
+  num_annihilations++;
+  printm(num_annihilations, 1000000);
+  if (context.prim_lor != NULL) {
+    debug_prim_lor(context);
+    debug_lor(context);
   }
 }
 void *worker(void *arg) {
@@ -218,21 +216,22 @@ void *worker(void *arg) {
     if (!worked)
       return NULL;
     hit_split split = create_hit_split(annihil.hits, annihil.num_hits);
-    prim_lor primitive_lor;
+    debug_context context = {0};
+    context.annihil = &annihil;
+    context.split = &split;
+    primitive_lor prim_lor;
     lor new_lor;
     if (split.num_hits1 >= 1 && split.num_hits2 >= 1) {
-      primitive_lor = create_prim_lor(split);
-      new_lor = create_lor(&primitive_lor);
+      prim_lor = create_prim_lor(split);
+      new_lor = create_lor(&prim_lor);
+      context.prim_lor = &prim_lor;
+      context.lor = &new_lor;
     }
     pthread_mutex_lock(&write_lock);
-    debug_annihilation(&annihil);
-    num_annihilations++;
-    printm(num_annihilations, 1000000);
-    if (split.num_hits1 >= 1 && split.num_hits2 >= 1) {
-      debug_prim_lor(&primitive_lor);
+    debug_all(context);
+    if (context.prim_lor != NULL) {
       if (writing_to_lor)
         print_lor(&new_lor, lor_output);
-      debug_lor(&new_lor, annihil.center);
     }
     pthread_mutex_unlock(&write_lock);
     free_annihilation(&annihil);

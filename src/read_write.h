@@ -22,4 +22,10 @@ void print_vec(vec3d a, FILE *source);
 void print_double(double numb, FILE *output);
 void print_int(int numb, FILE *output);
 bool read_lor(lor *new_lor, FILE *input);
+typedef struct debug_context {
+  annihilation *annihil;
+  hit_split *split;
+  primitive_lor *prim_lor;
+  lor *lor;
+} debug_context;
 #endif

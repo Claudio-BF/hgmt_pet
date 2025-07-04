@@ -1,9 +1,6 @@
 // including standard files
-#include <math.h>
 #include <stdbool.h>
-#include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include <sys/types.h>
 
 // including custom files
@@ -14,7 +11,7 @@
 #include "linear_algebra.h"
 #define TIME_SD_TOLERANCE 3
 #define OPTIMIZE 1
-// This is just PCA but instead of using the mean i'm just using 0
+// This is just PCA but instead of using the mean I'm just using 0
 vec3d principal_direction(hit *hits, uint num_hits) {
   sym_matrix mat = sym_zero();
   for (int i = 0; i < num_hits; i++) {
