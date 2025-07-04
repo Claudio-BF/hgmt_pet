@@ -15,7 +15,7 @@ Rather than standard LORs, covariance matrices are used to keep track of uncerta
 
 
 - **Truth Information:**
-Keeps track of truth information and provides detailed statistics. Check out `plots/detector_diagnostics.txt` in this repo to see a standard output.
+Keeps track of truth information, provides detailed statistics, and provides visualization. Check out `plots/detector_diagnostics.txt` in this repo to see a standard output.
 
 
 - **Algorithms:**
