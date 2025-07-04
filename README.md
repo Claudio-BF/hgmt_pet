@@ -25,11 +25,6 @@ PCA is used to split the hits from an annihilation into two Compton chains. A de
 - **Fast:**
 The simulation is multi-threaded, fast, and space efficient.
 
-
-- **Dose Reduction:**
-Simulations suggest effective imaging at reduced radiation doses.
-
-
 ## Detector Design
 
 
