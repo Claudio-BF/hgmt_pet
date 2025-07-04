@@ -1,9 +1,10 @@
 import numpy as np
 import sys
 from vispy import scene
-from vispy.scene.visuals import Mesh, Line
+from vispy.scene.visuals import Mesh, Line, Text
 from vispy.color import Color
 from vispy.scene import visuals
+from vispy.scene import Markers
 import vispy.app
 from dataclasses import dataclass
 import struct
@@ -17,7 +18,11 @@ detector_thickness = 2.54  # cm
 detector_inner_radii = np.array([45] * 12) + 5 * np.array(range(12))  # MUST BE SORTED
 argument = 0
 
-script_dir = os.path.dirname(os.path.abspath(__file__))
+# Correctly determine the script and data directories
+try:
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+except NameError:
+    script_dir = os.getcwd()  # Fallback for interactive environments
 data_dir = os.path.join(script_dir, "../data/visualization.data")
 print("Reading data from: " + data_dir)
 
@@ -49,8 +54,7 @@ def read_events(f):
     events = []
     for _ in range(n):
         ex, ey, ez, energy, detected = struct.unpack("dddd?", f.read(33))
-        ex, ey, ez, energy = map(float, (ex, ey, ez, energy))
-        e = event(vec3d(ex, ey, ez), energy, detected)
+        e = event(vec3d(ex, ey, ez), float(energy), detected)
         events.append(e)
     return n, events
 
@@ -84,21 +88,23 @@ def create_cylinder_mesh(radius, length, num_segments):
         vertices.append([x, y, -length / 2])
         vertices.append([x, y, length / 2])
 
-    bottom_center = len(vertices)
-    top_center = bottom_center + 1
+    bottom_center_idx = len(vertices)
     vertices.append([0, 0, -length / 2])
+    top_center_idx = len(vertices)
     vertices.append([0, 0, length / 2])
 
     for i in range(num_segments):
         i0 = 2 * i
         i1 = 2 * ((i + 1) % num_segments)
-        faces += [
-            [i0, i1, i1 + 1],
-            [i0, i1 + 1, i0 + 1],
-            [bottom_center, i0, i1],
-            [top_center, i1 + 1, i0 + 1],
-        ]
-        edges += [[i0 + 1, i1 + 1], [i0, i1], [i0, i0 + 1]]
+        faces.extend(
+            [
+                [i0, i1, i1 + 1],
+                [i0, i1 + 1, i0 + 1],
+                [bottom_center_idx, i0, i1],
+                [top_center_idx, i1 + 1, i0 + 1],
+            ]
+        )
+        edges.extend([[i0 + 1, i1 + 1], [i0, i1], [i0, i0 + 1]])
 
     return np.array(vertices), np.array(faces), np.array(edges)
 
@@ -121,44 +127,44 @@ def create_tube_mesh(inner_radius, outer_radius, length, num_segments):
 
     for i in range(num_segments):
         theta = 2 * np.pi * i / num_segments
-        x_inner = inner_radius * np.cos(theta)
-        y_inner = inner_radius * np.sin(theta)
-        x_outer = outer_radius * np.cos(theta)
-        y_outer = outer_radius * np.sin(theta)
-        vertices.append([x_inner, y_inner, -length / 2])
-        vertices.append([x_outer, y_outer, -length / 2])
-        vertices.append([x_inner, y_inner, length / 2])
-        vertices.append([x_outer, y_outer, length / 2])
+        x_inner, y_inner = inner_radius * np.cos(theta), inner_radius * np.sin(theta)
+        x_outer, y_outer = outer_radius * np.cos(theta), outer_radius * np.sin(theta)
+        vertices.extend(
+            [
+                [x_inner, y_inner, -length / 2],
+                [x_outer, y_outer, -length / 2],
+                [x_inner, y_inner, length / 2],
+                [x_outer, y_outer, length / 2],
+            ]
+        )
 
     for i in range(num_segments):
         i0 = 4 * i
         i1 = 4 * ((i + 1) % num_segments)
-        faces += [
-            [i0, i1, i1 + 2],
-            [i0, i0 + 2, i1 + 2],
-            [i0 + 1, i1 + 1, i1 + 3],
-            [i0 + 1, i0 + 3, i1 + 3],
-            [i0, i1, i0 + 1],
-            [i1, i1 + 1, i0 + 1],
-            [i0 + 2, i1 + 2, i0 + 3],
-            [i1 + 2, i1 + 3, i0 + 3],
-        ]
-        edges += [
-            [i0, i0 + 2],
-            [i0 + 3, i0 + 1],
-            [i0, i1],
-            [i0 + 1, i1 + 1],
-            [i0 + 2, i1 + 2],
-            [i0 + 3, i1 + 3],
-        ]
+        faces.extend(
+            [
+                [i0, i1, i1 + 2],
+                [i0, i0 + 2, i1 + 2],
+                [i0 + 1, i1 + 1, i1 + 3],
+                [i0 + 1, i0 + 3, i1 + 3],
+                [i0, i1, i0 + 1],
+                [i1, i1 + 1, i0 + 1],
+                [i0 + 2, i1 + 2, i0 + 3],
+                [i1 + 2, i1 + 3, i0 + 3],
+            ]
+        )
+        edges.extend(
+            [
+                [i0, i0 + 2],
+                [i0 + 3, i0 + 1],
+                [i0, i1],
+                [i0 + 1, i1 + 1],
+                [i0 + 2, i1 + 2],
+                [i0 + 3, i1 + 3],
+            ]
+        )
 
     return np.array(vertices), np.array(faces), np.array(edges)
-
-
-# Create a canvas and view
-canvas = scene.SceneCanvas(keys="interactive", bgcolor="white")
-view = canvas.central_widget.add_view()
-view.camera = scene.TurntableCamera(elevation=30, azimuth=30, distance=10000, fov=0.0)
 
 
 def draw_tube(inner_radius, outer_radius, length, num_segments):
@@ -174,111 +180,98 @@ def draw_tube(inner_radius, outer_radius, length, num_segments):
     return [wireframe, tube_mesh]
 
 
-def draw_sphere(center, color, radius=15):
-    marker = scene.visuals.Markers(
-        pos=np.array([center]), size=radius, face_color=color, edge_color=None
-    )
-    marker.set_gl_state(
+# --- Vispy setup ---
+canvas = scene.SceneCanvas(keys="interactive", bgcolor="white")
+view = canvas.central_widget.add_view()
+view.camera = scene.TurntableCamera(elevation=30, azimuth=30, fov=0, scale_factor=300)
+# Initialize visual elements that will be updated
+path = Line(pos=np.array([[0, 0, 0]]), color="red", width=2, method="gl")
+labels = Text(
+    text=[""],
+    pos=[[0, 0, 0]],
+    color="black",
+    font_size=15,
+    anchor_x="center",
+    anchor_y="bottom",
+)
+markers = Markers(pos=np.array([[0, 0, 0]]), size=8, edge_color=None)
+
+# Set GL state for transparency
+for item in [path, markers, labels]:
+    item.order = 1
+    item.set_gl_state(
         "translucent",
         depth_test=False,
         blend=True,
         blend_func=("src_alpha", "one_minus_src_alpha"),
     )
-    view.add(marker)
-    return [marker]
+view.add(path)
+view.add(labels)
+view.add(markers)
 
 
-def label(position, text):
-    text_label = visuals.Text(
-        text=text,
-        pos=position,
-        color="black",
-        font_size=20,
-        anchor_x="center",
-        anchor_y="bottom",
-    )
-    view.add(text_label)
-    return [text_label]
+def draw_path(events, pathid):
+    if not events:
+        return np.empty((0, 3)), np.empty((0, 4)), np.empty(0, dtype=str)
 
-
-def draw_path(origin, events, pathid):
-    visuals_created = []
-    points = [[origin.x, origin.y, origin.z]] + [
-        [e.position.x, e.position.y, e.position.z] for e in events
-    ]
-    path = Line(pos=points, color="red", width=1)
-    path.set_gl_state(
-        "translucent",
-        depth_test=False,
-        blend=True,
-        blend_func=("src_alpha", "one_minus_src_alpha"),
-    )
-    view.add(path)
-    visuals_created.append(path)
+    points = np.array([[e.position.x, e.position.y, e.position.z] for e in events])
+    colors = np.array([Color("green" if e.detected else "grey") for e in events])
+    labels = np.array([f"{pathid}{i + 1}" for i in range(len(events))])
     for i in range(len(events)):
-        e = events[i]
-        visuals_created += draw_sphere(
-            [e.position.x, e.position.y, e.position.z],
-            Color("green" if e.detected else "grey"),
-        )
-        visuals_created += label(points[i + 1], pathid + str(i + 1))
-        new_pathid = pathid.upper() if e.detected else pathid
-        print(new_pathid + str(i + 1) + ": " + str(e.energy))
-    return visuals_created
+        print(labels[i] + ": " + str(events[i].energy))
+    return points, colors, labels
 
 
 def draw_annihilation(origin, events1, events2):
-    visuals_created = []
-    visuals_created += draw_path(origin, events1, "a")
+    center_pos = np.array([[origin.x, origin.y, origin.z]])
+
+    points1, colors1, labels1 = draw_path(events1, "a")
     print("")
-    visuals_created += draw_path(origin, events2, "b")
-    visuals_created += draw_sphere([origin.x, origin.y, origin.z], Color("red"))
-    return visuals_created
+    points2, colors2, labels2 = draw_path(events2, "b")
 
+    full_path_pos = np.concatenate([np.flip(points1, axis=0), center_pos, points2])
+    path.set_data(pos=full_path_pos, color="purple")
 
-# --- Navigation logic starts here ---
+    all_points_pos = np.concatenate([points1, center_pos, points2])
+    all_labels_text = np.concatenate([labels1, [""], labels2])
+    center_color = np.array([Color("red")])
+    all_marker_colors = np.concatenate([colors1, center_color, colors2])
 
-annihilations = read_file(data_dir)
-current_index = argument if argument < len(annihilations) else 0
-visuals_list = []
+    labels.pos = all_points_pos
+    labels.text = all_labels_text
+    markers.set_data(pos=all_points_pos, face_color=all_marker_colors)
 
 
 def redraw():
-    # Remove previous visuals
-    for v in visuals_list:
-        v.parent = None
-    visuals_list.clear()
-
-    # Draw new visuals and track them
-    for inner_radius in detector_inner_radii:
-        visuals_list.extend(
-            draw_tube(
-                inner_radius, inner_radius + detector_thickness, detector_length, 30
-            )
-        )
-    visuals_list.extend(draw_cylinder(10.6, 4, 30))
     origin, events1, events2 = annihilations[current_index]
-    visuals_list.extend(draw_annihilation(origin, events1, events2))
+    draw_annihilation(origin, events1, events2)
 
 
+annihilations = read_file(data_dir)
+current_index = argument if argument < len(annihilations) else 0
+
+for inner_radius in detector_inner_radii:
+    draw_tube(inner_radius, inner_radius + detector_thickness, detector_length, 60)
+draw_cylinder(10.6, 4, 30)
 redraw()
 
 
 @canvas.events.key_press.connect
 def on_key_press(event):
     global current_index
-    print("\n")
     if event.key == "j":
         current_index = (current_index - 1) % len(annihilations)
-        print("Visualizing event: " + str(current_index) + "\n")
-        redraw()
     elif event.key == "k":
         current_index = (current_index + 1) % len(annihilations)
-        print("Visualizing event: " + str(current_index) + "\n")
-        redraw()
+    else:
+        return
+
+    print(f"\n\nVisualizing event: {current_index}\n")
+    redraw()
 
 
 canvas.show()
 
 if __name__ == "__main__":
-    canvas.app.run()
+    if sys.flags.interactive != 1:
+        vispy.app.run()
