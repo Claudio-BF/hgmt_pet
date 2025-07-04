@@ -48,17 +48,6 @@ The simulation is multi-threaded, fast, and space efficient.
 
 
 
-
-
-## Simulation & Analysis
-
-
-- **Toolkit:**
-  - [TOPAS Geant4-based toolkit](https://www.topasmc.org/)
-  - Python (PyTorch, NumPy, Matplotlib)
-  - Derenzo phantom simulated at reduced dose
-
-
 ## Installation and Setup Guide
 
 
@@ -73,7 +62,6 @@ Follow these steps to install and set up the TOF-PET simulation using Kapton Lam
 
 
 - Python Packages:
-  - Ensure both C++/Java and Python versions are installed.
   - Required packages: pytorch, numpy, matplotlib, vispy (if you want the visualization)
 
 
