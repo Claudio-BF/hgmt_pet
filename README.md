@@ -19,11 +19,8 @@ Keeps track of truth information, provides detailed statistics, and provides vis
 
 
 - **Algorithms:**
-PCA is used to split the hits from an annihilation into two Compton chains. A deep sets neural network is used to select the first scatter from each Compton chain to generate a measurement, achieving greater accuracy than naive algorithms. Finally, an expectation maximization algorithm is used to refine and generate the image.
+Principal component analysis is used to split the hits from an annihilation into two Compton chains. A deep sets neural network is used to select the first scatter from each Compton chain to generate a measurement, achieving greater accuracy than naive algorithms. Finally, an expectation maximization algorithm is used to generate the image.
 
-
-- **Fast:**
-The simulation is multi-threaded, fast, and space efficient.
 
 ## Detector Design
 
@@ -101,19 +98,8 @@ Follow these steps to install and set up the TOF-PET simulation using Kapton Lam
 
 
 - Set the PYTORCH_PATH environment variable to the correct path in your shell configuration (e.g., .bashrc). For me this is `/usr/lib/python3.13/site-packages/torch`.
-- Build the neural network and rendering components:
+- Run `make` in `neural_network`, `rendering`, `scripts`, and `/`.
 
-
-```
-cd neural_network
-make
-cd ../rendering
-make
-cd ../scripts
-make
-cd ..
-make
-```
 
 
 ### 6. Model Training and Diagnostics
