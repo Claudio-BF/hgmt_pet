@@ -11,15 +11,15 @@ This project presents simulations of a time-of-flight positron emission tomograp
 
 
 - **Covariance Matrices:**
-Rather than standard LORs, covariance matrices are used to keep track of uncertainties. This due to the assumption that the timing resolution is on the order of the spatial resolution.
+Rather than standard LORs, covariance matrices are used to keep track of uncertainties. This due to the assumption that the timing resolution is comparable to the speed of light.
 
 
 - **Truth Information:**
-Keeps track of truth information, provides detailed statistics, and provides visualization. Check out `plots/detector_diagnostics.txt` in this repo to see a standard output.
+Keeps track of truth information, provides detailed statistics, and provides visualization. Check out `plots/` in this repo to see standard outputs.
 
 
 - **Algorithms:**
-Principal component analysis is used to split the hits from an annihilation into two Compton chains. A deep sets neural network is used to select the first scatter from each Compton chain to generate a measurement, achieving greater accuracy than naive algorithms. Finally, an expectation maximization algorithm is used to generate the image.
+Principal component analysis is used to split the hits from an annihilation into two Compton chains. A deep sets neural network is used to select the first scatter from each Compton chain to generate a measurement. Finally, an expectation maximization algorithm is used to generate the image.
 
 
 ## Detector Design
@@ -48,7 +48,7 @@ Principal component analysis is used to split the hits from an annihilation into
 ## Installation and Setup Guide
 
 
-Follow these steps to install and set up the TOF-PET simulation using Kapton Laminar MCPs. A Linux operating system is required.
+Follow these steps to install and set up the simulation. A Linux operating system is required.
 
 
 ### 2. Install Required Software
