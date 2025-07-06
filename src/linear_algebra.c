@@ -138,14 +138,13 @@ sym_matrix sym_proj(vec3d vec) {
   return mat;
 }
 sym_matrix sym_add(sym_matrix a, sym_matrix b) {
-  sym_matrix c;
-  c.xx = a.xx + b.xx;
-  c.xy = a.xy + b.xy;
-  c.xz = a.xz + b.xz;
-  c.yy = a.yy + b.yy;
-  c.yz = a.yz + b.yz;
-  c.zz = a.zz + b.zz;
-  return c;
+  a.xx += b.xx;
+  a.xy += b.xy;
+  a.xz += b.xz;
+  a.yy += b.yy;
+  a.yz += b.yz;
+  a.zz += b.zz;
+  return a;
 }
 sym_matrix sym_scale(sym_matrix mat, double factor) {
   mat.xx *= factor;
@@ -215,7 +214,7 @@ vec3d sym_eigenvector(sym_matrix *mat, double eigenvalue) {
       return vec_cross(row2, row3);
   }
 }
-lower_matrix conj_axes(sym_matrix *mat) {
+lower_matrix cholesky(sym_matrix *mat) {
   lower_matrix lower;
   lower.l11 = sqrt(mat->xx);
   lower.l21 = mat->xy / lower.l11;

@@ -62,8 +62,8 @@ vec3d sym_eigenvector(sym_matrix *mat, double eigenvalue);
 sym_matrix sym_zero();
 double sym_det(sym_matrix *mat);
 sym_matrix sym_scale(sym_matrix mat, double factor);
-sym_matrix sym_proj(vec3d vec);          // gives the outer square of a vector
-lower_matrix conj_axes(sym_matrix *mat); // find L so that LL^T = S
+sym_matrix sym_proj(vec3d vec);         // gives the outer square of a vector
+lower_matrix cholesky(sym_matrix *mat); // find L so that LL^T = S
 sym_matrix sym_adjucate(sym_matrix *sym);
 vec3d sym_transform(sym_matrix *sym, vec3d vec);
 sym_matrix sym_id(double diagonal);

@@ -10,8 +10,8 @@
 #define X_LENGTH 25.0
 #define Y_LENGTH 25.0
 #define Z_LENGTH 4.0
-#define X_RES 300
-#define Y_RES 300
+#define X_RES 200
+#define Y_RES 200
 #define Z_RES 1
 #define RES (X_RES * Y_RES * Z_RES)
 typedef struct grid {
@@ -19,6 +19,7 @@ typedef struct grid {
 } grid;
 typedef struct graph {
   double values[RES];
+  double background;
 } graph;
 typedef struct comp_lor {
   vec3d center;

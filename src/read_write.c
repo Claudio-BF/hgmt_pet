@@ -1,5 +1,6 @@
 #include "read_write.h"
 #include "hgmt_structs.h"
+#include "linear_algebra.h"
 
 void read_event(event *new_event, FILE *source, double eff_by_energy[COLS]) {
   fread(&new_event->tof, sizeof(double), 1, source);
@@ -104,6 +105,14 @@ void print_sym_matrix(sym_matrix *mat, FILE *output) {
   fwrite(&mat->yz, sizeof(double), 1, output);
   fwrite(&mat->zz, sizeof(double), 1, output);
 }
+void print_lower_matrix(lower_matrix *mat, FILE *output) {
+  fwrite(&mat->l11, sizeof(double), 1, output);
+  fwrite(&mat->l21, sizeof(double), 1, output);
+  fwrite(&mat->l22, sizeof(double), 1, output);
+  fwrite(&mat->l31, sizeof(double), 1, output);
+  fwrite(&mat->l32, sizeof(double), 1, output);
+  fwrite(&mat->l33, sizeof(double), 1, output);
+}
 bool read_vec(vec3d *vec, FILE *source) {
   bool worked = fread(&vec->x, sizeof(double), 1, source);
   fread(&vec->y, sizeof(double), 1, source);
@@ -132,8 +141,18 @@ void print_path(photon_path *path, FILE *output) {
     fwrite(&path->events[i]->detected, sizeof(bool), 1, output);
   }
 }
-void print_annihilation(annihilation *annihil, FILE *output) {
-  print_vec(annihil->center, output);
-  print_path(&annihil->photon1, output);
-  print_path(&annihil->photon2, output);
+void print_prim_lor(primitive_lor *prim_lor, FILE *output) {}
+void print_history(debug_context context, FILE *output) {
+  print_vec(context.annihil->center, output);
+  print_path(&context.annihil->photon1, output);
+  print_path(&context.annihil->photon2, output);
+  bool made_lor = context.prim_lor != NULL;
+  fwrite(&made_lor, sizeof(bool), 1, output);
+  if (made_lor) {
+    print_vec(context.lor->center, output);
+    lower_matrix transform = cholesky(&context.lor->covariance);
+    print_lower_matrix(&transform, output);
+    print_vec(context.prim_lor->hit1.position, output);
+    print_vec(context.prim_lor->hit2.position, output);
+  }
 }

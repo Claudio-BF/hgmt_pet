@@ -97,11 +97,13 @@ lor create_lor(primitive_lor *prim_lor) {
 
   lor new_lor;
   new_lor.center = annihilation_loc;
-  new_lor.covariance = sym_add(hit_covariance(prim_lor->hit1.position),
-                               hit_covariance(prim_lor->hit2.position));
+  new_lor.covariance =
+      sym_scale(sym_add(hit_covariance(prim_lor->hit1.position),
+                        hit_covariance(prim_lor->hit2.position)),
+                0.25);
   new_lor.covariance =
       sym_add(new_lor.covariance,
-              sym_scale(sym_proj(c_hat), SPD_LGHT * TIME_VAR * 0.5));
+              sym_scale(sym_proj(c_hat), 0.5 * SPD_LGHT * SPD_LGHT * TIME_VAR));
   new_lor.covariance = sym_add(new_lor.covariance, sym_id(DIFFUSION_VARIANCE));
   return new_lor;
 }
@@ -138,7 +140,7 @@ int debug_annihilation(debug_context context) {
       print_double(annihil->events[j].detector_id, debug[0]);
 
   if (vis_events > 0) {
-    print_annihilation(annihil, visualization);
+    print_history(context, visualization);
     vis_events--;
   }
   int cut1 = debug_path(&annihil->photon1, context);
@@ -156,8 +158,13 @@ int debug_annihilation(debug_context context) {
         vec3d loc2 = annihil->photon2.events[j]->position;
         double tof1 = annihil->photon1.events[i]->tof;
         double tof2 = annihil->photon2.events[j]->tof;
-        print_int(i + 1, debug[4]);
-        print_int(j + 1, debug[4]);
+        if (i < j) {
+          print_int(i + 1, debug[4]);
+          print_int(j + 1, debug[4]);
+        } else {
+          print_int(j + 1, debug[4]);
+          print_int(i + 1, debug[4]);
+        }
         print_double(impact_parameter(loc1, loc2, tof1, tof2, true_center),
                      debug[4]);
       }
