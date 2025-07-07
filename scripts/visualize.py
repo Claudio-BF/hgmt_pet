@@ -1,6 +1,7 @@
 import numpy as np
 import sys
 from vispy import scene
+from vispy.scene.cameras import fly
 from vispy.scene.visuals import Mesh, Line, Text
 from vispy.color import Color
 from vispy.scene import STTransform, visuals
@@ -17,7 +18,7 @@ vispy.app.use_app("pyqt6")
 detector_length = 200  # cm
 detector_thickness = 2.54  # cm
 detector_inner_radii = np.array([45] * 12) + 5 * np.array(range(12))  # MUST BE SORTED
-fly_camera = False
+fly_camera = True
 argument = 0
 
 # Correctly determine the script and data directories
@@ -32,7 +33,17 @@ if len(sys.argv) > 1:
     argument = int(sys.argv[1])
     print(f"Visualizing annihilation: {argument}")
 else:
-    print("No argument provided, visualizing annihilation: 0")
+    print("Usage: python3 visualize.py [annihilation number]")
+    print("label key:")
+    print("\ta- electrons from primary photon")
+    print("\tb- electrons from other primary photon")
+    print("\tc- electrons from other parents")
+    print("color key:")
+    print("\tred- source annihilation")
+    print("\tgrey- not detected")
+    print("\tgreen- detected")
+    print("\tblue- LOR and selected hits")
+    sys.exit()
 print("Use '[' and ']' keys to scroll through annihilations.\n\n")
 
 
@@ -61,13 +72,18 @@ class LOR:
 def read_events(f):
     n_bytes = f.read(4)
     n = struct.unpack("i", n_bytes)[0]
-
-    events = []
+    events1, events2, other = [], [], []
     for _ in range(n):
-        ex, ey, ez, energy, detected = struct.unpack("dddd?", f.read(33))
+        ex, ey, ez, energy, primary, detected = struct.unpack("ddddi?", f.read(37))
         e = event(vec3d(ex, ey, ez), float(energy), detected)
-        events.append(e)
-    return events
+        match primary:
+            case 0:
+                other.append(e)
+            case 1:
+                events1.append(e)
+            case 2:
+                events2.append(e)
+    return events1, events2, other
 
 
 def read_file(file_path):
@@ -84,8 +100,7 @@ def read_file(file_path):
             center = vec3d(float(vx), float(vy), float(vz))
 
             # Read the event paths for both photons
-            events1 = read_events(f)
-            events2 = read_events(f)
+            events1, events2, other = read_events(f)
 
             # Check if a Line of Response (LOR) was generated (1 byte bool)
             made_lor_byte = f.read(1)
@@ -108,7 +123,7 @@ def read_file(file_path):
 
                 lor_data = LOR(lor_center, transform_matrix, hit1_pos, hit2_pos)
 
-            annihilations.append((center, events1, events2, lor_data))
+            annihilations.append((center, events1, events2, other, lor_data))
 
     return annihilations
 
@@ -233,7 +248,7 @@ labels = Text(
     text=[""],
     pos=[[0, 0, 0]],
     color="black",
-    font_size=10,
+    font_size=(200 if fly_camera else 10),
     anchor_x="center",
     anchor_y="bottom",
 )
@@ -303,25 +318,29 @@ def draw_path(events, pathid):
     return points, colors, labels
 
 
-def draw_annihilation(origin, events1, events2, lor_data):
+def draw_annihilation(origin, events1, events2, other, lor_data):
     center_pos = np.array([[origin.x, origin.y, origin.z]])
 
     points1, colors1, labels1 = draw_path(events1, "a")
     print("")
     points2, colors2, labels2 = draw_path(events2, "b")
+    print("")
+    points3, colors3, labels3 = draw_path(other, "c")
     selected_hits, hit_colors = draw_lor(lor_data)
 
     full_path_pos = np.concatenate([np.flip(points1, axis=0), center_pos, points2])
     path.set_data(pos=full_path_pos, color="purple")
     lor_line.set_data(pos=selected_hits)
 
-    all_points_pos = np.concatenate([points1, center_pos, points2])
-    all_labels_text = np.concatenate([labels1, [""], labels2])
+    all_points_pos = np.concatenate([points1, center_pos, points2, points3])
+    all_labels_text = np.concatenate([labels1, [""], labels2, labels3])
     labels.pos = all_points_pos
     labels.text = all_labels_text
     all_points_pos = np.concatenate([all_points_pos, selected_hits])
     center_color = np.array([Color("red")])
-    all_marker_colors = np.concatenate([colors1, center_color, colors2, hit_colors])
+    all_marker_colors = np.concatenate(
+        [colors1, center_color, colors2, colors3, hit_colors]
+    )
 
     markers.set_data(
         pos=all_points_pos, face_color=all_marker_colors, size=6, edge_width=0
@@ -329,8 +348,8 @@ def draw_annihilation(origin, events1, events2, lor_data):
 
 
 def redraw():
-    origin, events1, events2, lor_data = annihilations[current_index]
-    draw_annihilation(origin, events1, events2, lor_data)
+    origin, events1, events2, other, lor_data = annihilations[current_index]
+    draw_annihilation(origin, events1, events2, other, lor_data)
 
 
 annihilations = read_file(data_dir)

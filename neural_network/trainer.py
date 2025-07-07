@@ -80,7 +80,7 @@ def read_batch_from_binary_file(file_handle):
 
 
 if len(sys.argv) != 3:
-    print("usage:")
+    print(str(len(sys.argv)) + " parameters, expected 4, usage:")
     print("python3 trainer.py [training data] [output location]")
     sys.exit()
 model = DeepElementSelector(input_dim, phi_dim, rho_dim, gamma_dim)

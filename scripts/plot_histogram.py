@@ -27,9 +27,8 @@ def plot_histogram(doubles, xmax):
 
 # replace 'file.bin' with your binary file
 if len(sys.argv) != 6:
-    print(str(len(sys.argv)) + "parameters, expected 4, usage:")
     print(
-        "python3 plot_histogram [data_loc] [x_axis_label] [output_location] [x_axis_max] [y_axis_max]"
+        "Usage: python3 plot_histogram [data_loc] [x_axis_label] [output_location] [x_axis_max] [y_axis_max]"
     )
     sys.exit()
 doubles = read_doubles_from_binary_file(sys.argv[1])

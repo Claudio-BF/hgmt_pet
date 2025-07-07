@@ -13,6 +13,7 @@ void read_event(event *new_event, FILE *source, double eff_by_energy[COLS]) {
 }
 bool read_annihilation(annihilation *annihil, FILE *source,
                        double eff_by_energy[COLS]) {
+  *annihil = (annihilation){0};
   if (!fread(&annihil->time, sizeof(double), 1, source))
     return false;
   read_vec(&annihil->origin, source);
@@ -47,11 +48,6 @@ bool read_annihilation(annihilation *annihil, FILE *source,
   annihil->photon2.events = (event **)malloc(sizeof(event *) * num_primary2);
   annihil->photon1.hits = (hit **)malloc(sizeof(hit *) * num_primary1_hits);
   annihil->photon2.hits = (hit **)malloc(sizeof(hit *) * num_primary2_hits);
-  annihil->photon1.num_events = 0;
-  annihil->photon2.num_events = 0;
-  annihil->num_hits = 0;
-  annihil->photon1.num_hits = 0;
-  annihil->photon2.num_hits = 0;
   for (int i = 0; i < annihil->num_events; i++) {
     event *current_event = &annihil->events[i];
     if (current_event->primary == 1) {
@@ -133,19 +129,16 @@ bool read_lor(lor *new_lor, FILE *input) {
   return read_sym(&new_lor->covariance, input);
 }
 
-void print_path(photon_path *path, FILE *output) {
-  fwrite(&path->num_events, sizeof(uint), 1, output);
-  for (int i = 0; i < path->num_events; i++) {
-    print_vec(path->events[i]->position, output);
-    fwrite(&path->events[i]->energy, sizeof(double), 1, output);
-    fwrite(&path->events[i]->detected, sizeof(bool), 1, output);
-  }
-}
 void print_prim_lor(primitive_lor *prim_lor, FILE *output) {}
 void print_history(debug_context context, FILE *output) {
   print_vec(context.annihil->center, output);
-  print_path(&context.annihil->photon1, output);
-  print_path(&context.annihil->photon2, output);
+  fwrite(&context.annihil->num_events, sizeof(uint), 1, output);
+  for (int i = 0; i < context.annihil->num_events; i++) {
+    print_vec(context.annihil->events[i].position, output);
+    fwrite(&context.annihil->events[i].energy, sizeof(double), 1, output);
+    fwrite(&context.annihil->events[i].primary, sizeof(uint), 1, output);
+    fwrite(&context.annihil->events[i].detected, sizeof(bool), 1, output);
+  }
   bool made_lor = context.prim_lor != NULL;
   fwrite(&made_lor, sizeof(bool), 1, output);
   if (made_lor) {

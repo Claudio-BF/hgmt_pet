@@ -20,9 +20,8 @@ def plot_bars(frequencies, bin_edges):
 
 
 if len(sys.argv) != 4:
-    print("usage:")
     print(
-        "python3 plot_bars.py [hgmt_debug_output.txt] [x_axis_name] [output location]"
+        "Usage: python3 plot_bars.py [hgmt_debug_output.txt] [x_axis_name] [output location]"
     )
     sys.exit()
 lines = read_file_to_array(sys.argv[1])[3:]

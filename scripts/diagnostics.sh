@@ -1,7 +1,7 @@
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)
 REPO_ROOT=$(git -C "$SCRIPT_DIR" rev-parse --show-toplevel)
 echo "Running Diagnostics"
-$REPO_ROOT/hgmt_lor_creator $REPO_ROOT/data/HGMTDerenzo $REPO_ROOT/simulation_materials/kapton_effs.csv $REPO_ROOT/data/ -e0 -e1 -e2 -e3 -e4 -d | tee $REPO_ROOT/plots/detector_diagnostics.txt
+$REPO_ROOT/hgmt_lor_creator $REPO_ROOT/data/HGMTDerenzo $REPO_ROOT/simulation_materials/kapton_effs.csv $REPO_ROOT/data/ -e0 -e1 -e2 -e3 -e4 | tee $REPO_ROOT/plots/detector_diagnostics.txt
 $REPO_ROOT/scripts/hgmt_debug $REPO_ROOT/data/debug0.data 12 12 -hi | tee $REPO_ROOT/plots/scatter_detector.txt
 python3 $REPO_ROOT/scripts/plot_bars.py $REPO_ROOT/plots/scatter_detector.txt Detector\ ID $REPO_ROOT/plots/scatters_by_detector.png
 $REPO_ROOT/scripts/hgmt_debug $REPO_ROOT/data/debug1.data 12 12 -hi | tee $REPO_ROOT/plots/first_scatter_detector.txt

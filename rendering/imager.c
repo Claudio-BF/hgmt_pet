@@ -21,9 +21,6 @@ uint iterations;
 void add_grid(grid *cells, uint i, uint j, uint k) {
   cells->counts[i * Y_RES * Z_RES + j * Z_RES + k]++;
 }
-void add_graph(graph *cells, uint i, uint j, uint k, double val) {
-  cells->values[i * Y_RES * Z_RES + j * Z_RES + k] += val;
-}
 void graph_add(graph *cells, graph *add, double val) {
   for (int i = 0; i < RES; i++)
     cells->values[i] += add->values[i] * val;
